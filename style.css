@@ -2,3 +2,15 @@ nav {
     background-color: #003366;
     height: 100px;
 }
+.logo {
+    width: 100px;
+    margin-left: 25px;
+    margin-top: 5px;
+}
+
+.barra-pesquisa {
+    height: 50px;
+    border-radius: 80px;
+    width: 400px;
+    margin-top: 20px;
+}
