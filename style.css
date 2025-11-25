@@ -1,3 +1,4 @@
+
 nav {
     background-color: #003366;
     height: 100px;
@@ -7,7 +8,7 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: #EAEAEA;
 }
 
@@ -70,7 +71,21 @@ body {
 .barra-pesquisa {
     height: 50px;
     border-radius: 80px;
-    width: 400px;
+    width: 100%;
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.perfil {
+    width: 60px;
+    float: right;
+    margin-right: 50px;
     margin-top: 20px;
 }
 
+.compras {
+    width: 60px;
+    float: right;
+    margin-right: 40px;
+    margin-top: 20px;
+}
