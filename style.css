@@ -2,6 +2,29 @@ nav {
     background-color: #003366;
     height: 100px;
 }
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+    background-color: #EAEAEA;
+}
+
+.carrossel {
+    border: 2px solid #FF6600;
+    border-radius: 10px;
+    background: linear-gradient(360deg, #003366, #004c99);  
+    color: #FFFFFF;
+    padding: 5%;
+    align-items: center;
+}
+
+.carrossel-img {
+    width: 100%;
+    height: auto;
+}
+
 .logo {
     width: 100px;
     margin-left: 25px;
@@ -14,3 +37,4 @@ nav {
     width: 400px;
     margin-top: 20px;
 }
+
