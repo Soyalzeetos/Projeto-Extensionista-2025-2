@@ -34,7 +34,21 @@ body {
 .barra-pesquisa {
     height: 50px;
     border-radius: 80px;
-    width: 400px;
+    width: 100%;
     margin-top: 20px;
+    margin-left: 10px;
 }
 
+.perfil {
+    width: 80px;
+    float: right;
+    margin-right: 50px;
+    margin-top: 5px;
+}
+
+.compras {
+    width: 80px;
+    float: right;
+    margin-right: 40px;
+    margin-top: 5px;
+}
