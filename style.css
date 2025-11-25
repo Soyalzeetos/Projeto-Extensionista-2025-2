@@ -23,8 +23,18 @@ body {
 .carrossel-img {
     width: 100%;
     height: auto;
-    background-color: #F5F5F5;
-    padding: 10px;
-    border-radius: 10px;
+}
+
+.logo {
+    width: 100px;
+    margin-left: 25px;
+    margin-top: 5px;
+}
+
+.barra-pesquisa {
+    height: 50px;
+    border-radius: 80px;
+    width: 400px;
+    margin-top: 20px;
 }
 
