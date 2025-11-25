@@ -11,19 +11,55 @@ body {
     background-color: #EAEAEA;
 }
 
-.carrossel {
+
+
+.caixa-promocao {
     border: 2px solid #FF6600;
     border-radius: 10px;
-    background: linear-gradient(360deg, #003366, #004c99);  
-    color: #FFFFFF;
-    padding: 5%;
-    align-items: center;
+    background: linear-gradient(360deg, #003366, #004c99);
+    padding: 15px;
 }
 
-.carrossel-img {
+.carousel {
+    padding: 0 !important;
+    background: transparent;
+    border: none;
+    align-items: center;
+    color: #FFFFFF;
+}
+
+.carousel-item img:hover {
+    transform: scale(1.1);
+}
+
+.carousel-item img {
     width: 100%;
     height: auto;
+    max-height: 400px;
+    object-fit: contain;
+    transition: transform 1s ease;
 }
+
+.carousel-item.active img {
+    transform: scale(1.05);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 7%;
+    filter: invert(1);
+}
+.carousel-control-prev {
+    background-image: none !important;
+    background-size: contain;
+}
+.carousel-control-next {
+    background-image: none !important;
+    background-size: contain;
+}
+
+
+
 
 .logo {
     width: 100px;
