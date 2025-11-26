@@ -96,10 +96,22 @@ body {
 
 .barra-pesquisa {
     height: 50px;
+    padding: 25px 40px;
     border-radius: 80px;
     width: 50%;
     margin-top: 20px;
     margin-left: 10px;
+    transition: all 0.4s ease;
+}
+
+.barra-pesquisa:hover {
+    border-color: #fca311;
+}
+
+.barra-pesquisa:focus {
+    height: 60px;
+    width: 53%;
+    margin-top: 17px;
 }
 
 .perfil {
@@ -111,9 +123,9 @@ body {
 }
 
 .compras {
-    width: 65px;
-    float: top;
-    margin-right: 25px;
+    width: 60px;
+    float: top right;
+    margin-right: 20px;
     margin-top: 20px;
 
 }
