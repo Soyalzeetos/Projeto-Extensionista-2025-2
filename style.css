@@ -9,6 +9,8 @@ body {
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     background-color: #EAEAEA;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 
