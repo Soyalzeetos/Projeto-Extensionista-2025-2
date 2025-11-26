@@ -9,6 +9,8 @@ body {
     box-sizing: border-box;
     font-family: 'Montserrat', sans-serif;
     background-color: #EAEAEA;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 @media (max-width: 600px) {  
@@ -243,32 +245,71 @@ body {
     margin-left: 7px;
     margin-top: 25px;
 }
-}
-
 .marquee {
-  height: 30px;
-  overflow: hidden;      /* esconde o que sai da tela */
+    height: 30px;
+  overflow: hidden;
   white-space: nowrap;
   background: #fca311;
   padding: 5px 0;
 }
 
-.marquee-text {
-  font-size: 15px;       /* texto grandão */
-  font-family: 'Montserrat', sans-serif;
-  color: white;
-    color: black;
-    font-weight: bold;
-  /* animação */
-  animation: scroll 20s linear infinite;
+.marquee-track {
+  display: inline-flex;
+  gap: 10px;
+
+  /* animação contínua */
+  animation: scroll 15s linear infinite;
 }
 
-/* animação da direita pra esquerda */
+.marquee-track span {
+  font-size: 15px;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  white-space: nowrap;
+}
+
+/* animação suave e contínua */
 @keyframes scroll {
   from {
-    transform: translateX(100%);
+    transform: translateX(0%);
   }
   to {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
+  }
+}
+}
+
+.marquee {
+    height: 30px;
+  overflow: hidden;
+  white-space: nowrap;
+  background: #fca311;
+  padding: 0;
+}
+
+.marquee-track {
+  display: inline-flex;
+  gap: 10px;
+
+  /* animação contínua */
+  animation: scroll 15s linear infinite;
+}
+
+.marquee-track span {
+  font-size: 15px;
+  font-family: 'Montserrat';
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  white-space: nowrap;
+}
+
+/* animação suave e contínua */
+@keyframes scroll {
+  from {
+    transform: translateX(0%);
+  }
+  to {
+    transform: translateX(-50%);
   }
 }
