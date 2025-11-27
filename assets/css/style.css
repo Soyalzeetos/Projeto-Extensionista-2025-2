@@ -194,23 +194,25 @@ transform: scale(1.04);
 
 .dropdown .dropbtn {
   font-size: 16px;
-  border: none;
+  border-radius: 10px;
   outline: none;
   color: white;
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
   margin: 0;
+  transition: transform 0.3s ease;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: var(--gradient-start);
+  border-radius: 10px;
+  background-color: var(--gradient-end);
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1000;
-  
+  transition: transform 0.3s ease;
 }
 
 
@@ -221,15 +223,17 @@ transform: scale(1.04);
   text-decoration: none;
   display: block;
   text-align: left;
+  transition: transform 0.3s ease;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
-
+transition: transform 0.3s ease;
 }
 
 .dropdown-content a:hover {
-  background-color: #ddd;
+  background-color: var(--gradient-start);
+  border-radius: 10px;
   
 }
 
