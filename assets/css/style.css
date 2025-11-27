@@ -22,6 +22,18 @@ body {
   min-height: 100vh;
 }
 
+.secao-vendas{
+  background: linear-gradient(
+    180deg,
+    var(--gradient-start),
+    var(--gradient-end));
+  color: white;
+}
+
+.texto-secao {
+  margin-top: 10;
+}
+
 .navbar-custom {
   background-color: var(--primary-color);
 }
