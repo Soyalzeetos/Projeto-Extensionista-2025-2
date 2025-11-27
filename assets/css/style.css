@@ -35,7 +35,29 @@ body {
 .texto-secao {
   margin-top: 10;
 }
+.search-class {
+transition: transform 0.3s ease;
+}
+.search-class:focus-within {
+transform: scale(1.04);
+}
 
+.card-img-top {
+   transition: transform 0.3s ease;
+   transform: scale(0.85);
+}
+
+.card-img-top:hover {
+  transform: scale(0.95);
+}
+
+.card-body a {
+   transition: transform 0.2s ease;
+}
+
+.card-body:hover a {
+  transform: scale(1.05);
+}
 
 .navbar-custom {
   background-color: var(--primary-color);
