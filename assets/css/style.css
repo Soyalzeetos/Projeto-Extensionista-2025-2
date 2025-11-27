@@ -59,6 +59,10 @@ transform: scale(1.04);
   transform: scale(1.05);
 }
 
+.container-produtos {
+  padding-bottom: 35px;
+}
+
 .navbar-custom {
   background-color: var(--primary-color);
 }
