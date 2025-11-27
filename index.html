@@ -1,91 +1,287 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Center Ferramentas</title>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Document</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-  <!--Fonte do Spotify, NÃO APAGA JAVORKA-->
-</head>
-
-<body>
-  <nav class="nav row">
-    <div class="col-lg-1 col-1"><img class="logo" src="img/logo.png" alt="" /></div>
-    <div class="col-lg-9 col-7">
-      <input class="barra-pesquisa" type="text" id="produto" name="busca" placeholder="Ex: Furadeira de Impacto" />
-    </div>
-    <div class="col-lg-1 col-1">
-      <img class="compras" src="img/Carrinho-de-Compras.png" alt="" />
-    </div>
-    <div class="col-lg-1 col-1">
-      <img class="perfil" src="img/perfil.png" alt="" />
-    </div>
-  </nav>
- <div class="container-fluid marquee">
-  <div class="marquee-track">
-    <span>
-      🛠️ CENTER FERRAMENTAS – QUALIDADE, FORÇA E CONFIANÇA PRA SUA OBRA! 🔧 GRANDES OFERTAS TODOS OS DIAS! 💥
-    </span>
-    <span>
-      🛠️ CENTER FERRAMENTAS – QUALIDADE, FORÇA E CONFIANÇA PRA SUA OBRA! 🔧 GRANDES OFERTAS TODOS OS DIAS! 💥
-    </span>
-    <span>
-      🛠️ CENTER FERRAMENTAS – QUALIDADE, FORÇA E CONFIANÇA PRA SUA OBRA! 🔧 GRANDES OFERTAS TODOS OS DIAS! 💥
-    </span>
-    <span>
-      🛠️ CENTER FERRAMENTAS – QUALIDADE, FORÇA E CONFIANÇA PRA SUA OBRA! 🔧 GRANDES OFERTAS TODOS OS DIAS! 💥
-    </span>
-  </div>
-</div>
-
-  <div class="row">
-    <div class="col-lg-3"></div>
-
-    <div class="col-12 col-md-8 col-lg-6 mx-auto caixa-promocao">
-      <div id="promocao" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#promocao" data-bs-slide-to="0" class="active"></button>
-          <button type="button" data-bs-target="#promocao" data-bs-slide-to="1"></button>
-        </div>
-
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="img/arame.webp" class="d-block w-100 rounded-3 " alt="Imagem 1">
-            <div class="carousel-caption">
-              <h3>Arame farpento</h3>
-              <p>Promoção de R$ 99,99</p>
-            </div>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="assets/css/style.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar-custom container-fluid py-3">
+        <div class="row align-items-center">
+          <div class="col-3 col-lg-2 text-center">
+            <a href="index.html" aria-label="Voltar para a página inicial">
+              <img
+                class="logo img-fluid"
+                src="assets/img/ui/logo.webp"
+                alt="Logo Center Ferramentas"
+              />
+            </a>
           </div>
-          <div class="carousel-item">
-            <img src="img/chave de fenda.webp" class="d-block w-100 rounded-3 " alt="Imagem 2">
-            <div class="carousel-caption">
-              <h3>Chave de fenda</h3>
-              <p>Promoção de R$ 29,99</p>
-            </div>
+
+          <div class="col-6 col-lg-8">
+            <form role="search">
+              <label for="campo-busca" class="visually-hidden"
+                >Buscar produtos</label
+              >
+              <input
+                class="barra-pesquisa form-control"
+                type="search"
+                id="campo-busca"
+                name="busca"
+                placeholder="O que você precisa para sua obra hoje?"
+              />
+            </form>
+          </div>
+
+          <div class="col-3 col-lg-2 d-flex justify-content-center gap-3">
+            <a href="#" class="btn-icon" aria-label="Ver carrinho de compras">
+              <img
+                class="icon-nav"
+                src="assets/img/ui/icone-carrinho.webp"
+                alt="Carrinho"
+                aria-hidden="true"
+              />
+            </a>
+            <a href="#" class="btn-icon" aria-label="Acessar meu perfil">
+              <img
+                class="icon-nav"
+                src="assets/img/ui/icone-perfil.webp"
+                alt="Perfil"
+                aria-hidden="true"
+              />
+            </a>
           </div>
         </div>
+      </nav>
+    </header>
 
-
-        <button class="carousel-control-prev" type="button" data-bs-target="#promocao" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-
-        <button class="carousel-control-next" type="button" data-bs-target="#promocao" data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </button>
-
+    <main>
+      <div
+        class="container-fluid marquee"
+        role="complementary"
+        aria-label="Anúncios de ofertas"
+      >
+        <div class="marquee-track">
+          <span
+            >🛠️ CENTER FERRAMENTAS – QUALIDADE, FORÇA E CONFIANÇA PRA SUA OBRA!
+            🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span
+          >
+          <span aria-hidden="true"
+            >🛠️ CENTER FERRAMENTAS – QUALIDADE, FORÇA E CONFIANÇA PRA SUA OBRA!
+            🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span
+          >
+          <span aria-hidden="true"
+            >🛠️ CENTER FERRAMENTAS – QUALIDADE, FORÇA E CONFIANÇA PRA SUA OBRA!
+            🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span
+          >
+        </div>
       </div>
-    </div>
 
-    <div class="col-lg-3"></div>
-  </div>
-</body>
+      <section class="container mt-5 mb-5" aria-labelledby="titulo-promocoes">
+        <h2 id="titulo-promocoes" class="visually-hidden">
+          Promoções em Destaque
+        </h2>
 
+        <div class="row justify-content-center">
+          <div class="col-12 col-md-10 col-lg-8 caixa-promocao">
+            <div
+              id="carouselPromocoes"
+              class="carousel slide"
+              data-bs-ride="carousel"
+              data-bs-interval="5000"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#carouselPromocoes"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Slide 1"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselPromocoes"
+                  data-bs-slide-to="1"
+                  aria-label="Slide 2"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#carouselPromocoes"
+                  data-bs-slide-to="2"
+                  aria-label="Slide 3"
+                ></button>
+              </div>
+
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="card card-split">
+                    <div class="row g-0 h-100">
+                      <div class="col-md-6">
+                        <div class="card-img-container">
+                          <img
+                            src="assets/img/produtos/arame-farpado.webp"
+                            class="card-product-img"
+                            alt="Rolo de arame farpado galvanizado"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="card-content">
+                          <h3 class="fw-bold text-primary mb-3">
+                            Arame Farpado Galvanizado
+                          </h3>
+                          <p class="text-secondary fs-5 mb-4">
+                            Alta resistência e proteção garantida para cercas
+                            rurais e urbanas. Material de longa durabilidade.
+                          </p>
+                          <div
+                            class="d-flex flex-column flex-md-row gap-3 align-items-center align-items-md-start justify-content-center justify-content-md-start"
+                          >
+                            <span
+                              class="badge bg-warning text-dark fs-5 px-3 py-2 rounded-pill shadow-sm"
+                              >R$ 99,99</span
+                            >
+                            <a
+                              href="#"
+                              class="btn btn-primary rounded-pill px-4 fw-bold"
+                              >Comprar Agora</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="card card-split">
+                    <div class="row g-0 h-100">
+                      <div class="col-md-6">
+                        <div class="card-img-container">
+                          <img
+                            src="assets/img/produtos/kit-chave-de-fenda.webp"
+                            class="card-product-img"
+                            alt="Jogo de chaves de fenda Tramontina PRO"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="card-content">
+                          <h3 class="fw-bold text-primary mb-3">
+                            Jogo Tramontina PRO
+                          </h3>
+                          <p class="text-secondary fs-5 mb-4">
+                            Kit 5 peças em Aço Cromo Vanádio. Cabo ergonômico e
+                            ponta magnetizada para uso profissional.
+                          </p>
+                          <div
+                            class="d-flex flex-column flex-md-row gap-3 align-items-center align-items-md-start justify-content-center justify-content-md-start"
+                          >
+                            <span
+                              class="badge bg-warning text-dark fs-5 px-3 py-2 rounded-pill shadow-sm"
+                              >R$ 29,99</span
+                            >
+                            <a
+                              href="#"
+                              class="btn btn-primary rounded-pill px-4 fw-bold"
+                              >Comprar Agora</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="carousel-item">
+                  <div class="card card-split">
+                    <div class="row g-0 h-100">
+                      <div class="col-md-6">
+                        <div class="card-img-container">
+                          <img
+                            src="assets/img/produtos/alicate-universal.webp"
+                            class="card-product-img"
+                            alt="Alicate Universal Belzer"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-md-6">
+                        <div class="card-content">
+                          <h3 class="fw-bold text-primary mb-3">
+                            Alicate Universal Belzer 8"
+                          </h3>
+                          <p class="text-secondary fs-5 mb-4">
+                            A ferramenta favorita dos eletricistas. Cabo isolado
+                            1000V e corte preciso para fios duros.
+                          </p>
+                          <div
+                            class="d-flex flex-column flex-md-row gap-3 align-items-center align-items-md-start justify-content-center justify-content-md-start"
+                          >
+                            <span
+                              class="badge bg-warning text-dark fs-5 px-3 py-2 rounded-pill shadow-sm"
+                              >R$ 35,90</span
+                            >
+                            <a
+                              href="#"
+                              class="btn btn-primary rounded-pill px-4 fw-bold"
+                              >Comprar Agora</a
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselPromocoes"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Anterior</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselPromocoes"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Próximo</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
