@@ -3,9 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Center Ferramentas</title>
+    <title>Center Ferramentas | Qualidade e Confiança</title>
 
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="assets/img/ui/apple-touch-icon.png" />
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -21,12 +22,12 @@
     />
     <link rel="stylesheet" href="assets/css/style.css" />
   </head>
-  <body>
+  <body class="bg-light d-flex flex-column min-vh-100">
     <header>
       <nav class="navbar-custom container-fluid py-3">
         <div class="row align-items-center">
           <div class="col-3 col-lg-2 text-center">
-            <a href="index.html" aria-label="Voltar para a página inicial">
+            <a href="index.html" aria-label="Home">
               <img
                 class="logo img-fluid"
                 src="assets/img/ui/logo.webp"
@@ -37,123 +38,144 @@
 
           <div class="col-6 col-lg-8">
             <form role="search">
-              <label for="campo-busca" class="visually-hidden"
-                >Buscar produtos</label
-              >
-              <input
-                class="barra-pesquisa form-control"
-                type="search"
-                id="campo-busca"
-                name="busca"
-                placeholder="O que você precisa para sua obra hoje?"
-              />
+              <label for="campo-busca" class="visually-hidden">Buscar</label>
+              <div class="input-group">
+                <input
+                  class="form-control border-0 rounded-start-pill py-2 ps-4"
+                  type="search"
+                  id="campo-busca"
+                  placeholder="O que você precisa para sua obra hoje?"
+                />
+                <button
+                  class="btn btn-light border-0 rounded-end-pill pe-4"
+                  type="button"
+                >
+                  <i class="fa-solid fa-magnifying-glass text-secondary"></i>
+                </button>
+              </div>
             </form>
           </div>
 
           <div class="col-3 col-lg-2 d-flex justify-content-center gap-3">
-            <a href="#" class="btn-icon" aria-label="Ver carrinho de compras">
+            <button
+              class="btn border-0 p-0 position-relative"
+              aria-label="Carrinho"
+            >
               <img
                 class="icon-nav"
                 src="assets/img/ui/icone-carrinho.webp"
-                alt="Carrinho"
+                alt=""
                 aria-hidden="true"
               />
-            </a>
-            <a href="#" class="btn-icon" aria-label="Acessar meu perfil">
+              <span
+                class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle"
+              >
+                <span class="visually-hidden">Novos itens</span>
+              </span>
+            </button>
+            <button class="btn border-0 p-0" aria-label="Perfil">
               <img
                 class="icon-nav"
                 src="assets/img/ui/icone-perfil.webp"
-                alt="Perfil"
+                alt=""
                 aria-hidden="true"
               />
-            </a>
+            </button>
           </div>
         </div>
       </nav>
     </header>
 
-    <main>
+    <main class="flex-grow-1">
       <div
-        class="container-fluid marquee"
-        role="complementary"
-        aria-label="Anúncios de ofertas"
+        class="container-fluid marquee text-nowrap py-2 overflow-hidden border-bottom border-dark border-2"
       >
-        <div class="marquee-track">
-          <span
-            >🛠️ CENTER FERRAMENTAS – QUALIDADE, FORÇA E CONFIANÇA PRA SUA OBRA!
-            🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span
-          >
-          <span aria-hidden="true"
-            >🛠️ CENTER FERRAMENTAS – QUALIDADE, FORÇA E CONFIANÇA PRA SUA OBRA!
-            🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span
-          >
-          <span aria-hidden="true"
-            >🛠️ CENTER FERRAMENTAS – QUALIDADE, FORÇA E CONFIANÇA PRA SUA OBRA!
-            🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span
-          >
+        <div class="marquee-track d-flex">
+          <div class="marquee-group d-flex gap-5 pe-5">
+            <span class="fw-bold text-uppercase"
+              >🛠️ CENTER FERRAMENTAS – QUALIDADE, FORÇA E CONFIANÇA PRA SUA
+              OBRA! 🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span
+            >
+            <span class="fw-bold text-uppercase"
+              >🛠️ CENTER FERRAMENTAS – QUALIDADE, FORÇA E CONFIANÇA PRA SUA
+              OBRA! 🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span
+            >
+          </div>
+
+          <div class="marquee-group d-flex gap-5 pe-5" aria-hidden="true">
+            <span class="fw-bold text-uppercase"
+              >🛠️ CENTER FERRAMENTAS – QUALIDADE, FORÇA E CONFIANÇA PRA SUA
+              OBRA! 🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span
+            >
+            <span class="fw-bold text-uppercase"
+              >🛠️ CENTER FERRAMENTAS – QUALIDADE, FORÇA E CONFIANÇA PRA SUA
+              OBRA! 🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span
+            >
+          </div>
         </div>
       </div>
 
-      <section class="container mt-5 mb-5" aria-labelledby="titulo-promocoes">
-        <h2 id="titulo-promocoes" class="visually-hidden">
-          Promoções em Destaque
-        </h2>
-
+      <section class="container my-5">
         <div class="row justify-content-center">
-          <div class="col-12 col-md-10 col-lg-8 caixa-promocao">
+          <div
+            class="col-12 col-lg-10 caixa-promocao p-3 p-md-4 rounded-4 shadow-lg"
+          >
             <div
               id="carouselPromocoes"
               class="carousel slide"
               data-bs-ride="carousel"
-              data-bs-interval="5000"
+              data-bs-interval="4000"
             >
-              <div class="carousel-indicators">
+              <div class="carousel-indicators mb-n4">
                 <button
                   type="button"
                   data-bs-target="#carouselPromocoes"
                   data-bs-slide-to="0"
                   class="active"
                   aria-current="true"
-                  aria-label="Slide 1"
                 ></button>
                 <button
                   type="button"
                   data-bs-target="#carouselPromocoes"
                   data-bs-slide-to="1"
-                  aria-label="Slide 2"
                 ></button>
                 <button
                   type="button"
                   data-bs-target="#carouselPromocoes"
                   data-bs-slide-to="2"
-                  aria-label="Slide 3"
                 ></button>
               </div>
 
               <div class="carousel-inner">
                 <div class="carousel-item active">
-                  <div class="card card-split">
+                  <div
+                    class="card border-0 rounded-4 overflow-hidden h-100 position-relative"
+                    style="min-height: 400px"
+                  >
                     <div class="row g-0 h-100">
-                      <div class="col-md-6">
-                        <div class="card-img-container">
-                          <img
-                            src="assets/img/produtos/arame-farpado.webp"
-                            class="card-product-img"
-                            alt="Rolo de arame farpado galvanizado"
-                          />
-                        </div>
+                      <div
+                        class="col-md-6 bg-light d-flex align-items-center justify-content-center p-4 card-img-container"
+                      >
+                        <img
+                          src="assets/img/produtos/arame-farpado.webp"
+                          class="img-fluid card-product-img"
+                          style="max-height: 250px; object-fit: contain"
+                          alt="Arame Farpado"
+                        />
                       </div>
-                      <div class="col-md-6">
-                        <div class="card-content">
-                          <h3 class="fw-bold text-primary mb-3">
+                      <div class="col-md-6 d-flex align-items-center">
+                        <div
+                          class="card-body p-4 p-lg-5 text-center text-md-start"
+                        >
+                          <h3 class="card-title fw-bold text-primary mb-3">
                             Arame Farpado Galvanizado
                           </h3>
-                          <p class="text-secondary fs-5 mb-4">
+                          <p class="card-text text-secondary fs-5 mb-4">
                             Alta resistência e proteção garantida para cercas
-                            rurais e urbanas. Material de longa durabilidade.
+                            rurais e urbanas.
                           </p>
                           <div
-                            class="d-flex flex-column flex-md-row gap-3 align-items-center align-items-md-start justify-content-center justify-content-md-start"
+                            class="d-flex flex-column flex-md-row align-items-center gap-3"
                           >
                             <span
                               class="badge bg-warning text-dark fs-5 px-3 py-2 rounded-pill shadow-sm"
@@ -161,7 +183,7 @@
                             >
                             <a
                               href="#"
-                              class="btn btn-primary rounded-pill px-4 fw-bold"
+                              class="btn btn-primary rounded-pill px-4 fw-bold stretched-link"
                               >Comprar Agora</a
                             >
                           </div>
@@ -172,28 +194,34 @@
                 </div>
 
                 <div class="carousel-item">
-                  <div class="card card-split">
+                  <div
+                    class="card border-0 rounded-4 overflow-hidden h-100 position-relative"
+                    style="min-height: 400px"
+                  >
                     <div class="row g-0 h-100">
-                      <div class="col-md-6">
-                        <div class="card-img-container">
-                          <img
-                            src="assets/img/produtos/kit-chave-de-fenda.webp"
-                            class="card-product-img"
-                            alt="Jogo de chaves de fenda Tramontina PRO"
-                          />
-                        </div>
+                      <div
+                        class="col-md-6 bg-light d-flex align-items-center justify-content-center p-4 card-img-container"
+                      >
+                        <img
+                          src="assets/img/produtos/kit-chave-de-fenda.webp"
+                          class="img-fluid card-product-img"
+                          style="max-height: 250px; object-fit: contain"
+                          alt="Kit Chaves"
+                        />
                       </div>
-                      <div class="col-md-6">
-                        <div class="card-content">
-                          <h3 class="fw-bold text-primary mb-3">
+                      <div class="col-md-6 d-flex align-items-center">
+                        <div
+                          class="card-body p-4 p-lg-5 text-center text-md-start"
+                        >
+                          <h3 class="card-title fw-bold text-primary mb-3">
                             Jogo Tramontina PRO
                           </h3>
-                          <p class="text-secondary fs-5 mb-4">
-                            Kit 5 peças em Aço Cromo Vanádio. Cabo ergonômico e
-                            ponta magnetizada para uso profissional.
+                          <p class="card-text text-secondary fs-5 mb-4">
+                            Kit 5 peças em Aço Cromo Vanádio. Cabo ergonômico
+                            profissional.
                           </p>
                           <div
-                            class="d-flex flex-column flex-md-row gap-3 align-items-center align-items-md-start justify-content-center justify-content-md-start"
+                            class="d-flex flex-column flex-md-row align-items-center gap-3"
                           >
                             <span
                               class="badge bg-warning text-dark fs-5 px-3 py-2 rounded-pill shadow-sm"
@@ -201,7 +229,7 @@
                             >
                             <a
                               href="#"
-                              class="btn btn-primary rounded-pill px-4 fw-bold"
+                              class="btn btn-primary rounded-pill px-4 fw-bold stretched-link"
                               >Comprar Agora</a
                             >
                           </div>
@@ -212,28 +240,34 @@
                 </div>
 
                 <div class="carousel-item">
-                  <div class="card card-split">
+                  <div
+                    class="card border-0 rounded-4 overflow-hidden h-100 position-relative"
+                    style="min-height: 400px"
+                  >
                     <div class="row g-0 h-100">
-                      <div class="col-md-6">
-                        <div class="card-img-container">
-                          <img
-                            src="assets/img/produtos/alicate-universal.webp"
-                            class="card-product-img"
-                            alt="Alicate Universal Belzer"
-                          />
-                        </div>
+                      <div
+                        class="col-md-6 bg-light d-flex align-items-center justify-content-center p-4 card-img-container"
+                      >
+                        <img
+                          src="assets/img/produtos/alicate-universal.webp"
+                          class="img-fluid card-product-img"
+                          style="max-height: 250px; object-fit: contain"
+                          alt="Alicate Belzer"
+                        />
                       </div>
-                      <div class="col-md-6">
-                        <div class="card-content">
-                          <h3 class="fw-bold text-primary mb-3">
-                            Alicate Universal Belzer 8"
+                      <div class="col-md-6 d-flex align-items-center">
+                        <div
+                          class="card-body p-4 p-lg-5 text-center text-md-start"
+                        >
+                          <h3 class="card-title fw-bold text-primary mb-3">
+                            Alicate Universal Belzer
                           </h3>
-                          <p class="text-secondary fs-5 mb-4">
+                          <p class="card-text text-secondary fs-5 mb-4">
                             A ferramenta favorita dos eletricistas. Cabo isolado
-                            1000V e corte preciso para fios duros.
+                            1000V.
                           </p>
                           <div
-                            class="d-flex flex-column flex-md-row gap-3 align-items-center align-items-md-start justify-content-center justify-content-md-start"
+                            class="d-flex flex-column flex-md-row align-items-center gap-3"
                           >
                             <span
                               class="badge bg-warning text-dark fs-5 px-3 py-2 rounded-pill shadow-sm"
@@ -241,7 +275,7 @@
                             >
                             <a
                               href="#"
-                              class="btn btn-primary rounded-pill px-4 fw-bold"
+                              class="btn btn-primary rounded-pill px-4 fw-bold stretched-link"
                               >Comprar Agora</a
                             >
                           </div>
@@ -253,7 +287,7 @@
               </div>
 
               <button
-                class="carousel-control-prev"
+                class="carousel-control-prev carousel-dark"
                 type="button"
                 data-bs-target="#carouselPromocoes"
                 data-bs-slide="prev"
@@ -265,7 +299,7 @@
                 <span class="visually-hidden">Anterior</span>
               </button>
               <button
-                class="carousel-control-next"
+                class="carousel-control-next carousel-dark"
                 type="button"
                 data-bs-target="#carouselPromocoes"
                 data-bs-slide="next"
@@ -281,6 +315,26 @@
         </div>
       </section>
     </main>
+
+    <footer class="bg-dark text-white text-center py-4 mt-auto">
+      <div class="container">
+        <p class="mb-2 fw-bold">Center Ferramentas &copy; 2025</p>
+        <p class="small text-white-50 mb-0">
+          Rua dos Bobos, 000 - Centro | (34) 99999-9999
+        </p>
+        <div class="mt-3">
+          <a href="#" class="text-white mx-2"
+            ><i class="fa-brands fa-instagram fa-lg"></i
+          ></a>
+          <a href="#" class="text-white mx-2"
+            ><i class="fa-brands fa-whatsapp fa-lg"></i
+          ></a>
+          <a href="#" class="text-white mx-2"
+            ><i class="fa-brands fa-facebook fa-lg"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
   </body>
