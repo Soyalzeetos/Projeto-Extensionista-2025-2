@@ -5,6 +5,7 @@
 
   --white: #ffffff;
   --black: #000000;
+  --snow: #fffafa;
 
   --gradient-start: #0056b3;
   --gradient-end: #002b55;
@@ -22,29 +23,29 @@ body {
   min-height: 100vh;
 }
 
-.secao-vendas{
+.secao-vendas {
   background: linear-gradient(
     180deg,
     var(--gradient-start),
     var(--gradient-end)
   );
   box-shadow: 0 10px 30px var(--shadow-soft);
-  color: snow;
+  color: var(--snow);
 }
 
 .texto-secao {
   margin-top: 10;
 }
 .search-class {
-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 .search-class:focus-within {
-transform: scale(1.04);
+  transform: scale(1.04);
 }
 
 .card-img-top {
-   transition: transform 0.3s ease;
-   transform: scale(0.85);
+  transition: transform 0.3s ease;
+  transform: scale(0.85);
 }
 
 .card-img-top:hover {
@@ -52,7 +53,7 @@ transform: scale(1.04);
 }
 
 .card-body a {
-   transition: transform 0.2s ease;
+  transition: transform 0.2s ease;
 }
 
 .card-body:hover a {
@@ -184,23 +185,23 @@ transform: scale(1.04);
   }
 }
 .dropbtn {
-  font-size: 16px;  
+  font-size: 16px;
   border: none;
   outline: none;
-  color: white;
+  color: var(--white);
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
   margin: 0;
   gap: 5px;
-  align-items:center;
+  align-items: center;
 }
 
 .dropdown .dropbtn {
   font-size: 16px;
   border-radius: 10px;
   outline: none;
-  color: white;
+  color: var(--white);
   padding: 14px 16px;
   background-color: inherit;
   font-family: inherit;
@@ -214,52 +215,40 @@ transform: scale(1.04);
   border-radius: 10px;
   background-color: var(--gradient-end);
   min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   transition: transform 0.3s ease;
 }
 
-
 .dropdown-content a {
   float: none;
-  color: black;
+  color: var(--black);
   padding: 12px 16px;
   text-decoration: none;
   display: block;
-  text-align: left;
   transition: transform 0.3s ease;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .dropdown-content a:hover {
   background-color: var(--gradient-start);
   border-radius: 10px;
-  
 }
 
-.navbar a:hover, .dropbtn:hover {
+.navbar a:hover,
+.dropbtn:hover {
   filter: brightness(0) invert(1) drop-shadow(0 0 3px var(--accent-color));
   transform: scale(1.05);
 }
 
-.Mais:hover {
-  overflow: hidden;
-  background-color: #333;
-  font-family: Arial;
-}
-
-.mais a {
-  float: center;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+.dropdown .dropdown-content a {
   display: flex;
+  justify-content: center;
   align-items: center;
-  flex-wrap: wrap-reverse;
+  color: var(--white);
+  width: 100%;
 }
