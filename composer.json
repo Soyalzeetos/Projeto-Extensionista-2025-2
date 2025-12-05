@@ -1,0 +1,11 @@
+{
+  "name": "center-ferramentas/app",
+  "description": "E-commerce de ferramentas",
+  "type": "project",
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "require": {}
+}

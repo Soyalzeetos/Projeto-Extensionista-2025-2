@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Center Ferramentas | Qualidade e Confiança</title>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="assets/img/ui/apple-touch-icon.png" />
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="bg-light d-flex flex-column min-vh-100">
+    <header>
+        <nav class="navbar-custom container-fluid py-3">
+            <div class="row align-items-center">
+                <div class="col-3 col-lg-2 text-center">
+                    <a href="index.php" aria-label="Home">
+                        <img class="logo img-fluid" src="assets/img/ui/logo.webp" alt="Logo Center Ferramentas" />
+                    </a>
+                </div>
+
+                <div class="col-6 col-lg-8">
+                    <form role="search" class="search-class">
+                        <label for="campo-busca" class="visually-hidden">Buscar</label>
+                        <div class="input-group">
+                            <input class="form-control border-0 rounded-start-pill py-2 ps-4" type="search" id="campo-busca"
+                                placeholder="O que você precisa para sua obra hoje?" />
+                            <button class="btn btn-light border-0 rounded-end-pill pe-4" type="button">
+                                <i class="fa-solid fa-magnifying-glass text-secondary"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="col-3 col-lg-2 d-flex justify-content-center gap-3">
+                    <button class="btn border-0 p-0 position-relative" aria-label="Carrinho">
+                        <img class="icon-nav" src="assets/img/ui/icone-carrinho.webp" alt="" aria-hidden="true" />
+                        <span
+                            class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">Novos itens</span>
+                        </span>
+                    </button>
+                    <button class="btn border-0 p-0" aria-label="Perfil">
+                        <img class="icon-nav" src="assets/img/ui/icone-perfil.webp" alt="" aria-hidden="true" />
+                    </button>
+                </div>
+
+                <div class="col-lg-12 d-flex justify-content-center gap-3 mt-3">
+                    <div class="d-flex gap-3">
+
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                Categorias <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="" class="text-center">Ferramentas Elétricas</a>
+                                <a href="" class="text-center">Ferramentas Manuais</a>
+                                <a href="" class="text-center">Material Elétrico</a>
+                                <a href="" class="text-center">Hidráulica</a>
+                                <a href="" class="text-center">Pintura e Acessórios</a>
+                                <a href="" class="text-center">Jardinagem e Pulverização</a>
+                                <a href="" class="text-center">EPIs e Segurança</a>
+                                <a href="" class="text-center">Parafusos e Fixadores</a>
+                                <a href="" class="text-center">Iluminação</a>
+                                <a href="" class="text-center">Adesivos e Selantes</a>
+                            </div>
+                        </div>
+
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                Aluguel <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="" class="text-center">Andaimes e Escadas</a>
+                                <a href="" class="text-center">Betoneiras e Misturadores</a>
+                                <a href="" class="text-center">Compactadores de Solo</a>
+                                <a href="" class="text-center">Geradores e Compressores</a>
+                                <a href="" class="text-center">Marteletes e Rompedores</a>
+                                <a href="" class="text-center">Limpeza e Jardinagem</a>
+                            </div>
+                        </div>
+
+                        <div class="dropdown">
+                            <button class="dropbtn">
+                                Orçamentos <i class="fa fa-caret-down"></i>
+                            </button>
+                            <div class="dropdown-content">
+                                <a href="" class="text-center">Cotação Rápida Online</a>
+                                <a href="" class="text-center">Vendas Corporativas (Atacado)</a>
+                                <a href="" class="text-center">Enviar Lista de Material</a>
+                                <a href="" class="text-center">Manutenção e Assistência</a>
+                                <a href="" class="text-center">Falar via WhatsApp</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+    </header>
+
+    <main class="flex-grow-1">
+        <div class="container-fluid marquee text-nowrap py-2 overflow-hidden border-bottom border-dark border-2">
+            <div class="marquee-track d-flex">
+                <div class="marquee-group d-flex gap-5 pe-5" aria-hidden="true">
+                    <?php for ($i = 0; $i < 6; $i++): ?>
+                        <span class="fw-bold text-uppercase">🛠️ CENTER FERRAMENTAS - QUALIDADE, FORÇA E CONFIANÇA PRA SUA
+                            OBRA! 🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span>
+                    <?php endfor; ?>
+                </div>
+                <div class="marquee-group d-flex gap-5 pe-5" aria-hidden="true">
+                    <?php for ($i = 0; $i < 6; $i++): ?>
+                        <span class="fw-bold text-uppercase">🛠️ CENTER FERRAMENTAS - QUALIDADE, FORÇA E CONFIANÇA PRA SUA
+                            OBRA! 🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span>
+                    <?php endfor; ?>
+                </div>
+            </div>
+        </div>
+
+        <section class="container my-5">
+            <div class="row justify-content-center">
+                <div class="col-12 col-lg-10 caixa-promocao p-3 p-md-4 rounded-4 shadow-lg">
+                    <div id="carouselPromocoes" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+
+                        <div class="carousel-indicators mb-n4">
+                            <?php foreach ($destaques as $idx => $produto): ?>
+                                <button type="button" data-bs-target="#carouselPromocoes" data-bs-slide-to="<?= $idx ?>"
+                                    class="<?= $idx === 0 ? 'active' : '' ?>"
+                                    aria-current="<?= $idx === 0 ? 'true' : 'false' ?>"></button>
+                            <?php endforeach; ?>
+                        </div>
+
+                        <div class="carousel-inner">
+                            <?php foreach ($destaques as $idx => $produto): ?>
+                                <div class="carousel-item <?= $idx === 0 ? 'active' : '' ?>">
+                                    <div class="card border-0 rounded-4 overflow-hidden h-100 position-relative" style="min-height: 400px">
+                                        <div class="row g-0 h-100">
+                                            <div class="col-md-6 bg-light d-flex align-items-center justify-content-center p-4 card-img-container">
+                                                <img src="<?= htmlspecialchars($produto->imagemUrl) ?>" class="img-fluid card-product-img" style="max-height: 250px; object-fit: contain" alt="<?= htmlspecialchars($produto->nome) ?>" />
+                                            </div>
+                                            <div class="col-md-6 d-flex align-items-center">
+                                                <div class="card-body p-4 p-lg-5 text-center text-md-start">
+                                                    <h3 class="card-title fw-bold text-primary mb-3"><?= htmlspecialchars($produto->nome) ?></h3>
+                                                    <p class="card-text text-secondary fs-5 mb-4"><?= htmlspecialchars($produto->descricao) ?></p>
+                                                    <div class="d-flex flex-column flex-md-row align-items-center gap-3">
+                                                        <span class="badge bg-warning text-dark fs-5 px-3 py-2 rounded-pill shadow-sm"><?= $produto->getFormattedPrice() ?></span>
+                                                        <a href="#" class="btn btn-primary rounded-pill px-4 fw-bold stretched-link">Comprar Agora</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endforeach; ?>
+                        </div>
+
+                        <button class="carousel-control-prev carousel-dark" type="button" data-bs-target="#carouselPromocoes"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next carousel-dark" type="button" data-bs-target="#carouselPromocoes"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Próximo</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="secao-vendas container mb-5 my-5 rounded-4 g-5">
+            <h2 class="pt-3 mb-4 texto-secao">Nossos produtos</h2>
+            <div class="container-fluid row g-4 container-produtos">
+
+                <?php foreach ($produtos as $produto): ?>
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                        <div class="card h-100 shadow-sm border-0">
+                            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+                                <img src="<?= htmlspecialchars($produto->imagemUrl) ?>" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="<?= htmlspecialchars($produto->nome) ?>">
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold text-dark"><?= htmlspecialchars($produto->nome) ?></h5>
+                                <p class="card-text small text-secondary"><?= htmlspecialchars($produto->descricao) ?></p>
+                                <div class="mt-auto">
+                                    <p class="card-text fw-bold fs-5 text-primary"><?= $produto->getFormattedPrice() ?></p>
+                                    <a href="#" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-4 mt-auto">
+        <div class="container">
+            <p class="mb-2 fw-bold">Center Ferramentas &copy; 2025</p>
+            <p class="small text-white-50 mb-0">
+                Rua dos Bobos, 000 - Centro | (34) 99999-9999
+            </p>
+            <div class="mt-3">
+                <a target="_blank" href="https://www.instagram.com/centerferramentasfrutal/" class="text-white mx-2"><i class="fa-brands fa-instagram fa-lg"></i></a>
+                <a target="_blank" href="https://wa.me/5534991975188" class="text-white mx-2"><i class="fa-brands fa-whatsapp fa-lg"></i></a>
+                <a target="_blank" href="https://www.facebook.com/people/Centeer-Ferramentas/pfbid035G3rq1SRbJfu3YWsh7Cy8Q7kCkFfnFr2DzCszxQcduFVMxRNZ2SYbhy4wcBKQYGdl/" class="text-white mx-2"><i class="fa-brands fa-facebook fa-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
