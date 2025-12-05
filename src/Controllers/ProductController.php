@@ -3,10 +3,14 @@
 namespace App\Controllers;
 
 use App\Repository\ProductRepository;
+use App\Repository\CategoryRepository;
 
 class ProductController
 {
-    public function __construct(private ProductRepository $repository) {}
+    public function __construct(
+        private ProductRepository $productRepository,
+        private CategoryRepository $categoryRepository
+    ) {}
 
     public function show(): void
     {
@@ -17,10 +21,12 @@ class ProductController
             return;
         }
 
-        $produto = $this->repository->findById($id);
+        $product = $this->productRepository->findById($id);
 
-        if (!$produto) {
-            echo "Produto não encontrado.";
+        $categories = $this->categoryRepository->findAll();
+
+        if (!$product) {
+            echo "Product not found.";
             return;
         }
 

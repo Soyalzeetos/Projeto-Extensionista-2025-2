@@ -2,6 +2,10 @@
 
 namespace App\Core;
 
+use App\Config\Database;
+use App\Repository\ProductRepository;
+use App\Repository\CategoryRepository;
+
 class Router
 {
     private array $routes = [];
@@ -18,14 +22,14 @@ class Router
         if (isset($this->routes[$method][$path])) {
             [$controllerClass, $action] = $this->routes[$method][$path];
 
-            $pdo = \App\Config\Database::getConnection();
-            $repository = new \App\Repository\ProductRepository($pdo);
-
-            $controller = new $controllerClass($repository);
+            $pdo = Database::getConnection();
+            $productRepo = new ProductRepository($pdo);
+            $categoryRepo = new CategoryRepository($pdo);
+            $controller = new $controllerClass($productRepo, $categoryRepo);
             $controller->$action();
         } else {
             http_response_code(404);
-            echo "Página não encontrada.";
+            echo "Page not found.";
         }
     }
 }

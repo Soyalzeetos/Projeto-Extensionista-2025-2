@@ -3,15 +3,20 @@
 namespace App\Controllers;
 
 use App\Repository\ProductRepository;
+use App\Repository\CategoryRepository;
 
 class HomeController
 {
-    public function __construct(private ProductRepository $repository) {}
+    public function __construct(
+        private ProductRepository $productRepository,
+        private CategoryRepository $categoryRepository
+    ) {}
 
     public function index(): void
     {
-        $destaques = $this->repository->findFeatured();
-        $produtos = $this->repository->findAllRegular();
+        $featured = $this->productRepository->findFeatured();
+        $products = $this->productRepository->findAllRegular();
+        $categories = $this->categoryRepository->findAll();
 
         require __DIR__ . '/../../views/Home.php';
     }

@@ -34,8 +34,9 @@ CREATE TABLE IF NOT EXISTS products (
     description TEXT,
     price DECIMAL(10, 2) NOT NULL,
     stock_quantity INT DEFAULT 0,
+    image_data LONGBLOB,
+    image_mime VARCHAR(50),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    image_url VARCHAR(255) NOT NULL,
     FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL
 );
 
@@ -49,10 +50,10 @@ CREATE TABLE IF NOT EXISTS product_promotions (
 
 INSERT INTO categories (name, description) VALUES ('Ferramentas Gerais', 'Ferramentas diversas');
 
-INSERT INTO products (name, description, price, image_url, category_id, stock_quantity) VALUES
-('Serra de Bancada Stanley', 'Potência de 1800W e alta precisão.', 2499.00, 'assets/img/produtos/serra_circular.webp', 1, 10),
-('Parafusadeira DeWalt 20V', 'Motor Brushless e bateria longa duração.', 1499.00, 'assets/img/produtos/zoom-1712-A7019.webp', 1, 25),
-('Martelete Combinado Makita', 'Performance industrial.', 899.90, 'assets/img/produtos/martelete-makita.webp', 1, 15);
+INSERT INTO products (name, description, price, category_id, stock_quantity, image_data, image_mime) VALUES
+('Serra de Bancada Stanley', 'Potência de 1800W e alta precisão.', 2499.00, 1, 10, NULL, NULL),
+('Parafusadeira DeWalt 20V', 'Motor Brushless e bateria longa duração.', 1499.00, 1, 25, NULL, NULL),
+('Martelete Combinado Makita', 'Performance industrial.', 899.90, 1, 15, NULL, NULL);
 
 INSERT INTO promotions (name, discount_percentage, start_date, end_date)
 VALUES ('Oferta de Lançamento', 15.00, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY));
