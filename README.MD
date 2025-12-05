@@ -17,8 +17,8 @@ Siga os comandos abaixo no seu terminal:
 
 1.  **Clone o repositório:**
     ```bash
-    git clone [https://github.com/Soyalzeetos/Projeto-Extensionista-2025-2](https://github.com/Soyalzeetos/Projeto-Extensionista-2025-2)
-    cd center-ferramentas
+    git clone https://github.com/Soyalzeetos/Projeto-Extensionista-2025-2
+    cd Projeto-Extensionista-202502
     ```
 
 2.  **Verifique o arquivo de ambiente:**
@@ -26,7 +26,7 @@ Siga os comandos abaixo no seu terminal:
 
 3.  **Suba os containers:**
     ```bash
-    docker compose up -d
+    docker compose up --build -d
     ```
     *Aguarde alguns instantes. Isso irá configurar o servidor PHP e criar o banco de dados automaticamente.*
 
@@ -41,7 +41,7 @@ Siga os comandos abaixo no seu terminal:
 
 ---
 
-## 📂 Estrutura Simplificada
+## Estrutura Simplificada
 
 * `src/`: Contém a lógica do sistema (Controllers, Models, Banco de Dados).
 * `views/`: Arquivos visuais (HTML/PHP).
