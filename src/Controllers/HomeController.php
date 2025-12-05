@@ -13,6 +13,6 @@ class HomeController
         $destaques = $this->repository->findFeatured();
         $produtos = $this->repository->findAllRegular();
 
-        require __DIR__ . '/../../views/home.php';
+        require __DIR__ . '/../../views/Home.php';
     }
 }

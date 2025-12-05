@@ -24,6 +24,6 @@ class ProductController
             return;
         }
 
-        require __DIR__ . '/../../views/produto-detalhe.php';
+        require __DIR__ . '/../../views/ProductInfo.php';
     }
 }
