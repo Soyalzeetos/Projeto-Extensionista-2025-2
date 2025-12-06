@@ -22,12 +22,12 @@
             </div>
 
             <div class="col-3 col-lg-2 d-flex justify-content-center gap-3">
-                <button class="btn border-0 p-0 position-relative" aria-label="Carrinho">
+                <a class="btn border-0 p-0 position-relative" aria-label="Carrinho" href="../Cart.php">
                     <img class="icon-nav" src="assets/img/ui/icone-carrinho.webp" alt="Carrinho" aria-hidden="true" />
                     <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
                         <span class="visually-hidden">Novos itens</span>
                     </span>
-                </button>
+                </a>
                 <button class="btn border-0 p-0" aria-label="Perfil">
                     <img class="icon-nav" src="assets/img/ui/icone-perfil.webp" alt="Perfil" aria-hidden="true" />
                 </button>
