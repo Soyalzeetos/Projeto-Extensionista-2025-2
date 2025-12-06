@@ -8,14 +8,31 @@ class Product
         public readonly int $id,
         public readonly string $name,
         public readonly string $description,
-        public readonly float $price,
+        public readonly float $priceCash,
+        public readonly float $priceInstallments,
         public readonly string $imageUrl,
-        public readonly bool $isFeatured
+        public readonly bool $isFeatured,
+        public readonly float $discountPercentage = 0.0
     ) {}
 
-    public function getFormattedPrice(): string
+    public function getFormattedCashPrice(): string
     {
-        return 'R$ ' . number_format($this->price, 2, ',', '.');
+        $finalPrice = $this->priceCash * (1 - ($this->discountPercentage / 100));
+        return 'R$ ' . number_format($finalPrice, 2, ',', '.');
+    }
+
+    public function getFormattedInstallmentPrice(): string
+    {
+        $finalPrice = $this->priceInstallments * (1 - ($this->discountPercentage / 100));
+        return 'R$ ' . number_format($finalPrice, 2, ',', '.');
+    }
+
+    public function getDiscountLabel(): ?string
+    {
+        if ($this->discountPercentage > 0) {
+            return '-' . number_format($this->discountPercentage, 0) . '%';
+        }
+        return null;
     }
 
     public static function fromArray(array $data): self
@@ -31,10 +48,12 @@ class Product
         return new self(
             id: (int)$data['id'],
             name: $data['name'],
-            description: $data['description'],
-            price: (float)$data['price'],
+            description: $data['description'] ?? '',
+            priceCash: (float)$data['price_cash'],
+            priceInstallments: (float)$data['price_installments'],
             imageUrl: $imgSrc,
-            isFeatured: (bool)($data['is_featured'] ?? false)
+            isFeatured: (bool)($data['is_featured'] ?? false),
+            discountPercentage: (float)($data['discount_percentage'] ?? 0)
         );
     }
 }

@@ -23,14 +23,19 @@
 
             <div class="col-3 col-lg-2 d-flex justify-content-center gap-3">
                 <a class="btn border-0 p-0 position-relative" aria-label="Carrinho" href="../Cart.php">
-                    <img class="icon-nav" src="assets/img/ui/icone-carrinho.webp" alt="Carrinho" aria-hidden="true" />
-                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
-                        <span class="visually-hidden">Novos itens</span>
-                    </span>
-                </a>
-                <button class="btn border-0 p-0" aria-label="Perfil">
-                    <img class="icon-nav" src="assets/img/ui/icone-perfil.webp" alt="Perfil" aria-hidden="true" />
-                </button>
+
+                    <a href="/carrinho" class="btn border-0 p-0 position-relative" aria-label="Carrinho">
+                        <img class="icon-nav" src="assets/img/ui/icone-carrinho.webp" alt="Carrinho" aria-hidden="true" />
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">Novos itens</span>
+                        </span>
+                    </a>
+                    <div class="dropdown">
+                        <button class="btn border-0 p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Perfil">
+                            <img class="icon-nav" src="assets/img/ui/icone-perfil.webp" alt="Perfil" aria-hidden="true" />
+                        </button>
+                        <?php require __DIR__ . '/LoginDropdown.php'; ?>
+                    </div>
             </div>
 
             <div class="col-lg-12 d-flex justify-content-center gap-3 mt-3">
@@ -58,7 +63,7 @@
                             Orçamentos <i class="fa fa-caret-down"></i>
                         </button>
                         <div class="dropdown-content">
-                            <a href="https://wa.me/5534991975188?text=Gostaria%20de%20solicitar%20%20uma%20cota%C3%A7%C3%A3o" class="text-center">Solicitar Cotação</a>
+                            <a target="_blank" href="https://wa.me/5534991975188?text=Gostaria%20de%20solicitar%20%20uma%20cota%C3%A7%C3%A3o" class="text-center">Solicitar Cotação</a>
                             <a href="#" class="text-center">Vendas Corporativas</a>
                             <a href="#" class="text-center">Enviar Lista de Material</a>
                             <hr class="dropdown-divider my-0 border-secondary opacity-25">

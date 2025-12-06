@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Center Ferramentas | Qualidade e Confiança</title>
     <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link rel="apple-touch-icon" href="assets/img/ui/apple-touch-icon.png" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
@@ -31,51 +30,66 @@
         <section class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10 caixa-promocao p-3 p-md-4 rounded-4 shadow-lg">
-                    <div id="carouselPromocoes" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+                    <?php if (!empty($featured)): ?>
+                        <div id="carouselPromocoes" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
 
-                        <div class="carousel-indicators mb-n4">
-                            <?php foreach ($featured as $idx => $product): ?>
-                                <button type="button" data-bs-target="#carouselPromocoes" data-bs-slide-to="<?= $idx ?>"
-                                    class="<?= $idx === 0 ? 'active' : '' ?>"
-                                    aria-current="<?= $idx === 0 ? 'true' : 'false' ?>"></button>
-                            <?php endforeach; ?>
-                        </div>
+                            <div class="carousel-indicators mb-n4">
+                                <?php foreach ($featured as $idx => $product): ?>
+                                    <button type="button" data-bs-target="#carouselPromocoes" data-bs-slide-to="<?= $idx ?>"
+                                        class="<?= $idx === 0 ? 'active' : '' ?>"
+                                        aria-current="<?= $idx === 0 ? 'true' : 'false' ?>"></button>
+                                <?php endforeach; ?>
+                            </div>
 
-                        <div class="carousel-inner">
-                            <?php foreach ($featured as $idx => $product): ?>
-                                <div class="carousel-item <?= $idx === 0 ? 'active' : '' ?>">
-                                    <div class="card border-0 rounded-4 overflow-hidden h-100 position-relative" style="min-height: 400px">
-                                        <div class="row g-0 h-100">
-                                            <div class="col-md-6 bg-light d-flex align-items-center justify-content-center p-4 card-img-container">
-                                                <a href="/produto?id=<?= $product->id ?>" class="d-flex justify-content-center w-100 h-100 align-items-center text-decoration-none">
-                                                    <img src="<?= htmlspecialchars($product->imageUrl) ?>" class="img-fluid card-product-img" style="max-height: 250px; object-fit: contain" alt="<?= htmlspecialchars($product->name) ?>" />
-                                                </a>
-                                            </div>
-                                            <div class="col-md-6 d-flex align-items-center">
-                                                <div class="card-body p-4 p-lg-5 text-center text-md-start">
-                                                    <h3 class="card-title fw-bold text-primary mb-3"><?= htmlspecialchars($product->name) ?></h3>
-                                                    <p class="card-text text-secondary fs-5 mb-4"><?= htmlspecialchars($product->description) ?></p>
-                                                    <div class="d-flex flex-column flex-md-row align-items-center gap-3">
-                                                        <span class="badge bg-warning text-dark fs-5 px-3 py-2 rounded-pill shadow-sm"><?= $product->getFormattedPrice() ?></span>
-                                                        <a href="/produto?id=<?= $product->id ?>" class="btn btn-primary rounded-pill px-4 fw-bold stretched-link">Comprar Agora</a>
+                            <div class="carousel-inner">
+                                <?php foreach ($featured as $idx => $product): ?>
+                                    <div class="carousel-item <?= $idx === 0 ? 'active' : '' ?>">
+                                        <div class="card border-0 rounded-4 overflow-hidden h-100 position-relative" style="min-height: 400px">
+                                            <div class="row g-0 h-100">
+                                                <div class="col-md-6 bg-light d-flex align-items-center justify-content-center p-4 card-img-container">
+                                                    <a href="/produto?id=<?= $product->id ?>" class="d-flex justify-content-center w-100 h-100 align-items-center text-decoration-none">
+                                                        <img src="<?= htmlspecialchars($product->imageUrl) ?>" class="img-fluid card-product-img" style="max-height: 250px; object-fit: contain" alt="<?= htmlspecialchars($product->name) ?>" />
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-6 d-flex align-items-center">
+                                                    <div class="card-body p-4 p-lg-5 text-center text-md-start">
+                                                        <?php if ($product->getDiscountLabel()): ?>
+                                                            <div class="mb-2">
+                                                                <span class="badge bg-danger">OFERTA ESPECIAL <?= $product->getDiscountLabel() ?></span>
+                                                            </div>
+                                                        <?php endif; ?>
+
+                                                        <h3 class="card-title fw-bold text-primary mb-3"><?= htmlspecialchars($product->name) ?></h3>
+                                                        <p class="card-text text-secondary fs-5 mb-4"><?= htmlspecialchars($product->description) ?></p>
+
+                                                        <div class="d-flex flex-column flex-md-row align-items-center gap-3">
+                                                            <span class="badge bg-warning text-dark fs-5 px-3 py-2 rounded-pill shadow-sm">
+                                                                <?= $product->getFormattedCashPrice() ?> <small class="fw-normal">à vista</small>
+                                                            </span>
+                                                            <a href="/produto?id=<?= $product->id ?>" class="btn btn-primary rounded-pill px-4 fw-bold stretched-link">Comprar Agora</a>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            <?php endforeach; ?>
-                        </div>
+                                <?php endforeach; ?>
+                            </div>
 
-                        <button class="carousel-control-prev carousel-dark" type="button" data-bs-target="#carouselPromocoes" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Anterior</span>
-                        </button>
-                        <button class="carousel-control-next carousel-dark" type="button" data-bs-target="#carouselPromocoes" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Próximo</span>
-                        </button>
-                    </div>
+                            <button class="carousel-control-prev carousel-dark" type="button" data-bs-target="#carouselPromocoes" data-bs-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Anterior</span>
+                            </button>
+                            <button class="carousel-control-next carousel-dark" type="button" data-bs-target="#carouselPromocoes" data-bs-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="visually-hidden">Próximo</span>
+                            </button>
+                        </div>
+                    <?php else: ?>
+                        <div class="text-center text-white py-5">
+                            <h3>Nenhuma promoção ativa no momento.</h3>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>
@@ -98,9 +112,11 @@
                                         <?= htmlspecialchars($product->name) ?>
                                     </a>
                                 </h5>
-                                <p class="card-text small text-secondary"><?= htmlspecialchars($product->description) ?></p>
+                                <p class="card-text small text-secondary text-truncate"><?= htmlspecialchars($product->description) ?></p>
                                 <div class="mt-auto">
-                                    <p class="card-text fw-bold fs-5 text-primary"><?= $product->getFormattedPrice() ?></p>
+                                    <p class="card-text fw-bold fs-5 text-primary mb-1"><?= $product->getFormattedCashPrice() ?></p>
+                                    <small class="text-muted d-block mb-2">ou <?= $product->getFormattedInstallmentPrice() ?> a prazo</small>
+
                                     <a href="/produto?id=<?= $product->id ?>" class="btn btn-primary w-100 rounded-pill">Comprar</a>
                                 </div>
                             </div>
@@ -112,19 +128,7 @@
         </section>
     </main>
 
-    <footer class="bg-dark text-white text-center py-4 mt-auto">
-        <div class="container">
-            <p class="mb-2 fw-bold">Center Ferramentas &copy; 2025</p>
-            <p class="small text-white-50 mb-0">
-                Avenida Juscelino Kubistichek, 596 - Bairro Estudantil - CEP: 38.206-044 | (34) 99197-5188
-            </p>
-            <div class="mt-3">
-                <a target="_blank" href="https://www.instagram.com/centerferramentasfrutal/" class="text-white mx-2"><i class="fa-brands fa-instagram fa-lg"></i></a>
-                <a target="_blank" href="https://wa.me/5534991975188" class="text-white mx-2"><i class="fa-brands fa-whatsapp fa-lg"></i></a>
-                <a target="_blank" href="https://www.facebook.com/people/Centeer-Ferramentas/pfbid035G3rq1SRbJfu3YWsh7Cy8Q7kCkFfnFr2DzCszxQcduFVMxRNZ2SYbhy4wcBKQYGdl/" class="text-white mx-2"><i class="fa-brands fa-facebook fa-lg"></i></a>
-            </div>
-        </div>
-    </footer>
+    <?php require __DIR__ . '/partials/Footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

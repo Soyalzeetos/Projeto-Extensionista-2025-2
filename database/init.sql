@@ -1,5 +1,6 @@
 SET NAMES 'utf8mb4';
 CREATE DATABASE IF NOT EXISTS center_ferramentas CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE center_ferramentas;
 
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -32,7 +33,8 @@ CREATE TABLE IF NOT EXISTS products (
     category_id INT,
     name VARCHAR(255) NOT NULL,
     description TEXT,
-    price DECIMAL(10, 2) NOT NULL,
+    price_cash DECIMAL(10, 2) NOT NULL,
+    price_installments DECIMAL(10, 2) NOT NULL,
     stock_quantity INT DEFAULT 0,
     image_data LONGBLOB,
     image_mime VARCHAR(50),
@@ -50,11 +52,11 @@ CREATE TABLE IF NOT EXISTS product_promotions (
 
 INSERT INTO categories (name, description) VALUES ('Ferramentas Gerais', 'Ferramentas diversas');
 
-INSERT INTO products (name, description, price, category_id, stock_quantity, image_data, image_mime) VALUES
-('Serra de Bancada Stanley', 'Potência de 1800W e alta precisão.', 2499.00, 1, 10, NULL, NULL),
-('Parafusadeira DeWalt 20V', 'Motor Brushless e bateria longa duração.', 1499.00, 1, 25, NULL, NULL),
-('Martelete Combinado Makita', 'Performance industrial.', 899.90, 1, 15, NULL, NULL),
-('Desempenadeira de vridro', 'Otima para sua obra? O erro é o vidro?.', 199.90, 1, 85, NULL, NULL);
+INSERT INTO products (name, description, price_cash, price_installments, category_id, stock_quantity, image_data, image_mime) VALUES
+('Serra de Bancada Stanley', 'Potência de 1800W e alta precisão.', 2499.00, 2999.90, 1, 10, NULL, NULL),
+('Parafusadeira DeWalt 20V', 'Motor Brushless e bateria longa duração.', 1499.00, 1750.00, 1, 25, NULL, NULL),
+('Martelete Combinado Makita', 'Performance industrial.', 899.90, 1050.00, 1, 15, NULL, NULL),
+('Desempenadeira de vidro', 'Otima para sua obra? O erro é o vidro?.', 199.90, 239.90, 1, 85, NULL, NULL);
 
 INSERT INTO promotions (name, discount_percentage, start_date, end_date)
 VALUES ('Oferta de Lançamento', 15.00, NOW(), DATE_ADD(NOW(), INTERVAL 7 DAY));
