@@ -51,61 +51,60 @@
           </button>
         </div>
         <div class="col-lg-12 d-flex justify-content-center gap-3">
-        <div class="d-flex gap-3">
+          <div class="d-flex gap-3">
 
-          <div class="dropdown">
-            <button class="dropbtn">
-              Categorias <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-              <a href="" class="text-center">Ferramentas Elétricas</a>
-              <a href="" class="text-center">Ferramentas Manuais</a>
-              <a href="" class="text-center">Material Elétrico</a>
-              <a href="" class="text-center">Hidráulica</a>
-              <a href="" class="text-center">Pintura e Acessórios</a>
-              <a href="" class="text-center">Jardinagem e Pulverização</a>
-              <a href="" class="text-center">EPIs e Segurança</a>
-              <a href="" class="text-center">Parafusos e Fixadores</a>
-              <a href="" class="text-center">Iluminação</a>
-              <a href="" class="text-center">Adesivos e Selantes</a>
+            <div class="dropdown">
+              <button class="dropbtn">
+                Categorias <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="" class="text-center">Ferramentas Elétricas</a>
+                <a href="" class="text-center">Ferramentas Manuais</a>
+                <a href="" class="text-center">Material Elétrico</a>
+                <a href="" class="text-center">Hidráulica</a>
+                <a href="" class="text-center">Pintura e Acessórios</a>
+                <a href="" class="text-center">Jardinagem e Pulverização</a>
+                <a href="" class="text-center">EPIs e Segurança</a>
+                <a href="" class="text-center">Parafusos e Fixadores</a>
+                <a href="" class="text-center">Iluminação</a>
+                <a href="" class="text-center">Adesivos e Selantes</a>
+              </div>
             </div>
-          </div>
 
-          <div class="dropdown">
-            <button class="dropbtn">
-              Aluguel <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-              <a href="" class="text-center">Andaimes e Escadas</a>
-              <a href="" class="text-center">Betoneiras e Misturadores</a>
-              <a href="" class="text-center">Compactadores de Solo</a>
-              <a href="" class="text-center">Geradores e Compressores</a>
-              <a href="" class="text-center">Marteletes e Rompedores</a>
-              <a href="" class="text-center">Limpeza e Jardinagem</a>
+            <div class="dropdown">
+              <button class="dropbtn">
+                Aluguel <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="" class="text-center">Andaimes e Escadas</a>
+                <a href="" class="text-center">Betoneiras e Misturadores</a>
+                <a href="" class="text-center">Compactadores de Solo</a>
+                <a href="" class="text-center">Geradores e Compressores</a>
+                <a href="" class="text-center">Marteletes e Rompedores</a>
+                <a href="" class="text-center">Limpeza e Jardinagem</a>
+              </div>
             </div>
-          </div>
 
-          <div class="dropdown">
-            <button class="dropbtn">
-              Orçamentos <i class="fa fa-caret-down"></i>
-            </button>
-            <div class="dropdown-content">
-              <a href="" class="text-center">Cotação Rápida Online</a>
-              <a href="" class="text-center">Vendas Corporativas (Atacado)</a>
-              <a href="" class="text-center">Enviar Lista de Material</a>
-              <a href="" class="text-center">Manutenção e Assistência</a>
-              <a href="" class="text-center">Falar via WhatsApp</a>
+            <div class="dropdown">
+              <button class="dropbtn">
+                Orçamentos <i class="fa fa-caret-down"></i>
+              </button>
+              <div class="dropdown-content">
+                <a href="" class="text-center">Cotação Rápida Online</a>
+                <a href="" class="text-center">Vendas Corporativas (Atacado)</a>
+                <a href="" class="text-center">Enviar Lista de Material</a>
+                <a href="" class="text-center">Manutenção e Assistência</a>
+                <a href="" class="text-center">Falar via WhatsApp</a>
+              </div>
             </div>
-          </div>
 
+          </div>
         </div>
-</div>
 
       </div>
       </div>
     </nav>
   </header>
-
   <main class="flex-grow-1">
     <div class="container-fluid marquee text-nowrap py-2 overflow-hidden border-bottom border-dark border-2">
       <div class="marquee-track d-flex">
@@ -115,13 +114,13 @@
             OBRA! 🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span>
           <span class="fw-bold text-uppercase">🛠️ CENTER FERRAMENTAS - QUALIDADE, FORÇA E CONFIANÇA PRA SUA
             OBRA! 🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span>
-            <span class="fw-bold text-uppercase">🛠️ CENTER FERRAMENTAS - QUALIDADE, FORÇA E CONFIANÇA PRA SUA
+          <span class="fw-bold text-uppercase">🛠️ CENTER FERRAMENTAS - QUALIDADE, FORÇA E CONFIANÇA PRA SUA
             OBRA! 🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span>
-            <span class="fw-bold text-uppercase">🛠️ CENTER FERRAMENTAS - QUALIDADE, FORÇA E CONFIANÇA PRA SUA
+          <span class="fw-bold text-uppercase">🛠️ CENTER FERRAMENTAS - QUALIDADE, FORÇA E CONFIANÇA PRA SUA
             OBRA! 🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span>
-            <span class="fw-bold text-uppercase">🛠️ CENTER FERRAMENTAS - QUALIDADE, FORÇA E CONFIANÇA PRA SUA
+          <span class="fw-bold text-uppercase">🛠️ CENTER FERRAMENTAS - QUALIDADE, FORÇA E CONFIANÇA PRA SUA
             OBRA! 🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span>
-            <span class="fw-bold text-uppercase">🛠️ CENTER FERRAMENTAS - QUALIDADE, FORÇA E CONFIANÇA PRA SUA
+          <span class="fw-bold text-uppercase">🛠️ CENTER FERRAMENTAS - QUALIDADE, FORÇA E CONFIANÇA PRA SUA
             OBRA! 🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span>
         </div>
       </div>
@@ -220,7 +219,7 @@
                 </div>
               </div>
 
-               <div class="carousel-item">
+              <div class="carousel-item">
                 <div class="card border-0 rounded-4 overflow-hidden h-100 position-relative" style="min-height: 400px">
                   <div class="row g-0 h-100">
                     <div class="col-md-6 bg-light d-flex align-items-center justify-content-center p-4 card-img-container">
@@ -261,403 +260,403 @@
       <div class="container-fluid row g-4 container-produtos">
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/serra-marmore-makita.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Serra Mármore Makita">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Serra Mármore Makita</h5>
-                    <p class="card-text small text-secondary">Alta potência para cortes em alvenaria.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 359,90</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/serra-marmore-makita.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Serra Mármore Makita">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Serra Mármore Makita</h5>
+              <p class="card-text small text-secondary">Alta potência para cortes em alvenaria.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 359,90</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/compressor.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Compressor Chiaperini">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Compressor Chiaperini</h5>
-                    <p class="card-text small text-secondary">Motor 3HP, 150L, ideal para uso profissional e industrial.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 4.599,90</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/compressor.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Compressor Chiaperini">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Compressor Chiaperini</h5>
+              <p class="card-text small text-secondary">Motor 3HP, 150L, ideal para uso profissional e industrial.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 4.599,90</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/maquina-de-solda.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Máquina de Solda">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Inversora de Solda</h5>
-                    <p class="card-text small text-secondary">Display digital e design compacto.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 499,90</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/maquina-de-solda.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Máquina de Solda">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Inversora de Solda</h5>
+              <p class="card-text small text-secondary">Display digital e design compacto.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 499,90</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/serra-tico-tico.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Serra Tico-Tico">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Serra Tico-Tico DeWalt</h5>
-                    <p class="card-text small text-secondary">Velocidade variável para cortes precisos.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 649,90</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/serra-tico-tico.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Serra Tico-Tico">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Serra Tico-Tico DeWalt</h5>
+              <p class="card-text small text-secondary">Velocidade variável para cortes precisos.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 649,90</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/esmerilhadeira.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Esmerilhadeira">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Esmerilhadeira Angular</h5>
-                    <p class="card-text small text-secondary">Ideal para desbaste e corte de metais.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 289,90</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/esmerilhadeira.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Esmerilhadeira">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Esmerilhadeira Angular</h5>
+              <p class="card-text small text-secondary">Ideal para desbaste e corte de metais.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 289,90</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/alicate-de-pressao.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Alicate de Pressão">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Alicate de Pressão</h5>
-                    <p class="card-text small text-secondary">Mordente curvo para fixação segura.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 45,90</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/alicate-de-pressao.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Alicate de Pressão">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Alicate de Pressão</h5>
+              <p class="card-text small text-secondary">Mordente curvo para fixação segura.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 45,90</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/chave-inglesa.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Chave Inglesa">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Chave Inglesa Ajustável</h5>
-                    <p class="card-text small text-secondary">Regulagem fácil e material resistente.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 39,90</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/chave-inglesa.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Chave Inglesa">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Chave Inglesa Ajustável</h5>
+              <p class="card-text small text-secondary">Regulagem fácil e material resistente.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 39,90</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/arame-farpado.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Arame Farpado">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Arame Farpado 250m</h5>
-                    <p class="card-text small text-secondary">Galvanizado, proteção máxima.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 119,90</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/arame-farpado.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Arame Farpado">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Arame Farpado 250m</h5>
+              <p class="card-text small text-secondary">Galvanizado, proteção máxima.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 119,90</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/kit-chave-de-fenda.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Kit Chaves">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Jogo de Chaves</h5>
-                    <p class="card-text small text-secondary">5 Peças, Aço Cromo Vanádio.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 29,99</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/kit-chave-de-fenda.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Kit Chaves">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Jogo de Chaves</h5>
+              <p class="card-text small text-secondary">5 Peças, Aço Cromo Vanádio.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 29,99</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/furadeira-de-impacto-makita.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Furadeira de Impacto">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Furadeira de Impacto Makita</h5>
-                    <p class="card-text small text-secondary">Alta performance em concreto e madeira.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 429,90</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/furadeira-de-impacto-makita.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Furadeira de Impacto">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Furadeira de Impacto Makita</h5>
+              <p class="card-text small text-secondary">Alta performance em concreto e madeira.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 429,90</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/lixadeira-orbital-makita.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Lixadeira Orbital">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Lixadeira Orbital Makita</h5>
-                    <p class="card-text small text-secondary">Acabamento fino com baixa vibração.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 389,90</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/lixadeira-orbital-makita.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Lixadeira Orbital">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Lixadeira Orbital Makita</h5>
+              <p class="card-text small text-secondary">Acabamento fino com baixa vibração.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 389,90</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/martelete-makita.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Martelete Combinado">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Martelete Combinado Makita</h5>
-                    <p class="card-text small text-secondary">Potência industrial para demolição.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 899,90</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/martelete-makita.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Martelete Combinado">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Martelete Combinado Makita</h5>
+              <p class="card-text small text-secondary">Potência industrial para demolição.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 899,90</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/kit-serra-copo.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Jogo Serra Copo">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Jogo Serra Copo</h5>
-                    <p class="card-text small text-secondary">Cortes circulares precisos em madeira.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 59,90</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/kit-serra-copo.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Jogo Serra Copo">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Jogo Serra Copo</h5>
+              <p class="card-text small text-secondary">Cortes circulares precisos em madeira.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 59,90</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/kit-chave-allen.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Jogo Chave Allen">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Jogo Chave Allen</h5>
-                    <p class="card-text small text-secondary">Aço cromo vanádio, alta durabilidade.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 24,90</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/kit-chave-allen.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Jogo Chave Allen">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Jogo Chave Allen</h5>
+              <p class="card-text small text-secondary">Aço cromo vanádio, alta durabilidade.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 24,90</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/chave-sextavada.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Jogo Chave Estrela">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Jogo Chave Estrela</h5>
-                    <p class="card-text small text-secondary">Kit completo de chaves de precisão.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 89,90</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/chave-sextavada.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Jogo Chave Estrela">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Jogo Chave Estrela</h5>
+              <p class="card-text small text-secondary">Kit completo de chaves de precisão.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 89,90</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/kit-chave-pito-sextavada.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Jogo Chave Canhão">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Jogo Chave Canhão</h5>
-                    <p class="card-text small text-secondary">Ideal para porcas e parafusos sextavados.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 49,90</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/kit-chave-pito-sextavada.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Jogo Chave Canhão">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Jogo Chave Canhão</h5>
+              <p class="card-text small text-secondary">Ideal para porcas e parafusos sextavados.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 49,90</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/Furadeira-de-impacto-5-8pol-1300w-d21570k-Dewalt-1_2.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Furadeira DeWalt D21570K">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Furadeira Impacto DeWalt</h5>
-                    <p class="card-text small text-secondary">Alta potência 1300W, mandril 5/8".</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 1.099,90</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/Furadeira-de-impacto-5-8pol-1300w-d21570k-Dewalt-1_2.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Furadeira DeWalt D21570K">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Furadeira Impacto DeWalt</h5>
+              <p class="card-text small text-secondary">Alta potência 1300W, mandril 5/8".</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 1.099,90</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/jogo_ferramentas_com_maleta_129_pecas_sparta_10651_1_a37490a0b81aed20396b5af76d594019.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Kit Ferramentas Sparta">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Kit Ferramentas 129 Peças</h5>
-                    <p class="card-text small text-secondary">Maleta completa para uso doméstico.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 139,90</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/jogo_ferramentas_com_maleta_129_pecas_sparta_10651_1_a37490a0b81aed20396b5af76d594019.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Kit Ferramentas Sparta">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Kit Ferramentas 129 Peças</h5>
+              <p class="card-text small text-secondary">Maleta completa para uso doméstico.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 139,90</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/furadeira-de-impacto-black-e-decker.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Furadeira Black & Decker">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Furadeira Black & Decker</h5>
-                    <p class="card-text small text-secondary">Compacta e potente para o dia a dia.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 199,90</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/furadeira-de-impacto-black-e-decker.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Furadeira Black & Decker">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Furadeira Black & Decker</h5>
+              <p class="card-text small text-secondary">Compacta e potente para o dia a dia.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 199,90</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/ferramentas-manuais-outros-kit-ferramentas-para-mecanico-176-pcs-44952176-tramontinapro-1717183025549.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Kit Tramontina PRO">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Jogo Mecânico 176 Peças</h5>
-                    <p class="card-text small text-secondary">Linha profissional Tramontina PRO.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 1.890,00</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/ferramentas-manuais-outros-kit-ferramentas-para-mecanico-176-pcs-44952176-tramontinapro-1717183025549.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Kit Tramontina PRO">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Jogo Mecânico 176 Peças</h5>
+              <p class="card-text small text-secondary">Linha profissional Tramontina PRO.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 1.890,00</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/kit_ferramentas_precisao_24_bits_profissional_jakemy_jm_8168_2203_13_20191102121110.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Kit Precisão Jakemy">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Kit Precisão 24 Bits</h5>
-                    <p class="card-text small text-secondary">Para eletrônica e manutenção fina.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 69,90</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/kit_ferramentas_precisao_24_bits_profissional_jakemy_jm_8168_2203_13_20191102121110.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Kit Precisão Jakemy">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Kit Precisão 24 Bits</h5>
+              <p class="card-text small text-secondary">Para eletrônica e manutenção fina.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 69,90</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/serra_circular_de_bancada_10_1800w_stanley_254mm_com_guia_mesa_sst1801_128453_1_4b7129a03dc8f100656f6201a5a7d383.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Serra Bancada Stanley">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Serra Bancada Stanley</h5>
-                    <p class="card-text small text-secondary">Motor 1800W com guia de corte precisa.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 2.499,00</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/serra_circular_de_bancada_10_1800w_stanley_254mm_com_guia_mesa_sst1801_128453_1_4b7129a03dc8f100656f6201a5a7d383.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Serra Bancada Stanley">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Serra Bancada Stanley</h5>
+              <p class="card-text small text-secondary">Motor 1800W com guia de corte precisa.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 2.499,00</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/zoom-1712-A7019.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Parafusadeira DeWalt 20V">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Parafusadeira DeWalt 20V</h5>
-                    <p class="card-text small text-secondary">Motor Brushless, alto torque e autonomia.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 1.499,00</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/zoom-1712-A7019.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Parafusadeira DeWalt 20V">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Parafusadeira DeWalt 20V</h5>
+              <p class="card-text small text-secondary">Motor Brushless, alto torque e autonomia.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 1.499,00</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/364913_compressor_de_ar_8_6_pes_50l_2_hp_120_libras_monofasico_pratiko_csi.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Compressor Schulz Prátiko">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Compressor Schulz Prátiko</h5>
-                    <p class="card-text small text-secondary">2HP, 50 Litros, ideal para serviços diversos.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 1.899,00</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/364913_compressor_de_ar_8_6_pes_50l_2_hp_120_libras_monofasico_pratiko_csi.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Compressor Schulz Prátiko">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Compressor Schulz Prátiko</h5>
+              <p class="card-text small text-secondary">2HP, 50 Litros, ideal para serviços diversos.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 1.899,00</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="card h-100 shadow-sm border-0">
-                <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                    <img src="assets/img/produtos/furadeira-de-impacto-bosch.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Furadeira Bosch GSB">
-                </div>
-                <div class="card-body d-flex flex-column">
-                    <h5 class="card-title fw-bold text-dark">Furadeira Impacto Bosch</h5>
-                    <p class="card-text small text-secondary">Modelo GSB Profissional, robustez total.</p>
-                    <div class="mt-auto">
-                        <p class="card-text fw-bold fs-5 text-primary">R$ 549,90</p>
-                        <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
-                    </div>
-                </div>
+          <div class="card h-100 shadow-sm border-0">
+            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
+              <img src="assets/img/produtos/furadeira-de-impacto-bosch.webp" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="Furadeira Bosch GSB">
             </div>
+            <div class="card-body d-flex flex-column">
+              <h5 class="card-title fw-bold text-dark">Furadeira Impacto Bosch</h5>
+              <p class="card-text small text-secondary">Modelo GSB Profissional, robustez total.</p>
+              <div class="mt-auto">
+                <p class="card-text fw-bold fs-5 text-primary">R$ 549,90</p>
+                <a href="" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+              </div>
+            </div>
+          </div>
         </div>
 
       </div>

@@ -23,6 +23,13 @@ body {
   min-height: 100vh;
 }
 
+.carousel-item {
+  height: 500px;
+}
+
+.topo {
+  margin-bottom: 100px;
+}
 .secao-vendas {
   background: linear-gradient(
     180deg,
@@ -47,6 +54,7 @@ body {
   transition: transform 0.3s ease;
   transform: scale(0.85);
 }
+
 
 .card-img-top:hover {
   transform: scale(0.95);
@@ -177,7 +185,7 @@ body {
   }
   .icon-nav {
     width: 32px;
-    height: 32px;
+    height: 32px;;
   }
   .carousel-control-prev,
   .carousel-control-next {
