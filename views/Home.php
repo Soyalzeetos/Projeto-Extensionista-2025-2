@@ -21,7 +21,7 @@
         <div class="container-fluid marquee text-nowrap py-2 overflow-hidden border-bottom border-dark border-2">
             <div class="marquee-track d-flex">
                 <div class="marquee-group d-flex gap-5 pe-5" aria-hidden="true">
-                    <?php for ($i = 0; $i < 6; $i++): ?>
+                    <?php for ($i = 0; $i < 8; $i++): ?>
                         <span class="fw-bold text-uppercase">🛠️ CENTER FERRAMENTAS - QUALIDADE, FORÇA E CONFIANÇA PRA SUA OBRA! 🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span>
                     <?php endfor; ?>
                 </div>
@@ -114,7 +114,7 @@
 
     <footer class="bg-dark text-white text-center py-4 mt-auto">
         <div class="container">
-            <p class="mb-2 fw-bold">Center Ferramentas &copy; 2025</p>
+            <p class="mb-2 fw-bold">Center Ferramentas CNPJ: &copy; 2025</p>
             <p class="small text-white-50 mb-0">
                 Avenida Juscelino Kubistichek, 596 - Bairro Estudantil - CEP: 38.206-044 | (34) 99197-5188
             </p>

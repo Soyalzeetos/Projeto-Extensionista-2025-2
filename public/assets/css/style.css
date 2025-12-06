@@ -1,16 +1,16 @@
 :root {
-  --primary-color: #003366;
-  --accent-color: #fca311;
-  --bg-body: #eaeaea;
+  --primary-color: rgb(0, 51, 102);
+  --accent-color: rgb(255, 123, 0);
+  --bg-body: rgb(234, 234, 234);
 
-  --white: #ffffff;
-  --black: #000000;
-  --snow: #fffafa;
+  --white: rgb(255, 255, 255);
+  --black: rgb(0, 0, 0);
+  --snow: rgb(255, 250, 250);
 
   --gradient-start: #0056b3;
   --gradient-end: #002b55;
 
-  --focus-ring: rgba(252, 163, 17, 0.5);
+  --focus-ring: rgba(255, 123, 0,0.5);
   --shadow-soft: rgba(0, 0, 0, 0.3);
   --shadow-strong: rgba(0, 0, 0, 0.8);
 }
