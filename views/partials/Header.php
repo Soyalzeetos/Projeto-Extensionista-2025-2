@@ -58,12 +58,12 @@
                             Orçamentos <i class="fa fa-caret-down"></i>
                         </button>
                         <div class="dropdown-content">
-                            <a href="#" class="text-center">Solicitar Cotação</a>
+                            <a href="https://wa.me/5534991975188?text=Gostaria%20de%20solicitar%20%20uma%20cota%C3%A7%C3%A3o" class="text-center">Solicitar Cotação</a>
                             <a href="#" class="text-center">Vendas Corporativas</a>
                             <a href="#" class="text-center">Enviar Lista de Material</a>
                             <hr class="dropdown-divider my-0 border-secondary opacity-25">
-                            <a href="#" class="text-center fw-bold">
-                                <i class="fa-brands fa-whatsapp text-success"></i> Falar no WhatsApp
+                            <a href="Gostaria de falar com um vendedor" class="text-center fw-bold">
+                                <i class="fa-brands fa-whatsapp text-success"></i> Falar com um vendedor
                             </a>
                         </div>
                     </div>

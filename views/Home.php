@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,18 +12,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="assets/css/style.css" />
 </head>
+
 <body class="bg-light d-flex flex-column min-vh-100">
 
-    <?php require __DIR__ . '/partials/header.php'; ?>
+    <?php require __DIR__ . '/partials/Header.php'; ?>
 
     <main class="flex-grow-1">
         <div class="container-fluid marquee text-nowrap py-2 overflow-hidden border-bottom border-dark border-2">
             <div class="marquee-track d-flex">
-                <div class="marquee-group d-flex gap-5 pe-5" aria-hidden="true">
-                    <?php for ($i = 0; $i < 6; $i++): ?>
-                        <span class="fw-bold text-uppercase">🛠️ CENTER FERRAMENTAS - QUALIDADE, FORÇA E CONFIANÇA PRA SUA OBRA! 🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span>
-                    <?php endfor; ?>
-                </div>
                 <div class="marquee-group d-flex gap-5 pe-5" aria-hidden="true">
                     <?php for ($i = 0; $i < 6; $i++): ?>
                         <span class="fw-bold text-uppercase">🛠️ CENTER FERRAMENTAS - QUALIDADE, FORÇA E CONFIANÇA PRA SUA OBRA! 🔧 GRANDES OFERTAS TODOS OS DIAS! 💥</span>
@@ -119,7 +116,7 @@
         <div class="container">
             <p class="mb-2 fw-bold">Center Ferramentas &copy; 2025</p>
             <p class="small text-white-50 mb-0">
-                Rua dos Bobos, 000 - Centro | (34) 99999-9999
+                Avenida Juscelino Kubistichek, 596 - Bairro Estudantil - CEP: 38.206-044 | (34) 99197-5188
             </p>
             <div class="mt-3">
                 <a target="_blank" href="https://www.instagram.com/centerferramentasfrutal/" class="text-white mx-2"><i class="fa-brands fa-instagram fa-lg"></i></a>
@@ -131,4 +128,5 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
+
 </html>
