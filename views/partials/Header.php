@@ -30,10 +30,6 @@
                             <span class="visually-hidden">Novos itens</span>
                         </span>
                     </a>
-                    <button class="btn border-0 p-0" aria-label="Perfil">
-                        <img class="icon-nav" src="assets/img/ui/icone-perfil.webp" alt="Perfil" aria-hidden="true" />
-                    </button>
-
                     <div class="dropdown">
                         <button class="btn border-0 p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Perfil">
                             <img class="icon-nav" src="assets/img/ui/icone-perfil.webp" alt="Perfil" aria-hidden="true" />
