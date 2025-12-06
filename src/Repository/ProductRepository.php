@@ -9,15 +9,13 @@ class ProductRepository
 {
     public function __construct(private PDO $pdo) {}
 
-    /**
-     * @return Product[]
-     */
     public function findFeatured(int $limit = 5): array
     {
         $sql = "
             SELECT
-                p.*,
-                1 as is_featured
+                p.id, p.name, p.description, p.price_cash, p.price_installments, p.image_data, p.image_mime,
+                1 as is_featured,
+                prom.discount_percentage -- Trazemos o desconto real
             FROM products p
             INNER JOIN product_promotions pp ON p.id = pp.product_id
             INNER JOIN promotions prom ON pp.promotion_id = prom.id
@@ -34,15 +32,13 @@ class ProductRepository
         return $this->hydrateList($stmt->fetchAll());
     }
 
-    /**
-     * @return Product[]
-     */
     public function findAllRegular(): array
     {
         $sql = "
             SELECT
-                p.*,
-                0 as is_featured
+                p.id, p.name, p.description, p.price_cash, p.price_installments, p.image_data, p.image_mime,
+                0 as is_featured,
+                0 as discount_percentage
             FROM products p
             WHERE p.id NOT IN (
                 SELECT pp.product_id
@@ -63,11 +59,19 @@ class ProductRepository
         $sql = "
             SELECT
                 p.*,
-                (SELECT COUNT(*)
-                 FROM product_promotions pp
+                COALESCE(
+                    (SELECT prom.discount_percentage
+                     FROM product_promotions pp
+                     JOIN promotions prom ON pp.promotion_id = prom.id
+                     WHERE pp.product_id = p.id
+                     AND prom.active = 1
+                     AND NOW() BETWEEN prom.start_date AND prom.end_date
+                     LIMIT 1
+                    ), 0) as discount_percentage,
+
+                (SELECT COUNT(*) FROM product_promotions pp
                  JOIN promotions prom ON pp.promotion_id = prom.id
-                 WHERE pp.product_id = p.id
-                 AND prom.active = 1
+                 WHERE pp.product_id = p.id AND prom.active = 1
                  AND NOW() BETWEEN prom.start_date AND prom.end_date
                 ) > 0 as is_featured
             FROM products p
