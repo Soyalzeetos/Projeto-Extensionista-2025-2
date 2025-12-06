@@ -33,7 +33,7 @@
                     <button class="btn border-0 p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Perfil">
                         <img class="icon-nav" src="assets/img/ui/icone-perfil.webp" alt="Perfil" aria-hidden="true" />
                     </button>
-                    <?php require __DIR__ . '/LoginDropdown.php'; ?>
+                    <?php require __DIR__ . '/login_dropdown.php'; ?>
                 </div>
             </div>
 

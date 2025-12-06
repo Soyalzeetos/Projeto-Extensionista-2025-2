@@ -2,14 +2,11 @@
   --primary-color: rgb(0, 51, 102);
   --accent-color: rgb(255, 123, 0);
   --bg-body: rgb(234, 234, 234);
-
   --white: rgb(255, 255, 255);
   --black: rgb(0, 0, 0);
   --snow: rgb(255, 250, 250);
-
   --gradient-start: #0056b3;
   --gradient-end: #002b55;
-
   --focus-ring: rgba(255, 123, 0, 0.5);
   --shadow-soft: rgba(0, 0, 0, 0.3);
   --shadow-strong: rgba(0, 0, 0, 0.8);
@@ -23,69 +20,8 @@ body {
   min-height: 100vh;
 }
 
-.secao-vendas {
-  background: linear-gradient(
-    180deg,
-    var(--gradient-start),
-    var(--gradient-end)
-  );
-  box-shadow: 0 10px 30px var(--shadow-soft);
-  color: var(--snow);
-}
-
-.texto-secao {
-  margin-top: 10;
-}
-.search-class {
-  transition: transform 0.3s ease;
-}
-.search-class:focus-within {
-  transform: scale(1.04);
-}
-
-.card-img-top {
-  transition: transform 0.3s ease;
-  transform: scale(0.85);
-}
-
-.card-img-top:hover {
-  transform: scale(0.95);
-}
-
-.card-body a {
-  transition: transform 0.2s ease;
-}
-
-.card-body:hover a {
-  transform: scale(1.05);
-}
-
-.container-produtos {
-  padding-bottom: 35px;
-}
-
 .navbar-custom {
   background-color: var(--primary-color);
-}
-
-.logo {
-  max-height: 80px;
-  transition: transform 0.3s ease;
-}
-.logo:hover {
-  transform: scale(1.05);
-}
-
-.icon-nav {
-  width: 40px;
-  height: 40px;
-  object-fit: contain;
-  transition: transform 0.3s ease;
-  filter: brightness(0) invert(1);
-}
-.icon-nav:hover {
-  transform: scale(1.1);
-  filter: brightness(0) invert(1) drop-shadow(0 0 3px var(--accent-color));
 }
 
 .navbar-custom .form-control:focus {
@@ -98,92 +34,36 @@ body {
   border-radius: 50rem;
 }
 
-.marquee {
-  background-color: var(--accent-color);
-  border-bottom: 2px solid var(--black);
-}
-.marquee-track {
-  width: fit-content;
-  animation: scroll 30s linear infinite;
+.logo {
+  max-height: 80px;
+  transition: transform 0.3s ease;
 }
 
-.marquee-group {
-  flex-shrink: 0;
+.logo:hover {
+  transform: scale(1.05);
 }
 
-.marquee-track span {
-  color: var(--black);
+.icon-nav {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  filter: brightness(0) invert(1);
 }
 
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
+.icon-nav:hover {
+  transform: scale(1.1);
+  filter: brightness(0) invert(1) drop-shadow(0 0 3px var(--accent-color));
 }
 
-.caixa-promocao {
-  background: linear-gradient(
-    180deg,
-    var(--gradient-start),
-    var(--gradient-end)
-  );
-  box-shadow: 0 10px 30px var(--shadow-soft);
+.search-class {
+  transition: transform 0.3s ease;
 }
 
-.card-img-container {
-  overflow: hidden;
-}
-.card-product-img {
-  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
-.card:hover .card-product-img {
-  transform: scale(1.08);
+.search-class:focus-within {
+  transform: scale(1.04);
 }
 
-.carousel-control-prev,
-.carousel-control-next {
-  width: 5%;
-}
-.carousel-control-prev {
-  left: -15px;
-}
-.carousel-control-next {
-  right: -15px;
-}
-
-.carousel-indicators [data-bs-target] {
-  background-color: var(--accent-color);
-  opacity: 0.5;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-}
-.carousel-indicators .active {
-  opacity: 1;
-  background-color: var(--accent-color);
-}
-
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  filter: drop-shadow(0px 0px 3px var(--shadow-strong));
-}
-
-@media (max-width: 768px) {
-  .logo {
-    max-height: 50px;
-  }
-  .icon-nav {
-    width: 32px;
-    height: 32px;
-  }
-  .carousel-control-prev,
-  .carousel-control-next {
-    width: 10%;
-  }
-}
 .dropbtn {
   font-size: 16px;
   border: none;
@@ -239,16 +119,197 @@ body {
   border-radius: 10px;
 }
 
-.navbar a:hover,
-.dropbtn:hover {
-  filter: brightness(0) invert(1) drop-shadow(0 0 3px var(--accent-color));
-  transform: scale(1.05);
-}
-
 .dropdown .dropdown-content a {
   display: flex;
   justify-content: center;
   align-items: center;
   color: var(--white);
   width: 100%;
+}
+
+.navbar a:hover,
+.dropbtn:hover {
+  filter: brightness(0) invert(1) drop-shadow(0 0 3px var(--accent-color));
+  transform: scale(1.05);
+}
+
+.marquee {
+  background-color: var(--accent-color);
+  border-bottom: 2px solid var(--black);
+}
+
+.marquee-track {
+  width: fit-content;
+  animation: scroll 30s linear infinite;
+}
+
+.marquee-group {
+  flex-shrink: 0;
+}
+
+.marquee-track span {
+  color: var(--black);
+}
+
+.caixa-promocao {
+  background: linear-gradient(
+    180deg,
+    var(--gradient-start),
+    var(--gradient-end)
+  );
+  box-shadow: 0 10px 30px var(--shadow-soft);
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+}
+
+.carousel-control-prev {
+  left: -15px;
+}
+
+.carousel-control-next {
+  right: -15px;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: var(--accent-color);
+  opacity: 0.5;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.carousel-indicators .active {
+  opacity: 1;
+  background-color: var(--accent-color);
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  filter: drop-shadow(0px 0px 3px var(--shadow-strong));
+}
+
+.secao-vendas {
+  background: linear-gradient(
+    180deg,
+    var(--gradient-start),
+    var(--gradient-end)
+  );
+  box-shadow: 0 10px 30px var(--shadow-soft);
+  color: var(--snow);
+}
+
+.container-produtos {
+  padding-bottom: 35px;
+}
+
+.texto-secao {
+  margin-top: 10px;
+}
+
+.card-img-container {
+  overflow: hidden;
+}
+
+.card-product-img {
+  transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card:hover .card-product-img {
+  transform: scale(1.08);
+}
+
+.card-img-top {
+  transition: transform 0.3s ease;
+  transform: scale(0.85);
+}
+
+.card-img-top:hover {
+  transform: scale(0.95);
+}
+
+.card-body a {
+  transition: transform 0.2s ease;
+}
+
+.card-body:hover a {
+  transform: scale(1.05);
+}
+
+.login-dropdown-menu {
+  min-width: 320px;
+  z-index: 1050;
+  border: none;
+  box-shadow: 0 10px 30px var(--shadow-strong);
+  border-radius: 12px;
+  padding: 1.5rem;
+  background-color: var(--white);
+}
+
+.login-title {
+  color: var(--primary-color);
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.login-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.login-link:hover {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+.btn-login {
+  background: linear-gradient(
+    180deg,
+    var(--gradient-start),
+    var(--gradient-end)
+  );
+  color: var(--white);
+  font-weight: 600;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+  background: var(--accent-color);
+  color: var(--black);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px var(--shadow-soft);
+}
+
+.login-dropdown-menu .form-control:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.25rem var(--focus-ring);
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 768px) {
+  .logo {
+    max-height: 50px;
+  }
+  .icon-nav {
+    width: 32px;
+    height: 32px;
+  }
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 10%;
+  }
 }
