@@ -22,31 +22,24 @@
             </div>
 
             <div class="col-3 col-lg-2 d-flex justify-content-center gap-3">
-<<<<<<< HEAD
                 <a class="btn border-0 p-0 position-relative" aria-label="Carrinho" href="../Cart.php">
-=======
 
-                <a href="/carrinho" class="btn border-0 p-0 position-relative" aria-label="Carrinho">
->>>>>>> dea4c89 (Add shopping cart page)
-                    <img class="icon-nav" src="assets/img/ui/icone-carrinho.webp" alt="Carrinho" aria-hidden="true" />
-                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
-                        <span class="visually-hidden">Novos itens</span>
-                    </span>
-                </a>
-<<<<<<< HEAD
-                <button class="btn border-0 p-0" aria-label="Perfil">
-                    <img class="icon-nav" src="assets/img/ui/icone-perfil.webp" alt="Perfil" aria-hidden="true" />
-                </button>
-=======
-
-                <div class="dropdown">
-                    <button class="btn border-0 p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Perfil">
+                    <a href="/carrinho" class="btn border-0 p-0 position-relative" aria-label="Carrinho">
+                        <img class="icon-nav" src="assets/img/ui/icone-carrinho.webp" alt="Carrinho" aria-hidden="true" />
+                        <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                            <span class="visually-hidden">Novos itens</span>
+                        </span>
+                    </a>
+                    <button class="btn border-0 p-0" aria-label="Perfil">
                         <img class="icon-nav" src="assets/img/ui/icone-perfil.webp" alt="Perfil" aria-hidden="true" />
                     </button>
-                    <?php require __DIR__ . '/LoginDropdown.php'; ?>
-                </div>
 
->>>>>>> dea4c89 (Add shopping cart page)
+                    <div class="dropdown">
+                        <button class="btn border-0 p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Perfil">
+                            <img class="icon-nav" src="assets/img/ui/icone-perfil.webp" alt="Perfil" aria-hidden="true" />
+                        </button>
+                        <?php require __DIR__ . '/LoginDropdown.php'; ?>
+                    </div>
             </div>
 
             <div class="col-lg-12 d-flex justify-content-center gap-3 mt-3">
