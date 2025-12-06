@@ -30,6 +30,6 @@ class ProductController
             return;
         }
 
-        require __DIR__ . '/../../views/products/datails.php';
+        require __DIR__ . '/../../views/products/details.php';
     }
 }
