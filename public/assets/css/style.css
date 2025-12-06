@@ -10,7 +10,7 @@
   --gradient-start: #0056b3;
   --gradient-end: #002b55;
 
-  --focus-ring: rgba(255, 123, 0,0.5);
+  --focus-ring: rgba(255, 123, 0, 0.5);
   --shadow-soft: rgba(0, 0, 0, 0.3);
   --shadow-strong: rgba(0, 0, 0, 0.8);
 }

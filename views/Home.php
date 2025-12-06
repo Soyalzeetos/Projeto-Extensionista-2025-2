@@ -114,7 +114,7 @@
 
     <footer class="bg-dark text-white text-center py-4 mt-auto">
         <div class="container">
-            <p class="mb-2 fw-bold">Center Ferramentas CNPJ: &copy; 2025</p>
+            <p class="mb-2 fw-bold">Center Ferramentas &copy; 2025</p>
             <p class="small text-white-50 mb-0">
                 Avenida Juscelino Kubistichek, 596 - Bairro Estudantil - CEP: 38.206-044 | (34) 99197-5188
             </p>
