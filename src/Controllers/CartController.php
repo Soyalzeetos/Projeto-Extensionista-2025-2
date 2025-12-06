@@ -11,6 +11,6 @@ class CartController
 
     public function index(): void
     {
-        require __DIR__ . '/../../views/ShoppingCart.php';
+        require __DIR__ . '/../../views/cart/index.php';
     }
 }

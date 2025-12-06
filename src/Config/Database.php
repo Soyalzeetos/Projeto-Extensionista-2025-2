@@ -29,7 +29,7 @@ class Database
                 ]);
             } catch (PDOException $e) {
                 error_log($e->getMessage());
-                die("Erro interno de conexão.");
+                throw new \Exception("Erro ao conectar com o banco de dados.");
             }
         }
         return self::$instance;

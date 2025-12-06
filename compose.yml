@@ -1,6 +1,8 @@
 services:
   app:
-    build: .
+    build:
+      context: .
+      dockerfile: .docker/php/Dockerfile
     container_name: center_ferramentas_app
     ports:
       - "${APP_PORT}:80"

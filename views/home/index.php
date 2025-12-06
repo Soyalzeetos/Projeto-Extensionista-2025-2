@@ -1,20 +1,11 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Center Ferramentas | Qualidade e Confiança</title>
-    <link rel="icon" type="image/x-icon" href="favicon.ico" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="assets/css/style.css" />
-</head>
+<?php
+$pageTitle = 'Center Ferramentas | Home';
+require __DIR__ . '/../partials/head.php';
+?>
 
 <body class="bg-light d-flex flex-column min-vh-100">
 
-    <?php require __DIR__ . '/partials/Header.php'; ?>
+    <?php require __DIR__ . '/../partials/header.php'; ?>
 
     <main class="flex-grow-1">
         <div class="container-fluid marquee text-nowrap py-2 overflow-hidden border-bottom border-dark border-2">
@@ -128,7 +119,7 @@
         </section>
     </main>
 
-    <?php require __DIR__ . '/partials/Footer.php'; ?>
+    <?php require __DIR__ . '/../partials/footer.php'; ?>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

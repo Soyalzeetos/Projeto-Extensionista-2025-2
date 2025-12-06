@@ -18,6 +18,6 @@ class HomeController
         $products = $this->productRepository->findAllRegular();
         $categories = $this->categoryRepository->findAll();
 
-        require __DIR__ . '/../../views/Home.php';
+        require __DIR__ . '/../../views/home/index.php';
     }
 }
