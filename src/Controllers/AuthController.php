@@ -28,11 +28,14 @@ class AuthController
             $_SESSION['user_id'] = $user->id;
             $_SESSION['user_name'] = $user->name;
             $_SESSION['user_email'] = $user->email;
+            $_SESSION['user_role'] = $user->role;
+            $_SESSION['user_permissions'] = $user->permissions;
 
             $userDataJson = json_encode([
                 'id' => $user->id,
                 'name' => $user->name,
-                'email' => $user->email
+                'email' => $user->email,
+                'role' => $user->role
             ]);
 
             require __DIR__ . '/../../views/auth/store_session.php';
@@ -48,7 +51,6 @@ class AuthController
             session_start();
         }
         session_destroy();
-
         require __DIR__ . '/../../views/auth/clear_session.php';
     }
 }

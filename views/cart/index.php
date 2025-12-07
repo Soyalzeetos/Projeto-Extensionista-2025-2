@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-
 <?php require __DIR__ . '/../partials/head.php'; ?>
 
 <body>

@@ -15,6 +15,10 @@ services:
       - DB_NAME=${MYSQL_DATABASE}
       - DB_USER=${MYSQL_USER}
       - DB_PASS=${MYSQL_PASSWORD}
+      - APP_ADMIN_NAME=${ADMIN_NAME}
+      - APP_ADMIN_EMAIL=${ADMIN_EMAIL}
+      - APP_ADMIN_PASS=${ADMIN_PASSWORD}
+    command: sh -c "php database/seed.php && apache2-foreground"
 
   db:
     image: mysql:8.0

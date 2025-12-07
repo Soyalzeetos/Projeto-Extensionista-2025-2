@@ -9,10 +9,44 @@ CREATE TABLE IF NOT EXISTS users (
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE,
     password_hash VARCHAR(255),
+    active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE IF NO
+CREATE TABLE IF NOT EXISTS roles (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(50) NOT NULL,
+    slug VARCHAR(50) NOT NULL UNIQUE,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS permissions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    slug VARCHAR(100) NOT NULL UNIQUE,
+    description TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS role_permissions (
+    role_id INT NOT NULL,
+    permission_id INT NOT NULL,
+    PRIMARY KEY (role_id, permission_id),
+    FOREIGN KEY (role_id) REFERENCES roles (id) ON DELETE CASCADE,
+    FOREIGN KEY (permission_id) REFERENCES permissions (id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS employees (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL UNIQUE,
+    role_id INT NOT NULL,
+    registration_number VARCHAR(20) UNIQUE,
+    hire_date DATE,
+    department VARCHAR(100),
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
+    FOREIGN KEY (role_id) REFERENCES roles (id) ON DELETE RESTRICT
+);
 
 CREATE TABLE IF NOT EXISTS categories (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -53,6 +87,64 @@ CREATE TABLE IF NOT EXISTS product_promotions (
     FOREIGN KEY (product_id) REFERENCES products (id) ON DELETE CASCADE,
     FOREIGN KEY (promotion_id) REFERENCES promotions (id) ON DELETE CASCADE
 );
+
+INSERT INTO
+    roles (name, slug, description)
+VALUES (
+        'Administrador',
+        'admin',
+        'Acesso total ao sistema'
+    ),
+    (
+        'Gerente de Vendas',
+        'sales_manager',
+        'Gestão de produtos e relatórios de vendas'
+    ),
+    (
+        'Vendedor',
+        'salesperson',
+        'Realiza vendas e consulta estoque'
+    );
+
+INSERT INTO
+    permissions (name, slug, description)
+VALUES (
+        'Criar Produtos',
+        'products.create',
+        'Permite cadastrar novos produtos'
+    ),
+    (
+        'Editar Produtos',
+        'products.edit',
+        'Permite alterar dados de produtos'
+    ),
+    (
+        'Excluir Produtos',
+        'products.delete',
+        'Permite remover produtos'
+    ),
+    (
+        'Visualizar Relatórios',
+        'reports.view',
+        'Acesso a dashboards gerenciais'
+    ),
+    (
+        'Realizar Venda',
+        'sales.create',
+        'Permite fechar pedidos'
+    );
+
+INSERT INTO
+    role_permissions (role_id, permission_id)
+SELECT 1, id
+FROM permissions;
+
+INSERT INTO
+    role_permissions (role_id, permission_id)
+VALUES (2, 1),
+    (2, 2),
+    (2, 4),
+    (3, 5);
 
 INSERT INTO
     categories (name, description)
