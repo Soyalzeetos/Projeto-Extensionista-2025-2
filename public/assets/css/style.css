@@ -1,7 +1,7 @@
 :root {
   --primary-color: #003366;
   --accent-color: #ff7b00;
-  --bg-body: #eaeaea;
+  --bg-body: rgb(234, 234, 234);
   --white: #ffffff;
   --black: #000000;
   --snow: #fffafa;
@@ -10,6 +10,7 @@
   --focus-ring: #ff7b0080;
   --shadow-soft: #0000004d;
   --shadow-strong: #000000cc;
+  --notification-color: #dc3545;
 }
 
 body {
@@ -18,6 +19,20 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+}
+
+.text-brand {
+  color: var(--primary-color) !important;
+}
+
+.text-accent {
+  color: var(--accent-color) !important;
+}
+
+.badge-notification {
+  background-color: var(--notification-color);
+  color: var(--white);
+  border: 1px solid var(--white);
 }
 
 .navbar-custom {
@@ -32,6 +47,25 @@ body {
 .navbar-custom .input-group:focus-within {
   box-shadow: 0 0 0 3px var(--focus-ring);
   border-radius: 50rem;
+}
+
+.dropdown .btn-header-login {
+  color: var(--white);
+  background-color: var(--accent-color);
+  font-weight: 700;
+  border-radius: 4px;
+  padding: 6px 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-header-login:hover {
+  background-color: var(--white);
+  color: var(--primary-color);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px var(--shadow-soft);
 }
 
 .logo {

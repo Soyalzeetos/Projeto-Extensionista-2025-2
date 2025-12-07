@@ -21,30 +21,62 @@
                 </form>
             </div>
 
-            <div class="col-3 col-lg-2 d-flex justify-content-center gap-3">
+            <div class="col-3 col-lg-2 d-flex justify-content-center gap-3 align-items-center">
+
                 <a href="/carrinho" class="btn border-0 p-0 position-relative" aria-label="Carrinho">
                     <img class="icon-nav" src="assets/img/ui/icone-carrinho.webp" alt="Carrinho" aria-hidden="true" />
-                    <span class="position-absolute top-0 start-100 translate-middle p-1 bg-danger border border-light rounded-circle">
+                    <span class="position-absolute top-0 start-100 translate-middle p-1 badge-notification rounded-circle">
                         <span class="visually-hidden">Novos itens</span>
                     </span>
                 </a>
 
-                <div class="dropdown">
-                    <button class="btn border-0 p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Perfil">
-                        <img class="icon-nav" src="assets/img/ui/icone-perfil.webp" alt="Perfil" aria-hidden="true" />
-                    </button>
-                    <?php require __DIR__ . '/login_dropdown.php'; ?>
-                </div>
+                <?php if (isset($_SESSION['user_id'])): ?>
+                    <div class="dropdown">
+                        <button class="btn border-0 p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Meu Perfil">
+                            <img class="icon-nav" src="assets/img/ui/icone-perfil.webp" alt="Perfil" />
+                        </button>
+
+                        <div class="dropdown-menu dropdown-menu-end shadow p-3" style="min-width: 240px;">
+                            <div class="text-center mb-3">
+                                <span class="d-block text-secondary small">Bem-vindo(a),</span>
+                                <span class="fw-bold fs-5 text-brand text-truncate d-block">
+                                    <?= htmlspecialchars(explode(' ', $_SESSION['user_name'])[0]) ?>
+                                </span>
+                            </div>
+
+                            <div class="dropdown-divider"></div>
+
+                            <a class="dropdown-item py-2" href="#">
+                                <i class="fa-regular fa-user me-2 text-secondary"></i> Minha Conta
+                            </a>
+                            <a class="dropdown-item py-2" href="#">
+                                <i class="fa-solid fa-box-open me-2 text-secondary"></i> Meus Pedidos
+                            </a>
+
+                            <div class="dropdown-divider"></div>
+
+                            <a class="dropdown-item text-danger py-2" href="/logout">
+                                <i class="fa-solid fa-right-from-bracket me-2"></i> Sair
+                            </a>
+                        </div>
+                    </div>
+                <?php else: ?>
+                    <div class="dropdown">
+                        <button class="btn btn-header-login" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-regular fa-user"></i> <span>Entrar</span>
+                        </button>
+                        <?php require __DIR__ . '/login_dropdown.php'; ?>
+                    </div>
+                <?php endif; ?>
+
             </div>
 
             <div class="col-lg-12 d-flex justify-content-center gap-3 mt-3">
                 <div class="d-flex gap-3">
-
                     <div class="dropdown">
                         <button class="dropbtn btn-departments">
                             <i class="fa-solid fa-bars"></i> DEPARTAMENTOS
                         </button>
-
                         <div class="dropdown-content">
                             <?php if (!empty($categories)): ?>
                                 <?php foreach ($categories as $category): ?>
@@ -63,13 +95,8 @@
                             Orçamentos <i class="fa fa-caret-down"></i>
                         </button>
                         <div class="dropdown-content">
-                            <a target="_blank" href="https://wa.me/5534991975188?text=Gostaria%20de%20solicitar%20%20uma%20cota%C3%A7%C3%A3o" class="text-center">Solicitar Cotação</a>
+                            <a target="_blank" href="https://wa.me/5534991975188" class="text-center">Solicitar Cotação</a>
                             <a href="#" class="text-center">Vendas Corporativas</a>
-                            <a href="#" class="text-center">Enviar Lista de Material</a>
-                            <hr class="dropdown-divider my-0 border-secondary opacity-25">
-                            <a href="Gostaria de falar com um vendedor" class="text-center fw-bold">
-                                <i class="fa-brands fa-whatsapp text-success"></i> Falar com um vendedor
-                            </a>
                         </div>
                     </div>
 
@@ -82,7 +109,6 @@
                             <a href="#" class="text-center">Fale Conosco</a>
                         </div>
                     </div>
-
                 </div>
             </div>
 
