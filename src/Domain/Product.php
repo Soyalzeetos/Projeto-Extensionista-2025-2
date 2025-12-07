@@ -40,7 +40,7 @@ class Product
         $imgSrc = 'assets/img/ui/sem-imagem.webp';
 
         if (!empty($data['image_data']) && !empty($data['image_mime'])) {
-            $base64 = base64_encode($data['image_data']);
+            $base64 = $data['image_data'];
             $mime = $data['image_mime'];
             $imgSrc = "data:$mime;base64,$base64";
         }

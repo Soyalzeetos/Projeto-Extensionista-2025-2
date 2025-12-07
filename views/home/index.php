@@ -18,6 +18,7 @@ require __DIR__ . '/../partials/head.php';
             </div>
         </div>
 
+<<<<<<< HEAD
         <section class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10 caixa-promocao p-3 p-md-4 rounded-4 shadow-lg">
@@ -84,6 +85,9 @@ require __DIR__ . '/../partials/head.php';
                 </div>
             </div>
         </section>
+=======
+        <?php require __DIR__ . '/../partials/promotion_card.php'; ?>
+>>>>>>> 8a136a4c2e54c0190927075cbdfb24e22830b413
 
         <section class="secao-vendas container mb-5 my-5 rounded-4 g-5">
             <h2 class="pt-3 mb-4 texto-secao">Nossos produtos</h2>
@@ -104,17 +108,21 @@ require __DIR__ . '/../partials/head.php';
                                     </a>
                                 </h5>
                                 <p class="card-text small text-secondary text-truncate"><?= htmlspecialchars($product->description) ?></p>
-                                <div class="mt-auto">
-                                    <p class="card-text fw-bold fs-5 text-primary mb-1"><?= $product->getFormattedCashPrice() ?></p>
-                                    <small class="text-muted d-block mb-2">ou <?= $product->getFormattedInstallmentPrice() ?> a prazo</small>
+                                <div class="d-flex">
+                                    <div class="mt-auto">
+                                        <p class="card-text fw-bold fs-5 text-primary mb-1"><?= $product->getFormattedCashPrice() ?></p>
+                                        <small class="text-muted d-block mb-2">ou <?= $product->getFormattedInstallmentPrice() ?> a prazo</small>
 
-                                    <a href="/produto?id=<?= $product->id ?>" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+                                        <a href="/produto?id=<?= $product->id ?>" class="btn btn-primary w-100 rounded-pill">Comprar</a>
+                                    </div>
+                                    <a href="" class="stretched-link">
+                                        <img class="icon-nav" src="assets/img/ui/icone-carrinho.webp" alt="Perfil" />
+                                    </a>
                                 </div>
-                                <a href="/produto?id=<?= $product->id ?>" class="stretched-link">Adicionar ao carrinho</a>
 
                             </div>
-                            
-                            
+
+
                         </div>
                     </div>
                 <?php endforeach; ?>

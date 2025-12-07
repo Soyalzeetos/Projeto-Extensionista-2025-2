@@ -53,6 +53,33 @@ try {
         echo "[ERROR] Role 'admin' não encontrada. Rode o init.sql primeiro.\n";
     }
 
+    echo "[INFO] Iniciando atualização de imagens dos produtos...\n";
+
+    $productImages = [
+        1 => __DIR__ . '/../public/assets/img/produtos/serra-circular-de-bancada.webp',
+        2 => __DIR__ . '/../public/assets/img/produtos/zoom-1712-A7019.webp',
+        3 => __DIR__ . '/../public/assets/img/produtos/martelete-makita.webp',
+        4 => __DIR__ . '/../public/assets/img/produtos/arame-farpado.webp',
+        5 => __DIR__ . '/../public/assets/img/produtos/chave-sextavada.webp',
+    ];
+
+    $stmtUpdateImg = $pdo->prepare("UPDATE products SET image_data = ?, image_mime = ? WHERE id = ?");
+
+    foreach ($productImages as $id => $filePath) {
+        if (file_exists($filePath)) {
+            $binaryData = file_get_contents($filePath);
+
+            $base64Data = base64_encode($binaryData);
+
+            $mimeType = mime_content_type($filePath);
+
+            $stmtUpdateImg->execute([$base64Data, $mimeType, $id]);
+            echo "[SUCCESS] Imagem atualizada para o produto ID: $id\n";
+        } else {
+            echo "[WARNING] Imagem não encontrada para o produto ID: $id ($filePath)\n";
+        }
+    }
+
     $pdo->commit();
 } catch (Exception $e) {
     if (isset($pdo) && $pdo->inTransaction()) {
