@@ -20,7 +20,7 @@
             <a href="/recuperar-senha" class="login-link small">Esqueceu a senha?</a>
         </div>
 
-        <button type="submit" class="btn btn-login w-100 py-2 rounded-pill">Entrar</button>
+        <button type="submit" class="btn btn-login w-100 py-2">Entrar</button>
     </form>
 
     <div class="dropdown-divider my-3"></div>

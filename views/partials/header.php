@@ -12,9 +12,9 @@
                 <form role="search" class="search-class">
                     <label for="campo-busca" class="visually-hidden">Buscar</label>
                     <div class="input-group">
-                        <input class="form-control border-0 rounded-start-pill py-2 ps-4" type="search" id="campo-busca"
+                        <input class="form-control border-0 py-2 ps-4" type="search" id="campo-busca"
                             placeholder="O que você precisa para sua obra hoje?" />
-                        <button class="btn btn-light border-0 rounded-end-pill pe-4" type="button">
+                        <button class="btn btn-light border-0 pe-4" type="button">
                             <i class="fa-solid fa-magnifying-glass text-secondary"></i>
                         </button>
                     </div>
