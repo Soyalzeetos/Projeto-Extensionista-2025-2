@@ -51,6 +51,17 @@ body {
   border-radius: 50rem;
 }
 
+.cart-dropdown-menu {
+  min-width: 300px;
+  z-index: 1050;
+  border: none;
+  box-shadow: 0 10px 30px var(--shadow-strong);
+  border-radius: 12px;
+  padding: 1rem;
+  background-color: var(--white);
+}
+
+
 .dropdown .btn-header-login {
   color: var(--white);
   background-color: var(--accent-color);
@@ -292,6 +303,7 @@ body {
 .carousel-control-next {
   right: -15px;
 }
+
 
 .carousel-indicators [data-bs-target] {
   background-color: var(--accent-color);

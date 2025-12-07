@@ -110,7 +110,11 @@ require __DIR__ . '/../partials/head.php';
 
                                     <a href="/produto?id=<?= $product->id ?>" class="btn btn-primary w-100 rounded-pill">Comprar</a>
                                 </div>
+                                <a href="/produto?id=<?= $product->id ?>" class="stretched-link">Adicionar ao carrinho</a>
+
                             </div>
+                            
+                            
                         </div>
                     </div>
                 <?php endforeach; ?>

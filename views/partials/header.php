@@ -28,7 +28,7 @@
                         <img class="icon-nav" src="assets/img/ui/icone-carrinho.webp" alt="Perfil" />
                     </button>
 
-                    <?php require __DIR__ . '/cart.php'; ?>
+                    <?php require __DIR__ . '/cart_dropdown.php'; ?>
                 </div>
 
 
