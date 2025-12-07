@@ -41,13 +41,14 @@
                 <div class="d-flex gap-3">
 
                     <div class="dropdown">
-                        <button class="dropbtn">
-                            Categorias <i class="fa fa-caret-down"></i>
+                        <button class="dropbtn btn-departments">
+                            <i class="fa-solid fa-bars"></i> DEPARTAMENTOS
                         </button>
+
                         <div class="dropdown-content">
                             <?php if (!empty($categories)): ?>
                                 <?php foreach ($categories as $category): ?>
-                                    <a href="/?category_id=<?= $category->id ?>" class="text-center">
+                                    <a href="/?category_id=<?= $category->id ?>" class="text-start px-4">
                                         <?= htmlspecialchars($category->name) ?>
                                     </a>
                                 <?php endforeach; ?>
