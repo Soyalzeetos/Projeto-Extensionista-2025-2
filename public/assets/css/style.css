@@ -47,7 +47,7 @@ body {
 }
 
 .navbar-custom .input-group:focus-within {
-  box-shadow: 0 0 0 3px var(--focus-ring);
+  box-shadow: 0 0 0 0px var(--focus-ring);
   border-radius: 50rem;
 }
 
@@ -391,4 +391,10 @@ body {
   .carousel-control-next {
     width: 10%;
   }
+}
+
+@media (max-width: 576px) {
+    .form-control::placeholder {
+        color: transparent;
+    }
 }
