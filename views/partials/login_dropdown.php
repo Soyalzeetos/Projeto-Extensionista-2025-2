@@ -11,7 +11,7 @@
             <div class="mb-3">
                 <label for="senhaLogin" class="form-label small fw-bold text-secondary">Senha</label>
                 <input type="password" class="form-control" id="senhaLogin" name="password" placeholder="Digite sua senha" required>
-                
+
             </div>
 
             <div class="mb-3 d-flex justify-content-between align-items-center">
@@ -71,6 +71,7 @@
 
 <script>
     function alternarTelas(event) {
+        // Impede que o clique no botão feche o dropdown do Bootstrap
         event.stopPropagation();
         event.preventDefault();
 

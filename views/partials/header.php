@@ -2,13 +2,13 @@
     <nav class="navbar-custom container-fluid py-3">
         <div class="row align-items-center">
 
-            <div class="col-3 col-lg-2 text-center">
+            <div class="col-xs-2 col-3 col-lg-2 text-center">
                 <a href="/" aria-label="Home">
                     <img class="logo img-fluid" src="assets/img/ui/logo.webp" alt="Center Ferramentas" />
                 </a>
             </div>
 
-            <div class="col-6 col-lg-8">
+            <div class="col-xs-6 col-6 col-lg-8">
                 <form role="search" class="search-class">
                     <label for="campo-busca" class="visually-hidden">Buscar</label>
                     <div class="input-group">
@@ -21,7 +21,7 @@
                 </form>
             </div>
 
-            <div class="col-3 col-lg-2 d-flex justify-content-center gap-3 align-items-center">
+            <div class="col-xs-5 col-3 col-lg-2 d-flex justify-content-center gap-3 items-center">
 
                 <div class="dropdown">
                     <button class="btn border-0 p-0" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Carrinho de Compras">
@@ -78,9 +78,10 @@
                     <?php else: ?>
                         <div class="dropdown">
                             <button class="btn btn-header-login" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fa-regular fa-user"></i> <span>Entrar</span>
+                                <i class="fa-regular fa-user"></i> <span class="d-none d-lg-flex">Entrar</span>
                             </button>
                             <?php require __DIR__ . '/login_dropdown.php'; ?>
+                            
                         </div>
                     <?php endif; ?>
 
@@ -90,7 +91,7 @@
                     <div class="d-flex gap-3">
                         <div class="dropdown">
                             <button class="dropbtn btn-departments">
-                                <i class="fa-solid fa-bars"></i> DEPARTAMENTOS
+                                <i class="fa-solid fa-bars"></i> <span class="d-none d-md-flex">DEPARTAMENTOS</span>
                             </button>
                             <div class="dropdown-content">
                                 <?php if (!empty($categories)): ?>
