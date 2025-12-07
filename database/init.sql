@@ -74,7 +74,7 @@ CREATE TABLE IF NOT EXISTS products (
     price_cash DECIMAL(10, 2) NOT NULL,
     price_installments DECIMAL(10, 2) NOT NULL,
     stock_quantity INT DEFAULT 0,
-    image_data LONGBLOB,
+    image_data LONGTEXT,
     image_mime VARCHAR(50),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (category_id) REFERENCES categories (id) ON DELETE SET NULL
@@ -195,8 +195,18 @@ VALUES (
         NULL
     ),
     (
-        'Desempenadeira de vidro',
-        'Otima para sua obra? O erro é o vidro?.',
+        'Arame Farpado',
+        'Farpa bem',
+        199.90,
+        239.90,
+        1,
+        85,
+        NULL,
+        NULL
+    ),
+    (
+        'Chave Sextavada',
+        'Chave de sextavar',
         199.90,
         239.90,
         1,
