@@ -18,7 +18,6 @@ require __DIR__ . '/../partials/head.php';
             </div>
         </div>
 
-<<<<<<< HEAD
         <section class="container my-5">
             <div class="row justify-content-center">
                 <div class="col-12 col-lg-10 caixa-promocao p-3 p-md-4 rounded-4 shadow-lg">
@@ -85,9 +84,6 @@ require __DIR__ . '/../partials/head.php';
                 </div>
             </div>
         </section>
-=======
-        <?php require __DIR__ . '/../partials/promotion_card.php'; ?>
->>>>>>> 8a136a4c2e54c0190927075cbdfb24e22830b413
 
         <section class="secao-vendas container mb-5 my-5 rounded-4 g-5">
             <h2 class="pt-3 mb-4 texto-secao">Nossos produtos</h2>
