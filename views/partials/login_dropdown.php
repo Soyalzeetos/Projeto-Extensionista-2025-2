@@ -11,6 +11,7 @@
             <div class="mb-3">
                 <label for="senhaLogin" class="form-label small fw-bold text-secondary">Senha</label>
                 <input type="password" class="form-control" id="senhaLogin" name="password" placeholder="Digite sua senha" required>
+                
             </div>
 
             <div class="mb-3 d-flex justify-content-between align-items-center">
@@ -37,12 +38,12 @@
     <div id="tela-registro" class="d-none">
         <h6 class="login-title mb-3">Crie sua conta</h6>
         <form action="/register" method="POST">
-            
+
             <div class="mb-3">
                 <label class="form-label small fw-bold text-secondary">Nome Completo</label>
                 <input type="text" class="form-control" required placeholder="Ex: João Inacio Gleison">
             </div>
-            
+
             <div class="mb-3">
                 <label class="form-label small fw-bold text-secondary">E-mail</label>
                 <input type="email" class="form-control" placeholder="ex: joao@email.com" required>
@@ -70,27 +71,22 @@
 
 <script>
     function alternarTelas(event) {
-        // Impede que o clique no botão feche o dropdown do Bootstrap
         event.stopPropagation();
         event.preventDefault();
 
         const loginView = document.getElementById('tela-login');
         const registerView = document.getElementById('tela-registro');
 
-        // Alterna as classes d-none (display: none) do Bootstrap
         if (loginView.classList.contains('d-none')) {
-            // Mostra Login, Esconde Registro
             loginView.classList.remove('d-none');
             registerView.classList.add('d-none');
         } else {
-            // Mostra Registro, Esconde Login
             loginView.classList.add('d-none');
             registerView.classList.remove('d-none');
         }
     }
-    
-    // Dica extra: Adicione isso para evitar que cliques dentro do formulário fechem o menu
-    document.querySelector('.login-dropdown-menu').addEventListener('click', function (e) {
+
+    document.querySelector('.login-dropdown-menu').addEventListener('click', function(e) {
         e.stopPropagation();
     });
 </script>
