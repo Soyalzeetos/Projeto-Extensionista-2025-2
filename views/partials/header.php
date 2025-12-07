@@ -42,9 +42,22 @@
                                 <span class="fw-bold fs-5 text-brand text-truncate d-block">
                                     <?= htmlspecialchars(explode(' ', $_SESSION['user_name'])[0]) ?>
                                 </span>
+
+                                <?php if (!empty($_SESSION['user_role'])): ?>
+                                    <span class="badge bg-primary mt-1">
+                                        <?= htmlspecialchars(strtoupper($_SESSION['user_role'])) ?>
+                                    </span>
+                                <?php endif; ?>
                             </div>
 
                             <div class="dropdown-divider"></div>
+
+                            <?php if (!empty($_SESSION['user_role'])): ?>
+                                <a class="dropdown-item py-2 fw-bold text-primary" href="/admin/dashboard">
+                                    <i class="fa-solid fa-gauge-high me-2"></i> Painel Admin
+                                </a>
+                                <div class="dropdown-divider"></div>
+                            <?php endif; ?>
 
                             <a class="dropdown-item py-2" href="#">
                                 <i class="fa-regular fa-user me-2 text-secondary"></i> Minha Conta
