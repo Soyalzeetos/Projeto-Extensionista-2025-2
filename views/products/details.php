@@ -27,14 +27,26 @@
 
                     <div class="d-flex align-items-end mb-4 flex-column align-items-start">
                         <div class="mt-1 d-flex align-items-end flex-column">
-                            <span class="text-success small fw-bold ms-2">À vista no Pix</span>
-                            <span class="fs-1 fw-bold text-dark"><?= $product->getFormattedCashPrice() ?></span>
+                            <span class="text-success small fw-bold ms-2 ">À vista no Pix</span>
+                            <span class="fs-1 fw-bold primary-text-color"><?= $product->getFormattedCashPrice() ?></span>
                         </div>
                         <div>
                             <span class="text-muted small">Ou a prazo por apenas: </span>
                             <span class="d-inline-block text-muted fs-5">
                                 <?= $product->getFormattedInstallmentPrice() ?>
                             </span>
+                        </div>
+                        <div class="mt-auto w-100">
+
+                            <div class="d-flex gap-2 align-items-center">
+                                <a href="/produto?id=<?= $product->id ?>" class="btn btn-buy rounded-pill flex-grow-1 fw-bold">
+                                    Comprar
+                                </a>
+
+                                <a href="/carrinho/adicionar?id=<?= $product->id ?>" class="btn-add-cart shadow-sm" title="Adicionar ao Carrinho">
+                                    <i class="fa-solid fa-cart-plus"></i>
+                                </a>
+                            </div>
                         </div>
 
                         <?php if ($product->discountPercentage > 0): ?>
