@@ -17,7 +17,7 @@
                               <div class="carousel-item <?= $idx === 0 ? 'active' : '' ?>">
                                   <div class="card overflow-hidden h-100 position-relative" style="min-height: 400px">
                                       <div class="row g-0 h-100">
-                                          <div class="col-md-6 bg-light d-flex align-items-center justify-content-center p-4 card-img-container">
+                                          <div class="col-md-6 d-flex align-items-center justify-content-center p-4 card-img-container">
                                               <a href="/produto?id=<?= $product->id ?>" class="d-flex justify-content-center w-100 h-100 align-items-center text-decoration-none">
                                                   <img src="<?= htmlspecialchars($product->imageUrl) ?>" class="img-fluid card-product-img" style="max-height: 250px; object-fit: contain" alt="<?= htmlspecialchars($product->name) ?>" />
                                               </a>

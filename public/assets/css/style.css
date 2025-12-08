@@ -53,6 +53,7 @@ body {
   transform: scale(1.05);
 }
 
+
 .btn-add-cart {
   background-color: var(--accent-color);
   color: var(--primary-color);
@@ -382,6 +383,7 @@ body {
 
 .card-img-container {
   overflow: hidden;
+  color: var(--white);
 }
 
 .card-product-img {
