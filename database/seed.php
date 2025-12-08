@@ -55,6 +55,8 @@ try {
 
     echo "[INFO] Iniciando atualização de imagens dos produtos...\n";
 
+
+    #Para adicionar image siga o modelo =============>" numero do id => __DIR__ . '/../public/assets/img/produtos/nome-da-imagem.webp'"  <=======================
     $productImages = [
         1 => __DIR__ . '/../public/assets/img/produtos/serra-circular-de-bancada.webp',
         2 => __DIR__ . '/../public/assets/img/produtos/zoom-1712-A7019.webp',
