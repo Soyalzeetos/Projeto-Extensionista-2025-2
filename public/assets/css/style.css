@@ -1,7 +1,7 @@
 :root {
   --primary-color: #003366;
   --accent-color: #ff7b00;
-  --bg-body: rgb(234, 234, 234);
+  --bg-body: #eaeaea;
   --white: #ffffff;
   --black: #000000;
   --snow: #fffafa;
@@ -20,8 +20,6 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-
-
 
 .text-brand {
   color: var(--primary-color) !important;
@@ -60,7 +58,6 @@ body {
   padding: 1rem;
   background-color: var(--white);
 }
-
 
 .dropdown .btn-header-login {
   color: var(--white);
@@ -259,6 +256,40 @@ body {
   box-shadow: 0 4px 10px var(--shadow-soft);
 }
 
+.btn-add-cart {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  border: none;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-add-cart:hover {
+  background-color: var(--accent-color) !important;
+  color: var(--primary-color) !important;
+  transform: scale(1.15);
+  box-shadow: 0 0 15px rgba(255, 123, 0, 0.6);
+}
+
+.btn-add-cart i {
+  font-size: 1.2rem;
+}
+
+.btn-buy {
+  background-color: var(--primary-color);
+  color: var(--white);
+}
+
+.primary-text-color {
+  color: var(--accent-color);
+}
+
 .login-dropdown-menu .form-control:focus {
   border-color: var(--accent-color);
   box-shadow: 0 0 0 0.25rem var(--focus-ring);
@@ -303,7 +334,6 @@ body {
 .carousel-control-next {
   right: -15px;
 }
-
 
 .carousel-indicators [data-bs-target] {
   background-color: var(--accent-color);
@@ -362,11 +392,15 @@ body {
   transform: scale(0.95);
 }
 
-.card-body a {
-  transition: transform 0.2s ease;
+.card-img-top:hover {
+  transform: scale(0.95);
 }
 
-.card-body:hover a {
+.card-body .btn-primary {
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.card-body .btn-primary:hover {
   transform: scale(1.05);
 }
 

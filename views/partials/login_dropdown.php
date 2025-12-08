@@ -71,7 +71,6 @@
 
 <script>
     function alternarTelas(event) {
-        // Impede que o clique no botão feche o dropdown do Bootstrap
         event.stopPropagation();
         event.preventDefault();
 
