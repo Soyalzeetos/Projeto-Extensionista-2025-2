@@ -29,10 +29,53 @@ body {
   color: var(--accent-color) !important;
 }
 
+.primary-text-color {
+  color: var(--accent-color);
+}
+
 .badge-notification {
   background-color: var(--notification-color);
   color: var(--white);
   border: 1px solid var(--white);
+}
+
+.btn-buy {
+  background-color: var(--primary-color);
+  color: var(--white);
+  border: 1px solid var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.btn-buy:hover {
+  background-color: var(--gradient-end) !important;
+  border-color: var(--gradient-end) !important;
+  color: var(--white) !important;
+  transform: scale(1.05);
+}
+
+.btn-add-cart {
+  background-color: var(--accent-color);
+  color: var(--primary-color);
+  border: none;
+  width: 42px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  text-decoration: none;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-add-cart:hover {
+  background-color: var(--accent-color) !important;
+  color: var(--primary-color) !important;
+  transform: scale(1.15);
+  box-shadow: 0 0 15px rgba(255, 123, 0, 0.6);
+}
+
+.btn-add-cart i {
+  font-size: 1.2rem;
 }
 
 .navbar-custom {
@@ -256,40 +299,6 @@ body {
   box-shadow: 0 4px 10px var(--shadow-soft);
 }
 
-.btn-add-cart {
-  background-color: var(--accent-color);
-  color: var(--primary-color);
-  border: none;
-  width: 42px;
-  height: 42px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  text-decoration: none;
-  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-}
-
-.btn-add-cart:hover {
-  background-color: var(--accent-color) !important;
-  color: var(--primary-color) !important;
-  transform: scale(1.15);
-  box-shadow: 0 0 15px rgba(255, 123, 0, 0.6);
-}
-
-.btn-add-cart i {
-  font-size: 1.2rem;
-}
-
-.btn-buy {
-  background-color: var(--primary-color);
-  color: var(--white);
-}
-
-.primary-text-color {
-  color: var(--accent-color);
-}
-
 .login-dropdown-menu .form-control:focus {
   border-color: var(--accent-color);
   box-shadow: 0 0 0 0.25rem var(--focus-ring);
@@ -392,16 +401,8 @@ body {
   transform: scale(0.95);
 }
 
-.card-img-top:hover {
-  transform: scale(0.95);
-}
-
-.card-body .btn-primary {
-  transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.card-body .btn-primary:hover {
-  transform: scale(1.05);
+.card-body a {
+  transition: transform 0.2s ease;
 }
 
 @keyframes scroll {
@@ -428,7 +429,7 @@ body {
 }
 
 @media (max-width: 576px) {
-    .form-control::placeholder {
-        color: transparent;
-    }
+  .form-control::placeholder {
+    color: transparent;
+  }
 }
