@@ -32,7 +32,7 @@ require __DIR__ . '/../partials/head.php';
                                 <?php endforeach; ?>
                             </div>
 
-                            <div class="carousel-inner rounded-4 ">
+                            <div class="carousel-inner rounded-4 bg-light">
                                 <?php foreach ($featured as $idx => $product): ?>
                                     <div class="carousel-item <?= $idx === 0 ? 'active' : '' ?>">
                                         <div class="card overflow-hidden h-100 position-relative" style="min-height: 400px">

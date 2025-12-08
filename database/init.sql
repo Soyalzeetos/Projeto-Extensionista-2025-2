@@ -213,6 +213,16 @@ VALUES (
         85,
         NULL,
         NULL
+    ),
+    (
+        'Parafusadeira DeWalt 30V',
+        'Potência de 900W e alta precisão.',
+        1099.00,
+        1499.90,
+        1,
+        10,
+        NULL,
+        NULL
     );
 
 INSERT INTO
