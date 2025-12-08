@@ -18,7 +18,7 @@ require __DIR__ . '/../partials/head.php';
             </div>
         </div>
 
-        <?php require __DIR__ . '/../partials/promotion_card.php'; ?>
+        <?php require __DIR__ . '/../partials/promotion_carousel.php'; ?>
 
         <section class="secao-vendas container mb-5 my-5 rounded-4 g-5">
             <h2 class="pt-3 mb-4 texto-secao">Nossos produtos</h2>
