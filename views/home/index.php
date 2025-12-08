@@ -22,7 +22,7 @@ require __DIR__ . '/../partials/head.php';
 
         <section class="secao-vendas container mb-5 my-5 rounded-4 g-5">
             <h2 class="pt-3 mb-4 texto-secao">Nossos produtos</h2>
-            <div class="col-13 container-fluid row g-3 container-produtos">
+            <div class="row g-4 container-produtos">
 
                 <?php foreach ($products as $product): ?>
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -54,9 +54,7 @@ require __DIR__ . '/../partials/head.php';
                                             Comprar
                                         </a>
 
-                                        <a href="/carrinho/adicionar?id=<?= $product->id ?>"
-                                            class="btn-add-cart shadow-sm"
-                                            title="Adicionar ao Carrinho">
+                                        <a href="/carrinho/adicionar?id=<?= $product->id ?>" class="btn-add-cart shadow-sm" title="Adicionar ao Carrinho">
                                             <i class="fa-solid fa-cart-plus"></i>
                                         </a>
                                     </div>
