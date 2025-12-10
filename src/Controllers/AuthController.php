@@ -36,13 +36,6 @@ class AuthController
             $_SESSION['user_role'] = $user->role;
             $_SESSION['user_permissions'] = $user->permissions;
 
-            $userDataJson = json_encode([
-                'id' => $user->id,
-                'name' => $user->name,
-                'email' => $user->email,
-                'role' => $user->role
-            ]);
-
             Logger::info("Login efetuado com sucesso", [
                 'email' => $email,
                 'user_id' => $user->id,
@@ -116,9 +109,13 @@ class AuthController
         $user = $this->userRepository->findByEmail($email);
 
         if ($user) {
-            $token = bin2hex(random_bytes(16));
+            $token = bin2hex(random_bytes(32));
+            $expiresAt = date('Y-m-d H:i:s', strtotime('+1 hour'));
+
+            $this->userRepository->storePasswordResetToken($email, $token, $expiresAt);
+
             $baseUrl = $_ENV['APP_URL'];
-            $resetLink = "{$baseUrl}/reset-password?token={$token}&email={$email}";
+            $resetLink = "{$baseUrl}/reset-password?token={$token}";
 
             $mail = new PHPMailer(true);
 
@@ -147,18 +144,16 @@ class AuthController
                                 Redefinir Minha Senha
                             </a>
                         </p>
-                        <p>Ou copie este link no navegador:</p>
-                        <p>{$resetLink}</p>
                         <hr>
                         <small>Se você não solicitou isso, ignore este e-mail.</small>
                     </div>
                 ";
 
-                $mail->AltBody = "Olá, {$user->name}. Use este link para redefinir sua senha: {$resetLink}";
+                $mail->AltBody = "Use este link para redefinir sua senha: {$resetLink}";
 
                 $mail->send();
             } catch (Exception $e) {
-                Logger::error("Erro ao enviar e-mail de recuperação de senha", [
+                Logger::error("Erro ao enviar e-mail de recuperação", [
                     'email' => $email,
                     'phpmailer_error' => $mail->ErrorInfo,
                     'exception' => $e->getMessage()
@@ -169,5 +164,49 @@ class AuthController
         }
 
         header('Location: /?success=reset_email_sent');
+    }
+
+    public function showResetForm(): void
+    {
+        $token = filter_input(INPUT_GET, 'token');
+
+        if (!$token) {
+            header('Location: /?error=invalid_token');
+            return;
+        }
+
+        $resetRequest = $this->userRepository->findResetToken($token);
+
+        if (!$resetRequest || strtotime($resetRequest['expires_at']) < time()) {
+            header('Location: /?error=token_expired_or_invalid');
+            return;
+        }
+
+        require __DIR__ . '/../../views/auth/reset_password.php';
+    }
+
+    public function resetPassword(): void
+    {
+        $token = filter_input(INPUT_POST, 'token');
+        $password = filter_input(INPUT_POST, 'password');
+        $passwordConf = filter_input(INPUT_POST, 'password_confirmation');
+
+        if ($password !== $passwordConf) {
+            header("Location: /reset-password?token=$token&error=password_mismatch");
+            return;
+        }
+
+        $resetRequest = $this->userRepository->findResetToken($token);
+
+        if (!$resetRequest || strtotime($resetRequest['expires_at']) < time()) {
+            header('Location: /?error=token_invalid');
+            return;
+        }
+
+        $newHash = password_hash($password, PASSWORD_DEFAULT);
+        $this->userRepository->updatePassword($resetRequest['email'], $newHash);
+        $this->userRepository->deleteResetToken($token);
+
+        header('Location: /?success=password_reset');
     }
 }

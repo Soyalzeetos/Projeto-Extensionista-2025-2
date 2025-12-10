@@ -14,6 +14,14 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE password_resets (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    token VARCHAR(255) NOT NULL,
+    expires_at DATETIME NOT NULL,
+    INDEX (token)
+);
+
 CREATE TABLE IF NOT EXISTS roles (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(50) NOT NULL,
@@ -215,57 +223,56 @@ VALUES (
         NULL,
         NULL
     ),
-    -- (
-    --     'Chave Inglesa',
-    --     'Bebe chá as 6',
-    --     199.90,
-    --     239.90,
-    --     1,
-    --     85,
-    --     NULL,
-    --     NULL
-    -- ),
-    -- (
-    --     'Serra Marmore Makita',
-    --     'Os cara estão na maldade',
-    --     1990.90,
-    --     2390.90,
-    --     1,
-    --     85,
-    --     NULL,
-    --     NULL
-    -- ),
-    -- (
-    --     'Alicate Universal',
-    --     'Eu sou Alexandra Mendes, Eu sou a Universal',
-    --     99.90,
-    --     39.90,
-    --     1,
-    --     85,
-    --     NULL,
-    --     NULL
-    -- ),
-    -- (
-    --     'Alicate DePressão',
-    --     'Corta bem',
-    --     199.90,
-    --     239.90,
-    --     1,
-    --     85,
-    --     NULL,
-    --     NULL
-    -- ),
-    -- (
-    --     'Kit Chave Allien',
-    --     'Ta na hora de virar heroi',
-    --     199.90,
-    --     239.90,
-    --     1,
-    --     85,
-    --     NULL,
-    --     NULL
-    -- )
-    ;
+    (
+        'Chave Inglesa',
+        'Bebe chá as 6',
+        199.90,
+        239.90,
+        1,
+        85,
+        NULL,
+        NULL
+    ),
+    (
+        'Serra Marmore Makita',
+        'Os cara estão na maldade',
+        1990.90,
+        2390.90,
+        1,
+        85,
+        NULL,
+        NULL
+    ),
+    (
+        'Alicate Universal',
+        'Eu sou Alexandra Mendes, Eu sou a Universal',
+        99.90,
+        39.90,
+        1,
+        85,
+        NULL,
+        NULL
+    ),
+    (
+        'Alicate DePressão',
+        'Corta bem',
+        199.90,
+        239.90,
+        1,
+        85,
+        NULL,
+        NULL
+    ),
+    (
+        'Kit Chave Allien',
+        'Ta na hora de virar heroi',
+        199.90,
+        239.90,
+        1,
+        85,
+        NULL,
+        NULL
+    );
 
 INSERT INTO
     promotions (
@@ -284,5 +291,5 @@ VALUES (
 INSERT INTO
     product_promotions (product_id, promotion_id)
 VALUES (1, 1),
-    (2, 1);
-    (4,1);
+    (2, 1),
+    (4, 1);

@@ -1,17 +1,21 @@
-<!DOCTYPE html>
-<html lang="pt-br">
+<?php
+if (!isset($userDataJson)) {
+    header('Location: /');
+    exit;
+}
+?>
+<script>
+    localStorage.setItem('user_data', '<?= $userDataJson ?>');
 
-<head>
-    <meta charset="UTF-8">
-    <title>Autenticando...</title>
-</head>
-
-<body>
-    <script>
-        const user = <?= $userDataJson ?>;
-        localStorage.setItem('user_session', JSON.stringify(user));
+    if (window.location.pathname === '/login') {
         window.location.href = '/';
-    </script>
-</body>
+    } else {
+        window.location.reload();
+    }
+</script>
 
-</html>
+<?php
+?>
+<noscript>
+    <meta http-equiv="refresh" content="0;url=/">
+</noscript>

@@ -26,9 +26,7 @@ class Router
     public function dispatch(string $uri, string $method): void
     {
         $startTime = microtime(true);
-
         $requestId = $this->generateRequestId();
-
         $path = parse_url($uri, PHP_URL_PATH);
 
         try {

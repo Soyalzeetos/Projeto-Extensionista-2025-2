@@ -69,4 +69,41 @@ class UserRepository
             ':password_hash' => $user->passwordHash
         ]);
     }
+
+    public function storePasswordResetToken(string $email, string $token, string $expiresAt): bool
+    {
+        $stmt = $this->pdo->prepare("DELETE FROM password_resets WHERE email = :email");
+        $stmt->execute([':email' => $email]);
+
+        $sql = "INSERT INTO password_resets (email, token, expires_at) VALUES (:email, :token, :expiresAt)";
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([
+            ':email' => $email,
+            ':token' => $token,
+            ':expiresAt' => $expiresAt
+        ]);
+    }
+
+    public function findResetToken(string $token): ?array
+    {
+        $stmt = $this->pdo->prepare("SELECT * FROM password_resets WHERE token = :token LIMIT 1");
+        $stmt->execute([':token' => $token]);
+        $data = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $data ?: null;
+    }
+
+    public function updatePassword(string $email, string $passwordHash): bool
+    {
+        $stmt = $this->pdo->prepare("UPDATE users SET password_hash = :hash WHERE email = :email");
+        return $stmt->execute([
+            ':hash' => $passwordHash,
+            ':email' => $email
+        ]);
+    }
+
+    public function deleteResetToken(string $token): void
+    {
+        $stmt = $this->pdo->prepare("DELETE FROM password_resets WHERE token = :token");
+        $stmt->execute([':token' => $token]);
+    }
 }

@@ -34,13 +34,13 @@ class Logger
             $contextString
         );
 
-        file_put_contents('php://stderr', $logLine, FILE_APPEND);
+        // file_put_contents('php://stderr', $logLine, FILE_APPEND);
 
-        if (!is_dir(self::LOG_DIR)) {
-            mkdir(self::LOG_DIR, 0777, true);
-        }
-        $filename = self::LOG_DIR . '/app-' . date('Y-m-d') . '.log';
-        file_put_contents($filename, $logLine, FILE_APPEND);
+        // if (!is_dir(self::LOG_DIR)) {
+        //     mkdir(self::LOG_DIR, 0777, true);
+        // }
+        // $filename = self::LOG_DIR . '/app-' . date('Y-m-d') . '.log';
+        // file_put_contents($filename, $logLine, FILE_APPEND);
     }
 
     private static function formatContext(array $context): string

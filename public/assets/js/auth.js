@@ -141,6 +141,23 @@ function mascaraTelefone(input) {
   input.value = v;
 }
 
+function exibirMensagemErro(container, form, message) {
+  if (!container || !form) return;
+
+  const alertDiv = document.createElement("div");
+  alertDiv.className =
+    "alert alert-danger py-2 small shadow-sm border-0 d-flex align-items-center mb-3";
+  alertDiv.innerHTML = `<i class="fa-solid fa-circle-exclamation me-2"></i> <div>${message}</div>`;
+
+  const existingAlert = container.querySelector(".alert");
+  if (existingAlert) existingAlert.remove();
+
+  container.insertBefore(alertDiv, form);
+
+  const inputs = form.querySelectorAll("input");
+  inputs.forEach((input) => input.classList.add("is-invalid"));
+}
+
 function handleAuthFeedback() {
   const urlParams = new URLSearchParams(window.location.search);
   const errorType = urlParams.get("error");
@@ -159,20 +176,7 @@ function handleAuthFeedback() {
       ? loginContainer.querySelector("form")
       : null;
 
-    if (loginForm) {
-      const alertDiv = document.createElement("div");
-      alertDiv.className =
-        "alert alert-danger py-2 small shadow-sm border-0 d-flex align-items-center mb-3";
-      alertDiv.innerHTML = `<i class="fa-solid fa-circle-exclamation me-2"></i> <div>${message}</div>`;
-
-      const existingAlert = loginContainer.querySelector(".alert");
-      if (existingAlert) existingAlert.remove();
-
-      loginContainer.insertBefore(alertDiv, loginForm);
-
-      const inputs = loginForm.querySelectorAll("input");
-      inputs.forEach((input) => input.classList.add("is-invalid"));
-    }
+    exibirMensagemErro(loginContainer, loginForm, message);
   }
 
   if (successType === "reset_email_sent") {
@@ -202,6 +206,41 @@ document.addEventListener("DOMContentLoaded", function () {
       e.stopPropagation();
     });
   });
+
+  const loginForm = document.getElementById("loginForm");
+  if (loginForm) {
+    loginForm.addEventListener("submit", function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+
+      fetch("/login", {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => {
+          if (response.redirected) {
+            const url = new URL(response.url);
+            const error = url.searchParams.get("error");
+
+            if (error) {
+              const message =
+                ERROR_MESSAGES[error] || ERROR_MESSAGES["default"];
+              const loginContainer = document.getElementById("tela-login");
+              exibirMensagemErro(loginContainer, this, message);
+            } else {
+              window.location.reload();
+            }
+          } else {
+            window.location.reload();
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+          const loginContainer = document.getElementById("tela-login");
+          exibirMensagemErro(loginContainer, this, ERROR_MESSAGES["default"]);
+        });
+    });
+  }
 
   handleAuthFeedback();
 });

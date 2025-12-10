@@ -23,6 +23,8 @@ try {
     $router->post('/login', [AuthController::class, 'login']);
     $router->post('/forgot-password', [AuthController::class, 'forgotPassword']);
     $router->get('/logout', [AuthController::class, 'logout']);
+    $router->get('/reset-password', [AuthController::class, 'showResetForm']);
+    $router->post('/reset-password', [AuthController::class, 'resetPassword']);
 
     $uri = $_SERVER['REQUEST_URI'] ?? '/';
     $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
