@@ -55,14 +55,17 @@ try {
 
     echo "[INFO] Iniciando atualização de imagens dos produtos...\n";
 
-
-    #Para adicionar image siga o modelo =============>" numero do id => __DIR__ . '/../public/assets/img/produtos/nome-da-imagem.webp'"  <=======================
     $productImages = [
         1 => __DIR__ . '/../public/assets/img/produtos/serra-circular-de-bancada.webp',
         2 => __DIR__ . '/../public/assets/img/produtos/zoom-1712-A7019.webp',
         3 => __DIR__ . '/../public/assets/img/produtos/martelete-makita.webp',
         4 => __DIR__ . '/../public/assets/img/produtos/arame-farpado.webp',
         5 => __DIR__ . '/../public/assets/img/produtos/chave-sextavada.webp',
+        // 6 => __DIR__ . '/../public/assets/img/produtos/chave-inglesa.webp',
+        // 7 => __DIR__ . '/../public/assets/img/produtos/serra-marmore-makita.webp',
+        // 8 => __DIR__ . '/../public/assets/img/produtos/alicate-universal.webp',
+        // 9 => __DIR__ . '/../public/assets/img/produtos/alicate-de-pressao.webp',
+        // 10 => __DIR__ . '/../public/assets/img/produtos/kit-chave-allen.webp',
     ];
 
     $stmtUpdateImg = $pdo->prepare("UPDATE products SET image_data = ?, image_mime = ? WHERE id = ?");
