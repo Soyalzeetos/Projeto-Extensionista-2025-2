@@ -24,7 +24,6 @@ services:
       - SMTP_USER=${SMTP_USER}
       - SMTP_PASSWORD=${SMTP_PASSWORD}
       - SMTP_FROM=${SMTP_FROM}
-      - SMTP_FROM_NAME${SMTP_FROM_NAME}
     command: sh -c "php database/seed.php && apache2-foreground"
 
   db:

@@ -2,8 +2,9 @@
 
 namespace App\Controllers;
 
-use App\Repository\UserRepository;
+use App\Core\Logger;
 use App\Domain\User;
+use App\Repository\UserRepository;
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 use PHPMailer\PHPMailer\SMTP;
@@ -42,9 +43,20 @@ class AuthController
                 'role' => $user->role
             ]);
 
+            Logger::info("Login efetuado com sucesso", [
+                'email' => $email,
+                'user_id' => $user->id,
+                'role' => $user->role
+            ]);
+
             require __DIR__ . '/../../views/auth/store_session.php';
             return;
         }
+
+        Logger::warning("Tentativa de login falha", [
+            'email_attempt' => $email,
+            'reason' => $user ? 'Senha incorreta' : 'Usuário não encontrado'
+        ]);
 
         header('Location: /?error=invalid_credentials');
     }
@@ -146,7 +158,11 @@ class AuthController
 
                 $mail->send();
             } catch (Exception $e) {
-                error_log("Erro ao enviar e-mail: {$mail->ErrorInfo}");
+                Logger::error("Erro ao enviar e-mail de recuperação de senha", [
+                    'email' => $email,
+                    'phpmailer_error' => $mail->ErrorInfo,
+                    'exception' => $e->getMessage()
+                ]);
                 header('Location: /?error=email_send_failed');
                 return;
             }
