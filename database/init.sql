@@ -10,6 +10,8 @@ CREATE TABLE IF NOT EXISTS users (
     email VARCHAR(100) UNIQUE,
     phone VARCHAR(20),
     password_hash VARCHAR(255),
+    verification_token VARCHAR(255) NULL,
+    email_verified_at TIMESTAMP NULL,
     active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

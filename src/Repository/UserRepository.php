@@ -55,10 +55,10 @@ class UserRepository
         return User::fromArray($userData);
     }
 
-    public function create(User $user): bool
+    public function create(User $user, string $token): bool
     {
-        $sql = "INSERT INTO users (name, email, phone, password_hash, active)
-                VALUES (:name, :email, :phone, :password_hash, 1)";
+        $sql = "INSERT INTO users (name, email, phone, password_hash, verification_token, active)
+                VALUES (:name, :email, :phone, :password_hash, :token, 1)";
 
         $stmt = $this->pdo->prepare($sql);
 
@@ -66,8 +66,27 @@ class UserRepository
             ':name' => $user->name,
             ':email' => $user->email,
             ':phone' => $user->phone,
-            ':password_hash' => $user->passwordHash
+            ':password_hash' => $user->passwordHash,
+            ':token' => $token,
         ]);
+    }
+
+    public function verifyEmail(string $token): bool
+    {
+        $sql = "SELECT id FROM users WHERE verification_token = :token LIMIT 1";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':token' => $token]);
+
+        if (!$stmt->fetch()) {
+            return false;
+        }
+
+        $updateSql = "UPDATE users
+                      SET email_verified_at = NOW(), verification_token = NULL
+                      WHERE verification_token = :token";
+
+        $updateStmt = $this->pdo->prepare($updateSql);
+        return $updateStmt->execute([':token' => $token]);
     }
 
     public function storePasswordResetToken(string $email, string $token, string $expiresAt): bool

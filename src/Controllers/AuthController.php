@@ -3,15 +3,16 @@
 namespace App\Controllers;
 
 use App\Core\Logger;
+use App\Core\Mailer;
 use App\Domain\User;
 use App\Repository\UserRepository;
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-use PHPMailer\PHPMailer\SMTP;
 
 class AuthController
 {
-    public function __construct(private UserRepository $userRepository) {}
+    public function __construct(
+        private UserRepository $userRepository,
+        private Mailer $mailer
+    ) {}
 
     public function login(): void
     {
@@ -79,12 +80,31 @@ class AuthController
 
         $passwordHash = password_hash($password, PASSWORD_DEFAULT);
 
+        $verificationToken = bin2hex(random_bytes(32));
+
         $newUser = new User(null, $name, $email, $phone, $passwordHash);
 
-        if ($this->userRepository->create($newUser)) {
-            header('Location: /?success=registered');
+        if ($this->userRepository->create($newUser, $verificationToken)) {
+            $this->sendWelcomeEmail($name, $email, $verificationToken);
+            header('Location: /?success=registered_check_email');
         } else {
             header('Location: /?error=registration_failed');
+        }
+    }
+
+    public function verifyEmail(): void
+    {
+        $token = filter_input(INPUT_GET, 'token');
+
+        if (!$token) {
+            header('Location: /?error=invalid_token');
+            return;
+        }
+
+        if ($this->userRepository->verifyEmail($token)) {
+            header('Location: /?success=email_verified');
+        } else {
+            header('Location: /?error=verification_failed');
         }
     }
 
@@ -117,53 +137,48 @@ class AuthController
             $baseUrl = $_ENV['APP_URL'];
             $resetLink = "{$baseUrl}/reset-password?token={$token}";
 
-            $mail = new PHPMailer(true);
+            $subject = 'Recuperação de Senha - Center Ferramentas';
+            $body = "
+                <div style='font-family: Arial, sans-serif;'>
+                    <h1>Recuperação de Senha</h1>
+                    <p>Olá, {$user->name}.</p>
+                    <p>Clique abaixo para redefinir:</p>
+                    <a href='{$resetLink}'>Redefinir Senha</a>
+                </div>
+            ";
 
-            try {
-                $mail->isSMTP();
-                $mail->Host       = $_ENV['SMTP_HOST'];
-                $mail->SMTPAuth   = true;
-                $mail->Username   = $_ENV['SMTP_USER'];
-                $mail->Password   = $_ENV['SMTP_PASSWORD'];
-                $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-                $mail->Port       = $_ENV['SMTP_PORT'];
-                $mail->CharSet    = 'UTF-8';
-                $mail->setFrom($_ENV['SMTP_FROM'], $_ENV['SMTP_FROM']);
-                $mail->addAddress($user->email, $user->name);
-
-                $mail->isHTML(true);
-                $mail->Subject = 'Recuperação de Senha - Center Ferramentas';
-
-                $mail->Body    = "
-                    <div style='font-family: Arial, sans-serif; color: #333;'>
-                        <h1>Olá, {$user->name}!</h1>
-                        <p>Recebemos uma solicitação para redefinir sua senha.</p>
-                        <p>Clique no botão abaixo para criar uma nova senha:</p>
-                        <p>
-                            <a href='{$resetLink}' style='background-color: #ff7b00; color: #fff; padding: 10px 20px; text-decoration: none; border-radius: 5px; font-weight: bold;'>
-                                Redefinir Minha Senha
-                            </a>
-                        </p>
-                        <hr>
-                        <small>Se você não solicitou isso, ignore este e-mail.</small>
-                    </div>
-                ";
-
-                $mail->AltBody = "Use este link para redefinir sua senha: {$resetLink}";
-
-                $mail->send();
-            } catch (Exception $e) {
-                Logger::error("Erro ao enviar e-mail de recuperação", [
-                    'email' => $email,
-                    'phpmailer_error' => $mail->ErrorInfo,
-                    'exception' => $e->getMessage()
-                ]);
-                header('Location: /?error=email_send_failed');
-                return;
-            }
+            $this->mailer->send($user->email, $user->name, $subject, $body, "Link: $resetLink");
         }
 
         header('Location: /?success=reset_email_sent');
+    }
+
+    private function sendWelcomeEmail(string $name, string $email, string $token): void
+    {
+        $subject = 'Confirme seu cadastro na Center Ferramentas';
+        $baseUrl = $_ENV['APP_URL'];
+
+        $verificationLink = "{$baseUrl}/verify-email?token={$token}";
+
+        $body = "
+            <div style='font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;'>
+                <h1 style='color: #ff7b00;'>Bem-vindo, {$name}!</h1>
+                <p>Obrigado por se cadastrar. Para garantir a segurança da sua conta, por favor confirme seu e-mail.</p>
+                <p style='text-align: center; margin: 30px 0;'>
+                    <a href='{$verificationLink}' style='background-color: #000; color: #fff; padding: 12px 24px; text-decoration: none; border-radius: 5px; font-weight: bold; display: inline-block;'>
+                        Confirmar E-mail Agora
+                    </a>
+                </p>
+                <p>Se o botão não funcionar, copie e cole o link abaixo no seu navegador:</p>
+                <p style='word-break: break-all; color: #666;'>{$verificationLink}</p>
+                <hr>
+                <small>Equipe Center Ferramentas</small>
+            </div>
+        ";
+
+        $altBody = "Bem-vindo! Confirme seu e-mail acessando: {$verificationLink}";
+
+        $this->mailer->send($email, $name, $subject, $body, $altBody);
     }
 
     public function showResetForm(): void

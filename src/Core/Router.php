@@ -8,6 +8,7 @@ use App\Repository\CategoryRepository;
 use App\Repository\UserRepository;
 use App\Controllers\AuthController;
 use App\Core\Logger;
+use App\Core\Mailer;
 
 class Router
 {
@@ -37,7 +38,8 @@ class Router
 
                 if ($controllerClass === AuthController::class) {
                     $userRepo = new UserRepository($pdo);
-                    $controller = new AuthController($userRepo);
+                    $mailer = new Mailer();
+                    $controller = new AuthController($userRepo, $mailer);
                 } else {
                     $productRepo = new ProductRepository($pdo);
                     $categoryRepo = new CategoryRepository($pdo);

@@ -16,15 +16,16 @@ error_reporting(E_ALL);
 try {
     $router = new Router();
     $router->get('/', [HomeController::class, 'index']);
+    $router->post('/register', [AuthController::class, 'register']);
+    $router->get('/verify-email', [AuthController::class, 'verifyEmail']);
+    $router->post('/login', [AuthController::class, 'login']);
+    $router->get('/logout', [AuthController::class, 'logout']);
+    $router->post('/forgot-password', [AuthController::class, 'forgotPassword']);
+    $router->get('/reset-password', [AuthController::class, 'showResetForm']);
+    $router->post('/reset-password', [AuthController::class, 'resetPassword']);
     $router->get('/produto', [ProductController::class, 'show']);
     $router->get('/carrinho', [CartController::class, 'index']);
     $router->get('/carrinho/adicionar', [CartController::class, 'add']);
-    $router->post('/register', [AuthController::class, 'register']);
-    $router->post('/login', [AuthController::class, 'login']);
-    $router->post('/forgot-password', [AuthController::class, 'forgotPassword']);
-    $router->get('/logout', [AuthController::class, 'logout']);
-    $router->get('/reset-password', [AuthController::class, 'showResetForm']);
-    $router->post('/reset-password', [AuthController::class, 'resetPassword']);
 
     $uri = $_SERVER['REQUEST_URI'] ?? '/';
     $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';
