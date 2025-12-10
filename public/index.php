@@ -18,6 +18,7 @@ try {
     $router->get('/', [HomeController::class, 'index']);
     $router->get('/produto', [ProductController::class, 'show']);
     $router->get('/carrinho', [CartController::class, 'index']);
+    $router->post('/register', [AuthController::class, 'register']);
     $router->post('/login', [AuthController::class, 'login']);
     $router->get('/logout', [AuthController::class, 'logout']);
 

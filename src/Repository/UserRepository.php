@@ -54,4 +54,19 @@ class UserRepository
 
         return User::fromArray($userData);
     }
+
+    public function create(User $user): bool
+    {
+        $sql = "INSERT INTO users (name, email, phone, password_hash, active)
+                VALUES (:name, :email, :phone, :password_hash, 1)";
+
+        $stmt = $this->pdo->prepare($sql);
+
+        return $stmt->execute([
+            ':name' => $user->name,
+            ':email' => $user->email,
+            ':phone' => $user->phone,
+            ':password_hash' => $user->passwordHash
+        ]);
+    }
 }

@@ -8,6 +8,7 @@ CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE,
+    phone VARCHAR(20),
     password_hash VARCHAR(255),
     active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
@@ -214,7 +215,6 @@ VALUES (
         NULL,
         NULL
     );
-
 
 INSERT INTO
     promotions (

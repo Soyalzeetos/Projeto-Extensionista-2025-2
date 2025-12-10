@@ -8,6 +8,39 @@ class AuthController
 {
     public function __construct(private UserRepository $userRepository) {}
 
+    public function register(): void
+    {
+        $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
+        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+        $phone = filter_input(INPUT_POST, 'phone', FILTER_SANITIZE_SPECIAL_CHARS);
+        $password = filter_input(INPUT_POST, 'password');
+        $passwordConf = filter_input(INPUT_POST, 'password_confirmation');
+
+        if (!$name || !$email || !$password || !$passwordConf) {
+            header('Location: /?error=missing_fields');
+            return;
+        }
+
+        if ($password !== $passwordConf) {
+            header('Location: /?error=password_mismatch');
+            return;
+        }
+
+        if ($this->userRepository->findByEmail($email)) {
+            header('Location: /?error=email_exists');
+            return;
+        }
+
+        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
+        $newUser = new \App\Domain\User(null, $name, $email, $phone, $passwordHash);
+
+        if ($this->userRepository->create($newUser)) {
+            header('Location: /?success=registered');
+        } else {
+            header('Location: /?error=registration_failed');
+        }
+    }
+
     public function login(): void
     {
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);

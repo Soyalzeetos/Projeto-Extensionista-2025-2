@@ -5,9 +5,10 @@ namespace App\Domain;
 class User
 {
     public function __construct(
-        public readonly int $id,
+        public readonly ?int $id,
         public readonly string $name,
         public readonly string $email,
+        public readonly ?string $phone,
         public readonly string $passwordHash,
         public readonly ?string $role = null,
         public readonly array $permissions = []
@@ -19,6 +20,7 @@ class User
             id: (int)$data['id'],
             name: $data['name'],
             email: $data['email'],
+            phone: $data['phone'] ?? null,
             passwordHash: $data['password_hash'],
             role: $data['role_slug'] ?? null,
             permissions: $data['permissions'] ?? []
