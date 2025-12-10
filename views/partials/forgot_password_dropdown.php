@@ -23,3 +23,17 @@
         </button>
     </div>
 </div>
+
+<div id="tela-esqueci-senha-sucesso" class="d-none text-center py-4">
+    <div class="mb-3">
+        <i class="fa-regular fa-envelope-open fa-3x text-success"></i>
+    </div>
+    <h6 class="login-title mb-2">Verifique seu E-mail</h6>
+    <p class="small text-secondary mb-4 px-2">
+        Se o e-mail informado estiver cadastrado, você receberá um link para redefinir sua senha em instantes.
+    </p>
+
+    <button type="button" class="btn btn-outline-primary btn-sm fw-bold rounded-pill px-4" onclick="voltarParaLogin(event)">
+        Voltar para o Login
+    </button>
+</div>

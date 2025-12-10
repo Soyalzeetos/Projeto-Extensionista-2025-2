@@ -59,12 +59,17 @@ function voltarParaLogin(event) {
     event.preventDefault();
   }
 
+  const views = [
+    document.getElementById("tela-registro"),
+    document.getElementById("tela-esqueci-senha"),
+    document.getElementById("tela-esqueci-senha-sucesso"),
+  ];
   const loginView = document.getElementById("tela-login");
-  const registerView = document.getElementById("tela-registro");
-  const forgotView = document.getElementById("tela-esqueci-senha");
 
-  if (registerView) registerView.classList.add("d-none");
-  if (forgotView) forgotView.classList.add("d-none");
+  views.forEach((view) => {
+    if (view) view.classList.add("d-none");
+  });
+
   if (loginView) loginView.classList.remove("d-none");
 }
 
@@ -133,13 +138,19 @@ function mascaraTelefone(input) {
       v = v.replace(/^(\d*)/, "($1");
     }
   }
-
   input.value = v;
 }
 
-function handleLoginErrors() {
+function handleAuthFeedback() {
   const urlParams = new URLSearchParams(window.location.search);
   const errorType = urlParams.get("error");
+  const successType = urlParams.get("success");
+  const dropdownToggle = document.querySelector(".btn-header-login");
+
+  if ((errorType || successType) && dropdownToggle && window.bootstrap) {
+    const dropdown = new bootstrap.Dropdown(dropdownToggle);
+    dropdown.show();
+  }
 
   if (errorType) {
     const message = ERROR_MESSAGES[errorType] || ERROR_MESSAGES["default"];
@@ -154,24 +165,33 @@ function handleLoginErrors() {
         "alert alert-danger py-2 small shadow-sm border-0 d-flex align-items-center mb-3";
       alertDiv.innerHTML = `<i class="fa-solid fa-circle-exclamation me-2"></i> <div>${message}</div>`;
 
+      const existingAlert = loginContainer.querySelector(".alert");
+      if (existingAlert) existingAlert.remove();
+
       loginContainer.insertBefore(alertDiv, loginForm);
 
       const inputs = loginForm.querySelectorAll("input");
       inputs.forEach((input) => input.classList.add("is-invalid"));
-
-      const dropdownToggle = document.querySelector(".btn-header-login");
-      if (dropdownToggle && window.bootstrap) {
-        const dropdown = new bootstrap.Dropdown(dropdownToggle);
-        dropdown.show();
-      }
-
-      const newUrl =
-        window.location.protocol +
-        "//" +
-        window.location.host +
-        window.location.pathname;
-      window.history.replaceState({ path: newUrl }, "", newUrl);
     }
+  }
+
+  if (successType === "reset_email_sent") {
+    const loginView = document.getElementById("tela-login");
+    const successView = document.getElementById("tela-esqueci-senha-sucesso");
+
+    if (loginView && successView) {
+      loginView.classList.add("d-none");
+      successView.classList.remove("d-none");
+    }
+  }
+
+  if (errorType || successType) {
+    const newUrl =
+      window.location.protocol +
+      "//" +
+      window.location.host +
+      window.location.pathname;
+    window.history.replaceState({ path: newUrl }, "", newUrl);
   }
 }
 
@@ -183,5 +203,5 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  handleLoginErrors();
+  handleAuthFeedback();
 });

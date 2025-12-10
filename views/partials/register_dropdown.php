@@ -35,7 +35,7 @@
             <label for="senhaRegisterConf" class="form-label small fw-bold text-secondary">Confirmar Senha</label>
             <div class="input-group">
                 <input type="password" class="form-control" id="senhaRegisterConf" name="password_confirmation"
-                    placeholder="Digite a senha novamente" required oninput="validarConfirmacaoSenha()">
+                    placeholder="Confirme a sua senha" required oninput="validarConfirmacaoSenha()">
                 <button class="btn btn-outline-secondary" type="button" onclick="alternarSenha('senhaRegisterConf', this)">
                     <i class="fa-solid fa-eye"></i>
                 </button>
