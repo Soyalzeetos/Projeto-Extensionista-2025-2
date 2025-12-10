@@ -8,9 +8,18 @@ CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
     email VARCHAR(100) UNIQUE,
+    phone VARCHAR(20),
     password_hash VARCHAR(255),
     active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE password_resets (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    email VARCHAR(255) NOT NULL,
+    token VARCHAR(255) NOT NULL,
+    expires_at DATETIME NOT NULL,
+    INDEX (token)
 );
 
 CREATE TABLE IF NOT EXISTS roles (
@@ -263,8 +272,7 @@ VALUES (
         85,
         NULL,
         NULL
-    )
-    ;
+    );
 
 
 INSERT INTO

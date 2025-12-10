@@ -4,6 +4,7 @@ namespace App\Config;
 
 use PDO;
 use PDOException;
+use App\Core\Logger;
 
 class Database
 {
@@ -28,8 +29,13 @@ class Database
                     PDO::ATTR_EMULATE_PREPARES => false,
                 ]);
             } catch (PDOException $e) {
-                error_log($e->getMessage());
-                throw new \Exception("Erro ao conectar com o banco de dados.");
+                Logger::error("Falha crítica na conexão com o Banco de Dados", [
+                    'exception_message' => $e->getMessage(),
+                    'code' => $e->getCode(),
+                    'file' => $e->getFile(),
+                    'line' => $e->getLine()
+                ]);
+                throw new \Exception("Erro interno de servidor. Contate o suporte.");
             }
         }
         return self::$instance;

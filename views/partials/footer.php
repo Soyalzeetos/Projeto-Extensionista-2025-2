@@ -10,4 +10,6 @@
             <a target="_blank" href="https://www.facebook.com/people/Centeer-Ferramentas/pfbid035G3rq1SRbJfu3YWsh7Cy8Q7kCkFfnFr2DzCszxQcduFVMxRNZ2SYbhy4wcBKQYGdl/" class="text-white mx-2"><i class="fa-brands fa-facebook fa-lg"></i></a>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/js/auth.js"></script>
 </footer>

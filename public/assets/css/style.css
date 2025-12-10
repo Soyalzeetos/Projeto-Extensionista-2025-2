@@ -53,7 +53,6 @@ body {
   transform: scale(1.05);
 }
 
-
 .btn-add-cart {
   background-color: var(--accent-color);
   color: var(--primary-color);
@@ -433,5 +432,57 @@ body {
 @media (max-width: 576px) {
   .form-control::placeholder {
     color: transparent;
+  }
+}
+
+.mobile-search-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+  z-index: 2000;
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.auth-card {
+  width: 100%;
+  max-width: 450px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--white);
+}
+
+.auth-card .input-group-text {
+  border-color: #ced4da;
+  background-color: var(--snow);
+}
+
+.auth-card .form-control:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 0.25rem var(--focus-ring);
+}
+
+.auth-card .text-accent {
+  color: var(--accent-color) !important;
+}
+
+@media (max-width: 576px) {
+  .auth-card {
+    box-shadow: none !important;
+    background-color: transparent;
+  }
+
+  .auth-card .card-body {
+    padding: 1rem !important;
   }
 }

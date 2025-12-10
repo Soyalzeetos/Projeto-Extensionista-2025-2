@@ -2,16 +2,22 @@
 
     <div id="tela-login">
         <h6 class="login-title mb-3">Acesse sua conta</h6>
-        <form action="/login" method="POST">
+        <form action="/login" method="POST" novalidate>
             <div class="mb-3">
                 <label for="emailLogin" class="form-label small fw-bold text-secondary">E-mail</label>
-                <input type="email" class="form-control" id="emailLogin" name="email" placeholder="ex: joao@email.com" required>
+                <input type="email" class="form-control" id="emailLogin" name="email"
+                    placeholder="ex: joao@email.com" required oninput="validarEmail(this)">
+                <div class="invalid-feedback small">Digite um e-mail válido!.</div>
             </div>
 
             <div class="mb-3">
                 <label for="senhaLogin" class="form-label small fw-bold text-secondary">Senha</label>
-                <input type="password" class="form-control" id="senhaLogin" name="password" placeholder="Digite sua senha" required>
-
+                <div class="input-group">
+                    <input type="password" class="form-control" id="senhaLogin" name="password" placeholder="Digite sua senha" required>
+                    <button class="btn btn-outline-secondary" type="button" onclick="alternarSenha('senhaLogin', this)">
+                        <i class="fa-solid fa-eye"></i>
+                    </button>
+                </div>
             </div>
 
             <div class="mb-3 d-flex justify-content-between align-items-center">
@@ -19,7 +25,9 @@
                     <input type="checkbox" class="form-check-input" id="rememberMe" name="remember_me">
                     <label class="form-check-label small" for="rememberMe">Lembrar</label>
                 </div>
-                <a href="/recuperar-senha" class="login-link small">Esqueceu a senha?</a>
+                <button type="button" class="btn btn-link p-0 login-link small text-decoration-none" onclick="alternarParaEsqueciSenha(event)">
+                    Esqueceu a senha?
+                </button>
             </div>
 
             <button type="submit" class="btn btn-primary w-100 py-2">Entrar</button>
@@ -35,58 +43,7 @@
         </div>
     </div>
 
-    <div id="tela-registro" class="d-none">
-        <h6 class="login-title mb-3">Crie sua conta</h6>
-        <form action="/register" method="POST">
-
-            <div class="mb-3">
-                <label class="form-label small fw-bold text-secondary">Nome Completo</label>
-                <input type="text" class="form-control" required placeholder="Ex: João Inacio Gleison">
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label small fw-bold text-secondary">E-mail</label>
-                <input type="email" class="form-control" placeholder="ex: joao@email.com" required>
-            </div>
-
-            <div class="mb-3">
-                <label class="form-label small fw-bold text-secondary">Senha</label>
-                <input type="password" class="form-control" placeholder="*********" required>
-            </div>
-
-            <button type="submit" class="btn btn-primary w-100 py-2">Cadastrar</button>
-        </form>
-
-        <div class="dropdown-divider my-3"></div>
-
-        <div class="text-center">
-            <span class="small text-muted">Já tem conta?</span><br>
-            <button type="button" class="btn btn-link btn-sm fw-bold text-decoration-none" onclick="alternarTelas(event)">
-                Fazer Login
-            </button>
-        </div>
-    </div>
+    <?php require __DIR__ . '/register_dropdown.php'; ?>
+    <?php require __DIR__ . '/forgot_password_dropdown.php'; ?>
 
 </div>
-
-<script>
-    function alternarTelas(event) {
-        event.stopPropagation();
-        event.preventDefault();
-
-        const loginView = document.getElementById('tela-login');
-        const registerView = document.getElementById('tela-registro');
-
-        if (loginView.classList.contains('d-none')) {
-            loginView.classList.remove('d-none');
-            registerView.classList.add('d-none');
-        } else {
-            loginView.classList.add('d-none');
-            registerView.classList.remove('d-none');
-        }
-    }
-
-    document.querySelector('.login-dropdown-menu').addEventListener('click', function(e) {
-        e.stopPropagation();
-    });
-</script>
