@@ -61,11 +61,11 @@ try {
         3 => __DIR__ . '/../public/assets/img/produtos/martelete-makita.webp',
         4 => __DIR__ . '/../public/assets/img/produtos/arame-farpado.webp',
         5 => __DIR__ . '/../public/assets/img/produtos/chave-sextavada.webp',
-        // 6 => __DIR__ . '/../public/assets/img/produtos/chave-inglesa.webp',
-        // 7 => __DIR__ . '/../public/assets/img/produtos/serra-marmore-makita.webp',
-        // 8 => __DIR__ . '/../public/assets/img/produtos/alicate-universal.webp',
-        // 9 => __DIR__ . '/../public/assets/img/produtos/alicate-de-pressao.webp',
-        // 10 => __DIR__ . '/../public/assets/img/produtos/kit-chave-allen.webp',
+        6 => __DIR__ . '/../public/assets/img/produtos/chave-inglesa.webp',
+        7 => __DIR__ . '/../public/assets/img/produtos/serra-marmore-makita.webp',
+        8 => __DIR__ . '/../public/assets/img/produtos/alicate-universal.webp',
+        9 => __DIR__ . '/../public/assets/img/produtos/alicate-de-pressao.webp',
+        10 => __DIR__ . '/../public/assets/img/produtos/kit-chave-allen.webp',
     ];
 
     $stmtUpdateImg = $pdo->prepare("UPDATE products SET image_data = ?, image_mime = ? WHERE id = ?");

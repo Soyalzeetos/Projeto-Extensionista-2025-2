@@ -166,7 +166,7 @@ INSERT INTO
     )
 VALUES (
         'Serra de Bancada Stanley',
-        'Potência de 1800W e alta precisão.',
+        'Corta bem se encostar na lamina.',
         2499.00,
         2999.90,
         1,
@@ -214,56 +214,56 @@ VALUES (
         NULL,
         NULL
     ),
-    -- (
-    --     'Chave Inglesa',
-    --     'Bebe chá as 6',
-    --     199.90,
-    --     239.90,
-    --     1,
-    --     85,
-    --     NULL,
-    --     NULL
-    -- ),
-    -- (
-    --     'Serra Marmore Makita',
-    --     'Os cara estão na maldade',
-    --     1990.90,
-    --     2390.90,
-    --     1,
-    --     85,
-    --     NULL,
-    --     NULL
-    -- ),
-    -- (
-    --     'Alicate Universal',
-    --     'Eu sou Alexandra Mendes, Eu sou a Universal',
-    --     99.90,
-    --     39.90,
-    --     1,
-    --     85,
-    --     NULL,
-    --     NULL
-    -- ),
-    -- (
-    --     'Alicate DePressão',
-    --     'Corta bem',
-    --     199.90,
-    --     239.90,
-    --     1,
-    --     85,
-    --     NULL,
-    --     NULL
-    -- ),
-    -- (
-    --     'Kit Chave Allien',
-    --     'Ta na hora de virar heroi',
-    --     199.90,
-    --     239.90,
-    --     1,
-    --     85,
-    --     NULL,
-    --     NULL
-    -- )
+    (
+        'Chave Inglesa',
+        'Bebe chá as 6',
+        199.90,
+        239.90,
+        1,
+        85,
+        NULL,
+        NULL
+    ),
+    (
+        'Serra Marmore Makita',
+        'Os cara estão na maldade',
+        1990.90,
+        2390.90,
+        1,
+        85,
+        NULL,
+        NULL
+    ),
+    (
+        'Alicate Universal',
+        'Eu sou Alexandra Mendes, Eu sou a Universal',
+        99.90,
+        39.90,
+        1,
+        85,
+        NULL,
+        NULL
+    ),
+    (
+        'Alicate DePressão',
+        'Corta bem',
+        199.90,
+        239.90,
+        1,
+        85,
+        NULL,
+        NULL
+    ),
+    (
+        'Kit Chave Allien',
+        'Ta na hora de virar heroi',
+        199.90,
+        239.90,
+        1,
+        85,
+        NULL,
+        NULL
+    )
     ;
 
 
@@ -284,5 +284,6 @@ VALUES (
 INSERT INTO
     product_promotions (product_id, promotion_id)
 VALUES (1, 1),
-    (2, 1);
-    (4,1);
+    (2, 1),
+    (4,1),
+    (7,1);
