@@ -66,5 +66,9 @@ require __DIR__ . '/../partials/head.php';
 
     
 </body>
-
+<style>
+    body::-webkit-scrollbar {
+    display: none;
+}
+</style>
 </html>

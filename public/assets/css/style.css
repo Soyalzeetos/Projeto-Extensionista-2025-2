@@ -331,6 +331,12 @@ body {
   box-shadow: 0 10px 30px var(--shadow-soft);
 }
 
+.img-caixa-promocao > a {
+  max-height: 410px;
+  min-height: 410px;
+  box-shadow: 0 10px 30px var(--shadow-soft);
+}
+
 .carousel-control-prev,
 .carousel-control-next {
   width: 5%;
@@ -350,6 +356,11 @@ body {
   width: 10px;
   height: 10px;
   border-radius: 50%;
+}
+
+.carousel-inner {
+  max-height: 410px;
+  min-height: 410px;
 }
 
 .carousel-indicators .active {
@@ -383,6 +394,8 @@ body {
 .card-img-container {
   overflow: hidden;
   color: var(--white);
+  max-height: 410px;
+  min-height: 410px;
 }
 
 .card-product-img {

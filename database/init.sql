@@ -272,6 +272,46 @@ VALUES (
         85,
         NULL,
         NULL
+    ),
+    (
+        'Kit Chave de Fenda',
+        'A primeira extensão da mão humana. Na obra serve de tudo: talhadeira, pé de cabra, misturador de café e, raramente, pra parafusar.',
+        199.90,
+        239.90,
+        1,
+        85,
+        NULL,
+        NULL
+    ),
+    (
+        'Serra Tico-Tico',
+        'Você tenta fazer um corte reto e ela desenha o eletrocardiograma de alguém tendo um infarto.',
+        199.90,
+        239.90,
+        1,
+        85,
+        NULL,
+        NULL
+    ),
+    (
+        'Serra Tico-Tico',
+        'Você tenta fazer um corte reto e ela desenha o eletrocardiograma de alguém tendo um infarto.',
+        199.90,
+        239.90,
+        1,
+        85,
+        NULL,
+        NULL
+    ),
+    (
+        'Kit de ferramentas de precisão',
+        'Vibe Orçamento Público. Igual dinheiro de imposto: você jura que tava tudo ali, mas "misteriosamente" sumiu uma parte.',
+        199.90,
+        239.90,
+        1,
+        85,
+        NULL,
+        NULL
     );
 
 
