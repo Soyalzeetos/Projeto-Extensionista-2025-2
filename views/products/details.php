@@ -1,7 +1,11 @@
 <?php require __DIR__ . '/../partials/head.php'; ?>
 
 <body class="bg-light d-flex flex-column min-vh-100">
-
+    <style>
+        body::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
     <?php require __DIR__ . '/../partials/header.php'; ?>
     <main class="container my-5 flex-grow-1">
         <div class="card shadow-lg border-0 rounded-4 overflow-hidden">
@@ -60,10 +64,5 @@
     <?php require __DIR__ . '/../partials/footer.php'; ?>
 
 </body>
-<style>
-    body::-webkit-scrollbar {
-        display: none;
-    }
-</style>
 
 </html>
