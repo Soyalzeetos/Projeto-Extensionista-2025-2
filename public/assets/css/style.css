@@ -338,7 +338,7 @@ body {
     var(--gradient-end)
   );
   box-shadow: 0 10px 30px var(--shadow-soft);
-  color: var(--snow);
+  color: var(--white);
 }
 
 .section-title {
@@ -369,7 +369,9 @@ body {
 
 .carousel-inner {
   height: auto;
+  max-height: 460px;
   min-height: auto;
+  background-color: var(--white);
 }
 
 /* --- Padronização de Imagens (Carrossel e Grid) --- */

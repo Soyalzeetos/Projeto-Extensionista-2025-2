@@ -12,10 +12,10 @@
                         <?php endforeach; ?>
                     </div>
 
-                    <div class="rounded-4 border-4 bg-light carousel-inner">
+                    <div class="rounded-4 border-4 carousel-inner">
                         <?php foreach ($featured as $idx => $product): ?>
                             <div class="carousel-item <?= $idx === 0 ? 'active' : '' ?>">
-                                <div class="card overflow-hidden h-100 position-relative">
+                                <div class="card overflow-hidden h-100 position-relative bg-transparent border-0">
                                     <div class="row g-0 h-100">
                                         <div class="col-md-6 d-flex align-items-center justify-content-center p-4 card-img-container">
                                             <a href="/produto?id=<?= $product->id ?>" class="d-flex justify-content-center w-100 h-100 align-items-center text-decoration-none">
