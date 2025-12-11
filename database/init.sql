@@ -263,7 +263,7 @@ INSERT INTO
     )
 VALUES (
         'Serra de Bancada Stanley 1800W',
-        'Motor de 1800W com capacidade de corte de 10 polegadas. Guia de corte auto-alinhável.',
+        'Corta bem se encostar na lamina.',
         2100.00,
         2699.90,
         1,
@@ -272,8 +272,8 @@ VALUES (
         NULL
     ),
     (
-        'Parafusadeira/Furadeira DeWalt 20V Max',
-        'Motor Brushless, mandril de ajuste rápido e 2 baterias de lítio inclusas.',
+        'Parafusadeira DeWalt 20V Max',
+        'Motor Brushless e bateria longa duração.',
         1350.00,
         1799.00,
         1,
@@ -282,8 +282,8 @@ VALUES (
         NULL
     ),
     (
-        'Martelete Combinado Makita HR2470',
-        '3 modos de operação: simples impacto, rotação com impacto e rotação simples.',
+        'Martelete Combinado Makita',
+        'Performance industrial.',
         780.00,
         1050.00,
         1,
@@ -293,7 +293,7 @@ VALUES (
     ),
     (
         'Arame Farpado Motto 500m',
-        'Galvanização pesada, alta resistência à corrosão e ruptura. Rolo de 500 metros.',
+        'Farpa bem',
         420.00,
         589.90,
         1,
@@ -302,8 +302,8 @@ VALUES (
         NULL
     ),
     (
-        'Jogo de Chaves Sextavadas (Allen)',
-        'Kit com 9 peças (1.5mm a 10mm), aço Cromo-Vanádio com acabamento oxidado preto.',
+        'Chave Sextavada (Allen)',
+        'Chave de sextavar',
         45.00,
         89.90,
         1,
@@ -312,8 +312,8 @@ VALUES (
         NULL
     ),
     (
-        'Chave Inglesa Ajustável 12 Pol.',
-        'Abertura regulável, aço forjado e escala métrica gravada a laser.',
+        'Chave Inglesa Ajustável',
+        'Bebe chá as 6',
         75.00,
         119.90,
         1,
@@ -322,8 +322,8 @@ VALUES (
         NULL
     ),
     (
-        'Serra Mármore Makita 1300W',
-        'Ideal para cortes em pisos, cerâmicas, pedras e concreto. Acompanha kit refrigeração.',
+        'Serra Mármore Makita',
+        'Os cara estão na maldade',
         380.00,
         549.90,
         1,
@@ -332,8 +332,8 @@ VALUES (
         NULL
     ),
     (
-        'Alicate Universal 8 Pol. Isolado',
-        'Cabo com isolamento 1000V, arestas de corte temperadas por indução.',
+        'Alicate Universal Isolado',
+        'Eu sou Alexandra Mendes, Eu sou a Universal',
         42.00,
         79.90,
         1,
@@ -342,8 +342,8 @@ VALUES (
         NULL
     ),
     (
-        'Alicate de Pressão 10 Pol.',
-        'Mordentes curvos, ideal para fixação de tubos e conexões hidráulicas com travamento seguro.',
+        'Alicate de Pressão',
+        'Corta bem',
         55.00,
         95.90,
         1,
@@ -352,8 +352,8 @@ VALUES (
         NULL
     ),
     (
-        'Jogo Chaves Torx (Tipo Canivete)',
-        'Conjunto portátil com 8 medidas (T9 a T40), corpo emborrachado para melhor pega.',
+        'Kit Chave Allen (Jogo)',
+        'Ta na hora de virar heroi',
         35.00,
         69.90,
         1,
@@ -362,8 +362,8 @@ VALUES (
         NULL
     ),
     (
-        'Kit Chaves de Fenda e Phillips',
-        'Haste em aço Cromo-Vanádio, ponta imantada e cabo ergonômico. Contém 6 peças.',
+        'Kit Chave de Fenda e Phillips',
+        'A primeira extensão da mão humana. Na obra serve de tudo: talhadeira, pé de cabra, misturador de café e, raramente, pra parafusar.',
         85.00,
         149.90,
         1,
@@ -372,8 +372,8 @@ VALUES (
         NULL
     ),
     (
-        'Serra Tico-Tico Bosch 500W',
-        'Velocidade variável, sistema de troca rápida de lâmina e base inclinável.',
+        'Serra Tico-Tico Bosch',
+        'Você tenta fazer um corte reto e ela desenha o eletrocardiograma de alguém tendo um infarto.',
         320.00,
         489.90,
         1,
@@ -382,8 +382,8 @@ VALUES (
         NULL
     ),
     (
-        'Serra Circular Manual 7 1/4"',
-        'Potência de 1400W, disco de 24 dentes incluso. Ideal para madeiras de construção.',
+        'Serra Circular Manual',
+        'Serra Circularmente',
         450.00,
         689.90,
         1,
@@ -392,8 +392,8 @@ VALUES (
         NULL
     ),
     (
-        'Kit Ferramentas de Precisão 32 Peças',
-        'Estojo com bits magnéticos diversos para manutenção de eletrônicos e celulares.',
+        'Kit de ferramentas de precisão',
+        'Vibe Orçamento Público. Igual dinheiro de imposto: você jura que tava tudo ali, mas "misteriosamente" sumiu uma parte.',
         25.00,
         59.90,
         1,
