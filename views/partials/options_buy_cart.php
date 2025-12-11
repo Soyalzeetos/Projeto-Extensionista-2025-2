@@ -3,7 +3,10 @@
         Comprar
     </a>
 
-    <a href="/carrinho/adicionar?id=<?= $product->id ?>" class="btn-add-cart shadow-sm" title="Adicionar ao Carrinho">
+    <button type="button"
+        class="btn-add-cart shadow-sm"
+        onclick="addToCart(<?= $product->id ?>)"
+        title="Adicionar ao Carrinho">
         <i class="fa-solid fa-cart-plus"></i>
-    </a>
+    </button>
 </div>

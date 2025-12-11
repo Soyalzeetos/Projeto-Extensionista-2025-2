@@ -8,6 +8,7 @@ use App\Repository\CategoryRepository;
 use App\Repository\UserRepository;
 use App\Controllers\AuthController;
 use App\Controllers\AdminController;
+use App\Controllers\CartController;
 use App\Core\Logger;
 use App\Core\Mailer;
 
@@ -47,6 +48,8 @@ class Router
                     $empRepo = new \App\Repository\EmployeeRepository($pdo);
                     $promoRepo = new \App\Repository\PromotionRepository($pdo);
                     $controller = new AdminController($prodRepo, $catRepo, $empRepo, $promoRepo);
+                } elseif ($controllerClass === CartController::class) {
+                    $controller = new CartController();
                 } else {
                     $productRepo = new ProductRepository($pdo);
                     $categoryRepo = new CategoryRepository($pdo);
@@ -56,7 +59,11 @@ class Router
                 $controller->$action();
             } else {
                 http_response_code(404);
-                echo "Page not found.";
+                if (str_contains($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json')) {
+                    echo json_encode(['success' => false, 'message' => 'Rota não encontrada']);
+                } else {
+                    require __DIR__ . '/../../views/errors/404.php';
+                }
             }
         } catch (\Throwable $t) {
             http_response_code(500);
@@ -66,7 +73,11 @@ class Router
                 'file' => $t->getFile(),
                 'line' => $t->getLine()
             ]);
-            echo "Ocorreu um erro interno.";
+            if (str_contains($_SERVER['HTTP_ACCEPT'] ?? '', 'application/json')) {
+                echo json_encode(['success' => false, 'message' => 'Erro interno no servidor: ' . $t->getMessage()]);
+            } else {
+                require __DIR__ . '/../../views/errors/500.php';
+            }
         } finally {
             $endTime = microtime(true);
             $latencyMs = ($endTime - $startTime) * 1000;

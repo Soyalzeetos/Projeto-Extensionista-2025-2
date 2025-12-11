@@ -16,7 +16,7 @@ CREATE TABLE IF NOT EXISTS users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-CREATE TABLE password_resets (
+CREATE TABLE IF NOT EXISTS password_resets (
     id INT AUTO_INCREMENT PRIMARY KEY,
     email VARCHAR(255) NOT NULL,
     token VARCHAR(255) NOT NULL,
@@ -60,6 +60,22 @@ CREATE TABLE IF NOT EXISTS employees (
     FOREIGN KEY (role_id) REFERENCES roles (id) ON DELETE RESTRICT
 );
 
+CREATE TABLE IF NOT EXISTS addresses (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    zip_code VARCHAR(20) NOT NULL,
+    street VARCHAR(255) NOT NULL,
+    number VARCHAR(20) NOT NULL,
+    complement VARCHAR(100),
+    neighborhood VARCHAR(100),
+    city VARCHAR(100) NOT NULL,
+    state CHAR(2) NOT NULL,
+    type ENUM('billing', 'shipping') DEFAULT 'shipping',
+    active BOOLEAN DEFAULT TRUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+);
+
 CREATE TABLE IF NOT EXISTS categories (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(255) NOT NULL,
@@ -99,6 +115,74 @@ CREATE TABLE IF NOT EXISTS product_promotions (
     promotion_id INT NOT NULL,
     FOREIGN KEY (product_id) REFERENCES products (id) ON DELETE CASCADE,
     FOREIGN KEY (promotion_id) REFERENCES promotions (id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS carts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    session_token VARCHAR(255) NOT NULL,
+    user_id INT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS cart_items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    cart_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT DEFAULT 1,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (cart_id) REFERENCES carts (id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES products (id) ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    shipping_address_id INT,
+    total_amount DECIMAL(10, 2) NOT NULL,
+    discount_amount DECIMAL(10, 2) DEFAULT 0.00,
+    shipping_cost DECIMAL(10, 2) DEFAULT 0.00,
+    status ENUM(
+        'pending',
+        'awaiting_payment',
+        'paid',
+        'processing',
+        'shipped',
+        'delivered',
+        'cancelled',
+        'refunded'
+    ) DEFAULT 'pending',
+    payment_method VARCHAR(50),
+    tracking_code VARCHAR(100),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE RESTRICT,
+    FOREIGN KEY (shipping_address_id) REFERENCES addresses (id) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS order_items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    product_id INT,
+    quantity INT NOT NULL CHECK (quantity > 0),
+    unit_price DECIMAL(10, 2) NOT NULL,
+    subtotal DECIMAL(10, 2) NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (order_id) REFERENCES orders (id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES products (id) ON DELETE SET NULL
+);
+
+CREATE TABLE IF NOT EXISTS payments (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    transaction_id VARCHAR(255),
+    provider VARCHAR(50),
+    amount DECIMAL(10, 2) NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    paid_at DATETIME,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (order_id) REFERENCES orders (id) ON DELETE CASCADE
 );
 
 INSERT INTO

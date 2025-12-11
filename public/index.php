@@ -26,7 +26,10 @@ try {
     $router->post('/reset-password', [AuthController::class, 'resetPassword']);
     $router->get('/produto', [ProductController::class, 'show']);
     $router->get('/carrinho', [CartController::class, 'index']);
-    $router->get('/carrinho/adicionar', [CartController::class, 'add']);
+    $router->get('/carrinho', [CartController::class, 'index']);
+    $router->post('/carrinho/adicionar', [CartController::class, 'add']);
+    $router->post('/carrinho/atualizar', [CartController::class, 'update']);
+    $router->post('/carrinho/remover', [CartController::class, 'remove']);
     $router->get('/admin', [App\Controllers\AdminController::class, 'dashboard']);
     $router->get('/admin/employees', [\App\Controllers\AdminController::class, 'listEmployees']);
     $router->post('/admin/employees/store', [\App\Controllers\AdminController::class, 'storeEmployee']);

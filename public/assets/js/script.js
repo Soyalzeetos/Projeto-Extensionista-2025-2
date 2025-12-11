@@ -247,6 +247,148 @@ window.populatePromotionEdit = function (data, associatedProductIds) {
   }
 };
 
+window.addToCart = function (productId) {
+  const btn = event.currentTarget;
+  const originalIcon = btn.innerHTML;
+
+  btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i>';
+  btn.disabled = true;
+
+  fetch("/carrinho/adicionar", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
+    },
+    body: JSON.stringify({ id: productId }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        updateCartUI(data);
+
+        const cartDropdownBtn = document.querySelector(
+          '[aria-label="Carrinho de Compras"]'
+        );
+        if (cartDropdownBtn && window.bootstrap) {
+          const bsDropdown = new bootstrap.Dropdown(cartDropdownBtn);
+          bsDropdown.show();
+        }
+
+        btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+        btn.classList.add("btn-success");
+      } else {
+        alert("Erro ao adicionar: " + data.message);
+        btn.innerHTML = originalIcon;
+      }
+    })
+    .catch((error) => {
+      console.error("Erro:", error);
+      btn.innerHTML = originalIcon;
+    })
+    .finally(() => {
+      setTimeout(() => {
+        btn.disabled = false;
+        if (btn.classList.contains("btn-success")) {
+          btn.innerHTML = originalIcon;
+          btn.classList.remove("btn-success");
+        }
+      }, 2000);
+    });
+};
+
+window.updateCartItem = function (productId, newQty) {
+  const action = newQty === 0 ? "remover" : "atualizar";
+  const endpoint = `/carrinho/${action}`;
+
+  document.body.style.cursor = "wait";
+
+  fetch(endpoint, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
+    },
+    body: JSON.stringify({ id: productId, qty: newQty }),
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        if (data.totalQty === 0 && window.location.pathname === "/carrinho") {
+          window.location.reload();
+          return;
+        }
+
+        if (window.location.pathname === "/carrinho") {
+          if (newQty === 0) {
+            const row = document.getElementById(`cart-row-${productId}`);
+            if (row) row.remove();
+          } else {
+            const input = document.getElementById(`qty-input-${productId}`);
+            if (input) input.value = newQty;
+
+            const rowCash = document.getElementById(`total-cash-${productId}`);
+            if (rowCash) rowCash.innerText = data.itemTotalCash;
+
+            const rowInst = document.getElementById(`total-inst-${productId}`);
+            if (rowInst) rowInst.innerText = data.itemTotalInstallments;
+          }
+
+          const sumCount = document.getElementById("summary-count");
+          if (sumCount) sumCount.innerText = data.totalQty;
+
+          const sumCash = document.getElementById("summary-total-cash");
+          if (sumCash) sumCash.innerText = data.summaryTotalCash;
+
+          const sumInst = document.getElementById("summary-total-inst");
+          if (sumInst) sumInst.innerText = data.summaryTotalInstallments;
+        }
+
+        updateCartUI(data);
+      } else {
+        alert("Erro: " + data.message);
+      }
+    })
+    .catch((err) => console.error(err))
+    .finally(() => {
+      document.body.style.cursor = "default";
+    });
+};
+
+function updateCartUI(data) {
+  const dropdownContainer = document.querySelector(".cart-items");
+  if (dropdownContainer) dropdownContainer.innerHTML = data.cartHtml;
+
+  const badges = document.querySelectorAll(
+    "#cart-count-badge, #cart-badge-icon"
+  );
+  badges.forEach((b) => {
+    b.innerText = data.totalQty;
+    if (data.totalQty > 0) b.classList.remove("d-none");
+    else b.classList.add("d-none");
+  });
+}
+
+window.removeCartItem = function (productId) {
+  if (confirm("Tem certeza que deseja remover este item?")) {
+    updateCartItem(productId, 0);
+  }
+};
+
+window.changeQty = function (productId, passedQty, delta) {
+  let currentQty = passedQty;
+
+  const domInput = document.getElementById(`qty-input-${productId}`);
+  if (domInput) {
+    currentQty = parseInt(domInput.value);
+  }
+
+  const newQty = parseInt(currentQty) + parseInt(delta);
+  if (newQty >= 1) {
+    updateCartItem(productId, newQty);
+  }
+};
+
 function showErrorMessage(container, form, message) {
   if (!container || !form) return;
 
