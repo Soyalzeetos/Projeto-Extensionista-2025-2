@@ -141,6 +141,7 @@ CREATE TABLE IF NOT EXISTS orders (
     user_id INT NOT NULL,
     shipping_address_id INT,
     total_amount DECIMAL(10, 2) NOT NULL,
+    total_amount_installments DECIMAL(10, 2) DEFAULT 0.00,
     discount_amount DECIMAL(10, 2) DEFAULT 0.00,
     shipping_cost DECIMAL(10, 2) DEFAULT 0.00,
     status ENUM(
@@ -167,7 +168,9 @@ CREATE TABLE IF NOT EXISTS order_items (
     product_id INT,
     quantity INT NOT NULL CHECK (quantity > 0),
     unit_price DECIMAL(10, 2) NOT NULL,
+    unit_price_installments DECIMAL(10, 2) NOT NULL,
     subtotal DECIMAL(10, 2) NOT NULL,
+    subtotal_installments DECIMAL(10, 2) NOT NULL,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (order_id) REFERENCES orders (id) ON DELETE CASCADE,
     FOREIGN KEY (product_id) REFERENCES products (id) ON DELETE SET NULL

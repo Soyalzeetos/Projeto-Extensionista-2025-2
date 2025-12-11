@@ -374,9 +374,7 @@ body {
   background-color: var(--white);
 }
 
-/* --- Padronização de Imagens (Carrossel e Grid) --- */
 
-/* 1. Container de imagem do Carrossel */
 .card-img-container {
   overflow: hidden;
   background-color: var(--white);
@@ -384,10 +382,9 @@ body {
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  min-height: 300px; /* Maior para destaque */
+  min-height: 300px;
 }
 
-/* 2. Container de imagem dos Cards (Grid) - NOVO */
 .card-image-wrapper {
   overflow: hidden;
   background-color: var(--white);
@@ -395,7 +392,7 @@ body {
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  height: 250px; /* Altura fixa para alinhar a grade */
+  height: 250px;
 }
 
 .card-image-wrapper a {
@@ -406,7 +403,6 @@ body {
   justify-content: center;
 }
 
-/* Regras gerais para a imagem dentro dos cards */
 .card-product-img,
 .card-image-wrapper img {
   max-height: 100%;
@@ -415,7 +411,6 @@ body {
   transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Efeito de Zoom unificado no Hover */
 .card:hover .card-product-img,
 .card:hover .card-image-wrapper img {
   transform: scale(1.08);

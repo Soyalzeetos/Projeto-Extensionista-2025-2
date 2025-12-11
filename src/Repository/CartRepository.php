@@ -51,8 +51,6 @@ class CartRepository
         }
     }
 
-
-
     public function removeItem(int $cartId, int $productId): bool
     {
         $stmt = $this->pdo->prepare("DELETE FROM cart_items WHERE cart_id = ? AND product_id = ?");
@@ -85,5 +83,11 @@ class CartRepository
                 : '/assets/img/ui/sem-imagem.webp';
         }
         return $rows;
+    }
+
+    public function clearCart(int $cartId): void
+    {
+        $stmt = $this->pdo->prepare("DELETE FROM cart_items WHERE cart_id = ?");
+        $stmt->execute([$cartId]);
     }
 }

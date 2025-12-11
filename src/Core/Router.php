@@ -9,6 +9,7 @@ use App\Repository\UserRepository;
 use App\Controllers\AuthController;
 use App\Controllers\AdminController;
 use App\Controllers\CartController;
+use App\Controllers\CheckoutController;
 use App\Core\Logger;
 use App\Core\Mailer;
 
@@ -47,9 +48,12 @@ class Router
                     $catRepo = new CategoryRepository($pdo);
                     $empRepo = new \App\Repository\EmployeeRepository($pdo);
                     $promoRepo = new \App\Repository\PromotionRepository($pdo);
-                    $controller = new AdminController($prodRepo, $catRepo, $empRepo, $promoRepo);
+                    $orderRepo = new \App\Repository\OrderRepository($pdo);
+                    $controller = new AdminController($prodRepo, $catRepo, $empRepo, $promoRepo, $orderRepo);
                 } elseif ($controllerClass === CartController::class) {
                     $controller = new CartController();
+                } elseif ($controllerClass === CheckoutController::class) {
+                    $controller = new CheckoutController();
                 } else {
                     $productRepo = new ProductRepository($pdo);
                     $categoryRepo = new CategoryRepository($pdo);

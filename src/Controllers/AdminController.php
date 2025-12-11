@@ -14,7 +14,8 @@ class AdminController
         private ProductRepository $productRepo,
         private CategoryRepository $categoryRepo,
         private EmployeeRepository $employeeRepo,
-        private PromotionRepository $promotionRepo
+        private PromotionRepository $promotionRepo,
+        private \App\Repository\OrderRepository $orderRepo
     ) {
         $this->ensureAdmin();
     }
@@ -356,6 +357,29 @@ class AdminController
         if ($id) {
             $this->promotionRepo->delete($id);
             header('Location: /admin/promotions?success=deleted');
+        }
+    }
+
+    public function listOrders(): void
+    {
+        $orders = $this->orderRepo->findAll();
+        require __DIR__ . '/../../views/admin/orders.php';
+    }
+
+    public function updateOrderStatus(): void
+    {
+        $this->ensureAdmin();
+
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+        $status = filter_input(INPUT_POST, 'status');
+
+        $allowed = ['pending', 'awaiting_payment', 'paid', 'processing', 'shipped', 'delivered', 'cancelled', 'refunded'];
+
+        if ($id && in_array($status, $allowed)) {
+            $this->orderRepo->updateStatus($id, $status);
+            header('Location: /admin/orders?success=updated');
+        } else {
+            header('Location: /admin/orders?error=invalid_status');
         }
     }
 }

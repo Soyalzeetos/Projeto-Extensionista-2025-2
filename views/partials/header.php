@@ -103,7 +103,7 @@ try {
                                 <div class="dropdown-divider"></div>
                             <?php endif; ?>
                             <a class="dropdown-item py-2" href="#"><i class="fa-regular fa-user me-2 text-secondary"></i> Minha Conta</a>
-                            <a class="dropdown-item py-2" href="#"><i class="fa-solid fa-box-open me-2 text-secondary"></i> Meus Pedidos</a>
+                            <a class="dropdown-item py-2" href="/my-orders"><i class="fa-solid fa-box-open me-2 text-secondary"></i> Meus Pedidos</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item text-danger py-2" href="/logout"><i class="fa-solid fa-right-from-bracket me-2"></i> Sair</a>
                         </div>

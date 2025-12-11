@@ -204,7 +204,10 @@ window.populateProductEdit = function (data) {
   if (instInput) {
     instInput.value = parseFloat(data.price_installments).toLocaleString(
       "pt-BR",
-      { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+      {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      }
     );
   }
 };
@@ -260,7 +263,9 @@ window.addToCart = function (productId) {
       "Content-Type": "application/json",
       "X-Requested-With": "XMLHttpRequest",
     },
-    body: JSON.stringify({ id: productId }),
+    body: JSON.stringify({
+      id: productId,
+    }),
   })
     .then((response) => response.json())
     .then((data) => {
@@ -309,7 +314,10 @@ window.updateCartItem = function (productId, newQty) {
       "Content-Type": "application/json",
       "X-Requested-With": "XMLHttpRequest",
     },
-    body: JSON.stringify({ id: productId, qty: newQty }),
+    body: JSON.stringify({
+      id: productId,
+      qty: newQty,
+    }),
   })
     .then((response) => response.json())
     .then((data) => {
@@ -445,7 +453,13 @@ function handleAuthFeedback() {
       "//" +
       window.location.host +
       window.location.pathname;
-    window.history.replaceState({ path: newUrl }, "", newUrl);
+    window.history.replaceState(
+      {
+        path: newUrl,
+      },
+      "",
+      newUrl
+    );
   }
 }
 
@@ -495,3 +509,132 @@ document.addEventListener("DOMContentLoaded", function () {
 
   handleAuthFeedback();
 });
+
+window.openOrderDetails = function (order) {
+  document.getElementById("modalOrderId").innerText =
+    "Pedido #" + String(order.id).padStart(4, "0");
+
+  const date = new Date(order.created_at);
+  document.getElementById("modalOrderDate").innerText =
+    "Data: " +
+    date.toLocaleDateString("pt-BR") +
+    " " +
+    date.toLocaleTimeString("pt-BR", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+  document.getElementById("modalClientName").innerText = order.client_name;
+  document.getElementById("modalClientEmail").innerText = order.client_email;
+  document.getElementById("modalClientPhone").innerText =
+    order.client_phone || "Não informado";
+
+  const phone = order.client_phone ? order.client_phone.replace(/\D/g, "") : "";
+  const btnZap = document.getElementById("btnWhatsapp");
+
+  if (phone) {
+    btnZap.href = `https://wa.me/55${phone}?text=Olá ${order.client_name}, sobre seu pedido #${order.id} na Center Ferramentas...`;
+    btnZap.classList.remove("disabled");
+    btnZap.removeAttribute("aria-disabled");
+  } else {
+    btnZap.classList.add("disabled");
+    btnZap.setAttribute("aria-disabled", "true");
+    btnZap.href = "#";
+  }
+
+  document.getElementById("formStatusId").value = order.id;
+
+  const tbody = document.getElementById("modalItemsTable");
+  tbody.innerHTML = "";
+
+  order.items.forEach((item) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+            <td style="width: 50px;">
+                <img src="${
+                  item.image
+                }" class="rounded border" style="width: 40px; height: 40px; object-fit: contain;">
+            </td>
+            <td>
+                <div class="fw-bold small">${item.product_name}</div>
+                <div class="small text-muted">${item.quantity}x R$ ${parseFloat(
+      item.unit_price
+    ).toLocaleString("pt-BR", { minimumFractionDigits: 2 })}</div>
+            </td>
+            <td class="text-end fw-bold text-success small">
+                R$ ${parseFloat(item.subtotal).toLocaleString("pt-BR", {
+                  minimumFractionDigits: 2,
+                })}
+            </td>
+        `;
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById("modalTotalCash").innerText =
+    "R$ " +
+    parseFloat(order.total_amount).toLocaleString("pt-BR", {
+      minimumFractionDigits: 2,
+    });
+  document.getElementById("modalTotalInstallments").innerText =
+    "R$ " +
+    parseFloat(order.total_amount_installments).toLocaleString("pt-BR", {
+      minimumFractionDigits: 2,
+    });
+};
+
+window.openClientOrderDetails = function (order) {
+  document.getElementById("modalTitle").innerText =
+    "Pedido #" + String(order.id).padStart(4, "0");
+
+  const date = new Date(order.created_at);
+  document.getElementById("modalDate").innerText =
+    "Realizado em: " +
+    date.toLocaleDateString("pt-BR") +
+    " às " +
+    date.toLocaleTimeString("pt-BR", {
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+  const tbody = document.getElementById("modalItemsBody");
+  tbody.innerHTML = "";
+
+  order.items.forEach((item) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+        <td style="width: 60px;">
+            <img src="${
+              item.image
+            }" class="rounded border" style="width: 50px; height: 50px; object-fit: contain;">
+        </td>
+        <td>
+            <div class="fw-bold text-dark">${item.product_name}</div>
+            <div class="small text-muted">Qtd: ${item.quantity}</div>
+        </td>
+        <td class="text-end">
+            <div class="fw-bold text-success small">R$ ${parseFloat(
+              item.subtotal
+            ).toLocaleString("pt-BR", {
+              minimumFractionDigits: 2,
+            })} (à vista)</div>
+            <div class="text-muted small" style="font-size: 0.75rem;">R$ ${parseFloat(
+              item.subtotal_installments
+            ).toLocaleString("pt-BR", {
+              minimumFractionDigits: 2,
+            })} (prazo)</div>
+        </td>
+    `;
+    tbody.appendChild(tr);
+  });
+
+  document.getElementById("modalTotalCash").innerText =
+    "R$ " +
+    parseFloat(order.total_amount).toLocaleString("pt-BR", {
+      minimumFractionDigits: 2,
+    });
+  document.getElementById("modalTotalInst").innerText =
+    "R$ " +
+    parseFloat(order.total_amount_installments).toLocaleString("pt-BR", {
+      minimumFractionDigits: 2,
+    });
+};
