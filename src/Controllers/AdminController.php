@@ -82,7 +82,7 @@ class AdminController
         $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
         $roleId = filter_input(INPUT_POST, 'role_id', FILTER_VALIDATE_INT);
-        $password = filter_input(INPUT_POST, 'password'); 
+        $password = filter_input(INPUT_POST, 'password');
 
         if ($id && $name && $email && $roleId) {
             $pwd = !empty($password) ? $password : null;
@@ -132,19 +132,83 @@ class AdminController
         require __DIR__ . '/../../views/admin/products.php';
     }
 
+    private function handleImageUpload(array $file): ?array
+    {
+        if (isset($file) && $file['error'] === UPLOAD_ERR_OK) {
+
+            $allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+            if (!in_array($file['type'], $allowedTypes)) {
+                return null;
+            }
+
+            $content = file_get_contents($file['tmp_name']);
+            return [
+                'data' => base64_encode($content),
+                'mime' => $file['type']
+            ];
+        }
+        return null;
+    }
+
     public function storeProduct(): void
     {
+        $this->ensureAdmin();
+
         $name = filter_input(INPUT_POST, 'name');
         $desc = filter_input(INPUT_POST, 'description');
         $priceCash = filter_input(INPUT_POST, 'price_cash', FILTER_VALIDATE_FLOAT);
         $priceInst = filter_input(INPUT_POST, 'price_installments', FILTER_VALIDATE_FLOAT);
         $catId = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
 
-        if ($name && $priceCash) {
-            $product = new Product(0, $name, $desc, $priceCash, $priceInst, '', false);
-            $this->productRepo->create($product, $catId);
+        if ($name && $priceCash && $catId) {
+            $imgData = null;
+            $imgMime = null;
+
+            if (isset($_FILES['image'])) {
+                $processed = $this->handleImageUpload($_FILES['image']);
+                if ($processed) {
+                    $imgData = $processed['data'];
+                    $imgMime = $processed['mime'];
+                }
+            }
+
+            $product = new Product(0, $name, $desc ?? '', $priceCash, $priceInst ?? $priceCash, '', false);
+
+            $this->productRepo->create($product, $catId, $imgData, $imgMime);
+            header('Location: /admin/products?success=created');
+        } else {
+            header('Location: /admin/products?error=missing_fields');
         }
-        header('Location: /admin/products');
+    }
+
+    public function updateProduct(): void
+    {
+        $this->ensureAdmin();
+
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+        $name = filter_input(INPUT_POST, 'name');
+        $desc = filter_input(INPUT_POST, 'description');
+        $priceCash = filter_input(INPUT_POST, 'price_cash', FILTER_VALIDATE_FLOAT);
+        $priceInst = filter_input(INPUT_POST, 'price_installments', FILTER_VALIDATE_FLOAT);
+        $catId = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
+
+        if ($id && $name && $priceCash && $catId) {
+            $imgData = null;
+            $imgMime = null;
+
+            if (isset($_FILES['image'])) {
+                $processed = $this->handleImageUpload($_FILES['image']);
+                if ($processed) {
+                    $imgData = $processed['data'];
+                    $imgMime = $processed['mime'];
+                }
+            }
+
+            $this->productRepo->update($id, $name, $desc ?? '', $priceCash, $priceInst ?? $priceCash, $catId, $imgData, $imgMime);
+            header('Location: /admin/products?success=updated');
+        } else {
+            header('Location: /admin/products?error=update_failed');
+        }
     }
 
     public function deleteProduct(): void

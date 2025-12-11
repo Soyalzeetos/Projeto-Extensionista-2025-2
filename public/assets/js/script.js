@@ -159,6 +159,26 @@ window.populateEditModal = function (data) {
   }
 };
 
+window.populateProductEdit = function (data) {
+  if (!data) return;
+
+  const fields = {
+    edit_id: data.id,
+    edit_name: data.name,
+    edit_description: data.description,
+    edit_price_cash: data.price_cash,
+    edit_price_installments: data.price_installments,
+    edit_category_id: data.category_id,
+  };
+
+  for (const [id, value] of Object.entries(fields)) {
+    const element = document.getElementById(id);
+    if (element) {
+      element.value = value;
+    }
+  }
+};
+
 function showErrorMessage(container, form, message) {
   if (!container || !form) return;
 
