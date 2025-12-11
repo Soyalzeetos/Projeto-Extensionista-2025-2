@@ -297,8 +297,8 @@ VALUES (
         NULL
     ),
     (
-        'Serra Tico-Tico',
-        'Você tenta fazer um corte reto e ela desenha o eletrocardiograma de alguém tendo um infarto.',
+        'Serra Circular de Bancada',
+        'Serra Circularmente',
         199.90,
         239.90,
         1,

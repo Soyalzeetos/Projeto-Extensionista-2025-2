@@ -66,6 +66,10 @@ try {
         8 => __DIR__ . '/../public/assets/img/produtos/alicate-universal.webp',
         9 => __DIR__ . '/../public/assets/img/produtos/alicate-de-pressao.webp',
         10 => __DIR__ . '/../public/assets/img/produtos/kit-chave-allen.webp',
+        11 => __DIR__ . '/../public/assets/img/produtos/kit-chave-de-fenda.webp',
+        12 => __DIR__ . '/../public/assets/img/produtos/serra-tico-tico.webp',
+        13 => __DIR__ . '/../public/assets/img/produtos/serra-circular-de-bancada.webp',
+        14 => __DIR__ . '/../public/assets/img/produtos/kit_ferramentas_precisao_24_bits_profissional_jakemy_jm_8168_2203_13_20191102121110.webp'
     ];
 
     $stmtUpdateImg = $pdo->prepare("UPDATE products SET image_data = ?, image_mime = ? WHERE id = ?");
