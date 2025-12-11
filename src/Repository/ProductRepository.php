@@ -112,11 +112,10 @@ class ProductRepository
     {
         return array_map(fn($row) => Product::fromArray($row), $rows);
     }
-
-    public function create(Product $product, int $categoryId): bool
+    public function create(Product $product, int $categoryId, ?string $imageData, ?string $imageMime): bool
     {
         $sql = "INSERT INTO products (name, description, price_cash, price_installments, category_id, stock_quantity, image_data, image_mime)
-            VALUES (:name, :desc, :cash, :installments, :cat_id, 0, :img_data, :img_mime)";
+            VALUES (:name, :desc, :cash, :installments, :cat_id, :stock, :img_data, :img_mime)";
 
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([
@@ -125,9 +124,40 @@ class ProductRepository
             ':cash' => $product->priceCash,
             ':installments' => $product->priceInstallments,
             ':cat_id' => $categoryId,
-            ':img_data' => null,
-            ':img_mime' => null
+            ':stock' => 0,
+            ':img_data' => $imageData,
+            ':img_mime' => $imageMime
         ]);
+    }
+
+    public function update(int $id, string $name, string $description, float $priceCash, float $priceInst, int $categoryId, ?string $imageData, ?string $imageMime): bool
+    {
+        $sql = "UPDATE products SET
+                name = :name,
+                description = :desc,
+                price_cash = :cash,
+                price_installments = :inst,
+                category_id = :cat_id";
+
+        $params = [
+            ':id' => $id,
+            ':name' => $name,
+            ':desc' => $description,
+            ':cash' => $priceCash,
+            ':inst' => $priceInst,
+            ':cat_id' => $categoryId
+        ];
+
+        if ($imageData && $imageMime) {
+            $sql .= ", image_data = :img_data, image_mime = :img_mime";
+            $params[':img_data'] = $imageData;
+            $params[':img_mime'] = $imageMime;
+        }
+
+        $sql .= " WHERE id = :id";
+
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute($params);
     }
 
     public function delete(int $id): bool

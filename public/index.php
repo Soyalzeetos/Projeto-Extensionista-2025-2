@@ -34,6 +34,7 @@ try {
     $router->post('/admin/employees/delete', [\App\Controllers\AdminController::class, 'deleteEmployee']);
     $router->get('/admin/products', [App\Controllers\AdminController::class, 'listProducts']);
     $router->post('/admin/products/create', [App\Controllers\AdminController::class, 'storeProduct']);
+    $router->post('/admin/products/update', [App\Controllers\AdminController::class, 'updateProduct']);
     $router->post('/admin/products/delete', [App\Controllers\AdminController::class, 'deleteProduct']);
     $router->get('/admin/promotions', [App\Controllers\AdminController::class, 'listPromotions']);
     $router->post('/admin/promotions/create', [App\Controllers\AdminController::class, 'storePromotion']);
