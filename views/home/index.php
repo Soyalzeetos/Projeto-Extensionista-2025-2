@@ -21,44 +21,60 @@ require __DIR__ . '/../partials/head.php';
         <?php require __DIR__ . '/../partials/promotion_carousel.php'; ?>
 
         <section class="sales-section container mb-5 my-5 rounded-4 g-5">
-            <h2 class="pt-3 mb-4 section-title">Nossos produtos</h2>
-            <div class="row g-4 products-container">
+            <h2 class="pt-3 mb-4 section-title">
+                <?php if (isset($selectedCategory)): ?>
+                    <span class="text-muted fw-normal fs-5 d-block mb-1">Departamento:</span>
+                    <?= htmlspecialchars($selectedCategory->name) ?>
+                <?php else: ?>
+                    Nossos produtos
+                <?php endif; ?>
+            </h2>
 
-                <?php foreach ($products as $product): ?>
-                    <div class="col-12 col-sm-6 col-md-4 col-lg-3">
-                        <div class="card h-100 shadow-sm border-0">
-                            <div class="card-image-wrapper">
-                                <a href="/produto?id=<?= $product->id ?>">
-                                    <img src="<?= htmlspecialchars($product->imageUrl) ?>" class="img-fluid" alt="<?= htmlspecialchars($product->name) ?>">
-                                </a>
-                            </div>
+            <?php if (empty($products)): ?>
+                <div class="text-center py-5 text-muted">
+                    <i class="fa-solid fa-box-open fa-3x mb-3 opacity-25"></i>
+                    <p>Nenhum produto encontrado neste departamento.</p>
+                    <a href="/" class="btn btn-outline-secondary btn-sm rounded-pill">Ver todos os produtos</a>
+                </div>
+            <?php else: ?>
+                <div class="row g-4 products-container">
 
-                            <div class="card-body d-flex flex-column">
-                                <div>
-                                    <h5 class="card-title fw-bold text-dark">
-                                        <a href="/produto?id=<?= $product->id ?>" class="text-dark text-decoration-none">
-                                            <?= htmlspecialchars($product->name) ?>
-                                        </a>
-                                    </h5>
-                                    <p class="card-text small text-secondary text-truncate"><?= htmlspecialchars($product->description) ?></p>
+                    <?php foreach ($products as $product): ?>
+                        <div class="col-12 col-sm-6 col-md-4 col-lg-3">
+                            <div class="card h-100 shadow-sm border-0">
+                                <div class="card-image-wrapper">
+                                    <a href="/produto?id=<?= $product->id ?>">
+                                        <img src="<?= htmlspecialchars($product->imageUrl) ?>" class="img-fluid" alt="<?= htmlspecialchars($product->name) ?>">
+                                    </a>
                                 </div>
 
-                                <div class="mt-auto w-100">
-                                    <div class="mb-3">
-                                        <p class="card-text fw-bold fs-5 primary-text-color mb-0"><?= $product->getFormattedCashPrice() ?></p>
-                                        <small class="text-muted d-block" style="font-size: 0.8rem;">ou <?= $product->getFormattedInstallmentPrice() ?> a prazo</small>
+                                <div class="card-body d-flex flex-column">
+                                    <div>
+                                        <h5 class="card-title fw-bold text-dark">
+                                            <a href="/produto?id=<?= $product->id ?>" class="text-dark text-decoration-none">
+                                                <?= htmlspecialchars($product->name) ?>
+                                            </a>
+                                        </h5>
+                                        <p class="card-text small text-secondary text-truncate"><?= htmlspecialchars($product->description) ?></p>
                                     </div>
 
-                                    <?php require __DIR__ . '/../partials/options_buy_cart.php' ?>
+                                    <div class="mt-auto w-100">
+                                        <div class="mb-3">
+                                            <p class="card-text fw-bold fs-5 primary-text-color mb-0"><?= $product->getFormattedCashPrice() ?></p>
+                                            <small class="text-muted d-block" style="font-size: 0.8rem;">ou <?= $product->getFormattedInstallmentPrice() ?> a prazo</small>
+                                        </div>
 
+                                        <?php require __DIR__ . '/../partials/options_buy_cart.php' ?>
+
+                                    </div>
                                 </div>
+
                             </div>
-
                         </div>
-                    </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
 
-            </div>
+                </div>
+            <?php endif; ?>
         </section>
     </main>
 

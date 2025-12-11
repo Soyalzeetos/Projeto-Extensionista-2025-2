@@ -48,4 +48,14 @@ class CategoryRepository
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([':id' => $id]);
     }
+
+    public function findById(int $id): ?Category
+    {
+        $sql = "SELECT * FROM categories WHERE id = :id";
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':id' => $id]);
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        return $row ? Category::fromArray($row) : null;
+    }
 }

@@ -32,7 +32,7 @@ class ProductRepository
         return $this->hydrateList($stmt->fetchAll());
     }
 
-    public function findAllRegular(): array
+    public function findAllRegular(?int $categoryId = null): array
     {
         $sql = "
             SELECT
@@ -47,10 +47,21 @@ class ProductRepository
                 WHERE prom.active = 1
                 AND NOW() BETWEEN prom.start_date AND prom.end_date
             )
-            ORDER BY p.name ASC
         ";
 
-        $stmt = $this->pdo->query($sql);
+        if ($categoryId) {
+            $sql .= " AND p.category_id = :cat_id";
+        }
+
+        $sql .= " ORDER BY p.name ASC";
+
+        $stmt = $this->pdo->prepare($sql);
+
+        if ($categoryId) {
+            $stmt->bindValue(':cat_id', $categoryId, PDO::PARAM_INT);
+        }
+
+        $stmt->execute();
         return $this->hydrateList($stmt->fetchAll());
     }
 
@@ -152,7 +163,7 @@ class ProductRepository
                 price_cash = :cash,
                 price_installments = :inst,
                 category_id = :cat_id,
-                stock_quantity = :stock"; // Adicionado
+                stock_quantity = :stock";
 
         $params = [
             ':id' => $id,
@@ -186,5 +197,39 @@ class ProductRepository
     {
         $stmt = $this->pdo->prepare("DELETE FROM products WHERE id = :id");
         return $stmt->execute([':id' => $id]);
+    }
+
+    public function findByCategory(int $categoryId): array
+    {
+        $sql = "
+            SELECT
+                p.*,
+                -- Verifica se é destaque/promoção para manter a consistência visual
+                (SELECT COUNT(*) FROM product_promotions pp
+                 JOIN promotions prom ON pp.promotion_id = prom.id
+                 WHERE pp.product_id = p.id AND prom.active = 1
+                 AND NOW() BETWEEN prom.start_date AND prom.end_date
+                ) > 0 as is_featured,
+
+                -- Busca a porcentagem de desconto se houver
+                COALESCE(
+                    (SELECT prom.discount_percentage
+                     FROM product_promotions pp
+                     JOIN promotions prom ON pp.promotion_id = prom.id
+                     WHERE pp.product_id = p.id
+                     AND prom.active = 1
+                     AND NOW() BETWEEN prom.start_date AND prom.end_date
+                     LIMIT 1
+                    ), 0) as discount_percentage
+            FROM products p
+            WHERE p.category_id = :cat_id
+            AND p.active = 1
+            ORDER BY p.name ASC
+        ";
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->execute([':cat_id' => $categoryId]);
+
+        return $this->hydrateList($stmt->fetchAll());
     }
 }
