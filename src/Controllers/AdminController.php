@@ -49,17 +49,80 @@ class AdminController
 
     public function storeEmployee(): void
     {
-        if ($_SESSION['user_role'] !== 'admin') return;
+        if ($_SESSION['user_role'] !== 'admin') {
+            header('Location: /admin');
+            exit;
+        }
 
-        $name = filter_input(INPUT_POST, 'name');
+        $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
         $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
         $password = filter_input(INPUT_POST, 'password');
         $roleId = filter_input(INPUT_POST, 'role_id', FILTER_VALIDATE_INT);
 
-        if ($name && $email && $password && $roleId) {
-            $this->employeeRepo->createEmployee($name, $email, $password, $roleId);
+        if (!$name || !$email || !$password || !$roleId) {
+            header('Location: /admin/employees?error=missing_fields');
+            exit;
         }
-        header('Location: /admin/employees');
+
+        $success = $this->employeeRepo->createEmployee($name, $email, $password, $roleId);
+
+        if ($success) {
+            header('Location: /admin/employees?success=created');
+        } else {
+            header('Location: /admin/employees?error=creation_failed');
+        }
+        exit;
+    }
+
+    public function updateEmployee(): void
+    {
+        $this->ensureAdmin();
+
+        $id = filter_input(INPUT_POST, 'user_id', FILTER_VALIDATE_INT);
+        $name = filter_input(INPUT_POST, 'name', FILTER_SANITIZE_SPECIAL_CHARS);
+        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+        $roleId = filter_input(INPUT_POST, 'role_id', FILTER_VALIDATE_INT);
+        $password = filter_input(INPUT_POST, 'password'); 
+
+        if ($id && $name && $email && $roleId) {
+            $pwd = !empty($password) ? $password : null;
+            $this->employeeRepo->updateEmployee($id, $name, $email, $roleId, $pwd);
+            header('Location: /admin/employees?success=updated');
+        } else {
+            header('Location: /admin/employees?error=missing_fields');
+        }
+    }
+
+    public function toggleEmployeeStatus(): void
+    {
+        $this->ensureAdmin();
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+
+        if ($id === $_SESSION['user_id']) {
+            header('Location: /admin/employees?error=cannot_disable_self');
+            return;
+        }
+
+        if ($id) {
+            $this->employeeRepo->toggleStatus($id);
+        }
+        header('Location: /admin/employees?success=status_changed');
+    }
+
+    public function deleteEmployee(): void
+    {
+        $this->ensureAdmin();
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+
+        if ($id === $_SESSION['user_id']) {
+            header('Location: /admin/employees?error=cannot_delete_self');
+            return;
+        }
+
+        if ($id) {
+            $this->employeeRepo->delete($id);
+        }
+        header('Location: /admin/employees?success=deleted');
     }
 
     public function listProducts(): void

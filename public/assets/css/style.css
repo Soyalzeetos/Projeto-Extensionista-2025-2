@@ -53,6 +53,16 @@ body {
   transform: scale(1.05);
 }
 
+.btn-new-employees {
+  background-color: var(--accent-color);
+  color: var(--white);
+}
+
+.role-badge-background {
+  background-color: var(--accent-color);
+  color: var(--white);
+}
+
 .btn-add-cart {
   background-color: var(--accent-color);
   color: var(--primary-color);
@@ -498,4 +508,18 @@ body {
   .auth-card .card-body {
     padding: 1rem !important;
   }
+}
+
+.bg-brand {
+  background-color: var(--primary-color) !important;
+  color: var(--white);
+}
+
+.bg-accent {
+  background-color: var(--accent-color) !important;
+  color: var(--primary-color);
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(0, 51, 102, 0.05);
 }

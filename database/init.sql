@@ -55,6 +55,7 @@ CREATE TABLE IF NOT EXISTS employees (
     registration_number VARCHAR(20) UNIQUE,
     hire_date DATE,
     department VARCHAR(100),
+    active BOOLEAN,
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE,
     FOREIGN KEY (role_id) REFERENCES roles (id) ON DELETE RESTRICT
 );

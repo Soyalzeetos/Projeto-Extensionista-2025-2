@@ -29,6 +29,9 @@ try {
     $router->get('/admin', [App\Controllers\AdminController::class, 'dashboard']);
     $router->get('/admin/employees', [\App\Controllers\AdminController::class, 'listEmployees']);
     $router->post('/admin/employees/store', [\App\Controllers\AdminController::class, 'storeEmployee']);
+    $router->post('/admin/employees/update', [\App\Controllers\AdminController::class, 'updateEmployee']);
+    $router->post('/admin/employees/toggle', [\App\Controllers\AdminController::class, 'toggleEmployeeStatus']);
+    $router->post('/admin/employees/delete', [\App\Controllers\AdminController::class, 'deleteEmployee']);
     $router->get('/admin/products', [App\Controllers\AdminController::class, 'listProducts']);
     $router->post('/admin/products/create', [App\Controllers\AdminController::class, 'storeProduct']);
     $router->post('/admin/products/delete', [App\Controllers\AdminController::class, 'deleteProduct']);

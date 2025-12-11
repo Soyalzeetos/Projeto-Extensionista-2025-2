@@ -141,6 +141,24 @@ window.phoneMask = function (input) {
   input.value = v;
 };
 
+window.populateEditModal = function (data) {
+  if (!data) return;
+
+  const fields = {
+    edit_user_id: data.id,
+    edit_name: data.name,
+    edit_email: data.email,
+    edit_role_id: data.role_id,
+  };
+
+  for (const [id, value] of Object.entries(fields)) {
+    const element = document.getElementById(id);
+    if (element) {
+      element.value = value;
+    }
+  }
+};
+
 function showErrorMessage(container, form, message) {
   if (!container || !form) return;
 
