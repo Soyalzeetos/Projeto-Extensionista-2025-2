@@ -77,6 +77,21 @@ require __DIR__ . '/../partials/head.php';
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-6 col-lg-3">
+                <div class="card border-0 shadow-sm h-100 hover-card">
+                    <div class="card-body text-center p-4">
+                        <div class="mb-3">
+                            <i class="fa-solid fa-clipboard-list fa-3x text-warning"></i>
+                        </div>
+                        <h5 class="card-title fw-bold">Pedidos</h5>
+                        <p class="card-text text-muted small">Acompanhe vendas e entregas.</p>
+                        <a href="/admin/orders" class="btn btn-outline-primary w-100 fw-bold stretched-link">
+                            Vendas
+                        </a>
+                    </div>
+                </div>
+            </div>  
         </div>
 
         <div class="mt-5">

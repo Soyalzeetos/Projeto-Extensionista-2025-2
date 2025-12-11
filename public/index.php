@@ -7,6 +7,7 @@ use App\Controllers\HomeController;
 use App\Controllers\ProductController;
 use App\Controllers\CartController;
 use App\Controllers\AuthController;
+use App\Controllers\AdminController;
 
 session_start();
 
@@ -40,6 +41,7 @@ try {
     $router->post('/admin/products/create', [App\Controllers\AdminController::class, 'storeProduct']);
     $router->post('/admin/products/update', [App\Controllers\AdminController::class, 'updateProduct']);
     $router->post('/admin/products/delete', [App\Controllers\AdminController::class, 'deleteProduct']);
+    $router->post('/admin/products/toggle', [App\Controllers\AdminController::class, 'toggleProductStatus']);
     $router->get('/admin/promotions', [App\Controllers\AdminController::class, 'listPromotions']);
     $router->post('/admin/promotions/create', [App\Controllers\AdminController::class, 'storePromotion']);
     $router->post('/admin/promotions/update', [App\Controllers\AdminController::class, 'updatePromotion']);
