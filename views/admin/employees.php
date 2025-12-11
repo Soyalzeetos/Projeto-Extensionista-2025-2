@@ -5,7 +5,7 @@ require __DIR__ . '/../partials/head.php';
 
 <body class="d-flex flex-column min-vh-100 bg-light">
 
-    <?php require __DIR__ . '/../partials/header.php'; ?>
+    <?php require __DIR__ . '/../partials/header_admin.php'; ?>
 
     <main class="container my-5 flex-grow-1">
 

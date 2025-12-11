@@ -30,6 +30,31 @@ class AdminController
         }
     }
 
+    private function handleImageUpload(array $file): ?array
+    {
+        if (isset($file) && $file['error'] === UPLOAD_ERR_OK) {
+            $allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
+            if (!in_array($file['type'], $allowedTypes)) {
+                return null;
+            }
+
+            $content = file_get_contents($file['tmp_name']);
+            return [
+                'data' => base64_encode($content),
+                'mime' => $file['type']
+            ];
+        }
+        return null;
+    }
+
+    private function parseCurrency(?string $value): float
+    {
+        if (!$value) return 0.0;
+        $clean = str_replace('.', '', $value);
+        $clean = str_replace(',', '.', $clean);
+        return (float) $clean;
+    }
+
     public function dashboard(): void
     {
         require __DIR__ . '/../../views/admin/dashboard.php';
@@ -127,27 +152,9 @@ class AdminController
 
     public function listProducts(): void
     {
-        $products = $this->productRepo->findAllRegular();
+        $products = $this->productRepo->findAllForAdmin();
         $categories = $this->categoryRepo->findAll();
         require __DIR__ . '/../../views/admin/products.php';
-    }
-
-    private function handleImageUpload(array $file): ?array
-    {
-        if (isset($file) && $file['error'] === UPLOAD_ERR_OK) {
-
-            $allowedTypes = ['image/jpeg', 'image/png', 'image/webp'];
-            if (!in_array($file['type'], $allowedTypes)) {
-                return null;
-            }
-
-            $content = file_get_contents($file['tmp_name']);
-            return [
-                'data' => base64_encode($content),
-                'mime' => $file['type']
-            ];
-        }
-        return null;
     }
 
     public function storeProduct(): void
@@ -156,9 +163,11 @@ class AdminController
 
         $name = filter_input(INPUT_POST, 'name');
         $desc = filter_input(INPUT_POST, 'description');
-        $priceCash = filter_input(INPUT_POST, 'price_cash', FILTER_VALIDATE_FLOAT);
-        $priceInst = filter_input(INPUT_POST, 'price_installments', FILTER_VALIDATE_FLOAT);
         $catId = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
+        $stock = filter_input(INPUT_POST, 'stock_quantity', FILTER_VALIDATE_INT);
+
+        $priceCash = $this->parseCurrency($_POST['price_cash'] ?? null);
+        $priceInst = $this->parseCurrency($_POST['price_installments'] ?? null);
 
         if ($name && $priceCash && $catId) {
             $imgData = null;
@@ -172,7 +181,7 @@ class AdminController
                 }
             }
 
-            $product = new Product(0, $name, $desc ?? '', $priceCash, $priceInst ?? $priceCash, '', false);
+            $product = new Product(0, $name, $desc ?? '', $priceCash, $priceInst ?: $priceCash, '', false, $stock ?? 0, true);
 
             $this->productRepo->create($product, $catId, $imgData, $imgMime);
             header('Location: /admin/products?success=created');
@@ -188,9 +197,11 @@ class AdminController
         $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
         $name = filter_input(INPUT_POST, 'name');
         $desc = filter_input(INPUT_POST, 'description');
-        $priceCash = filter_input(INPUT_POST, 'price_cash', FILTER_VALIDATE_FLOAT);
-        $priceInst = filter_input(INPUT_POST, 'price_installments', FILTER_VALIDATE_FLOAT);
         $catId = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
+        $stock = filter_input(INPUT_POST, 'stock_quantity', FILTER_VALIDATE_INT);
+
+        $priceCash = $this->parseCurrency($_POST['price_cash'] ?? null);
+        $priceInst = $this->parseCurrency($_POST['price_installments'] ?? null);
 
         if ($id && $name && $priceCash && $catId) {
             $imgData = null;
@@ -204,10 +215,23 @@ class AdminController
                 }
             }
 
-            $this->productRepo->update($id, $name, $desc ?? '', $priceCash, $priceInst ?? $priceCash, $catId, $imgData, $imgMime);
+            $this->productRepo->update($id, $name, $desc ?? '', $priceCash, $priceInst ?: $priceCash, $catId, $stock ?? 0, $imgData, $imgMime);
             header('Location: /admin/products?success=updated');
         } else {
             header('Location: /admin/products?error=update_failed');
+        }
+    }
+
+    public function toggleProductStatus(): void
+    {
+        $this->ensureAdmin();
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+
+        if ($id) {
+            $this->productRepo->toggleStatus($id);
+            header('Location: /admin/products?success=status_changed');
+        } else {
+            header('Location: /admin/products?error=invalid_id');
         }
     }
 
@@ -217,26 +241,121 @@ class AdminController
         if ($id) {
             $this->productRepo->delete($id);
         }
-        header('Location: /admin/products');
+        header('Location: /admin/products?success=deleted');
+    }
+
+    public function listCategories(): void
+    {
+        $this->ensureAdmin();
+        $categories = $this->categoryRepo->findAll();
+        require __DIR__ . '/../../views/admin/categories.php';
+    }
+
+    public function storeCategory(): void
+    {
+        $this->ensureAdmin();
+
+        $name = filter_input(INPUT_POST, 'name');
+        $desc = filter_input(INPUT_POST, 'description') ?? '';
+
+        if ($name) {
+            $this->categoryRepo->create($name, $desc);
+            header('Location: /admin/categories?success=created');
+        } else {
+            header('Location: /admin/categories?error=missing_fields');
+        }
+    }
+
+    public function updateCategory(): void
+    {
+        $this->ensureAdmin();
+
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+        $name = filter_input(INPUT_POST, 'name');
+        $desc = filter_input(INPUT_POST, 'description') ?? '';
+
+        if ($id && $name) {
+            $this->categoryRepo->update($id, $name, $desc);
+            header('Location: /admin/categories?success=updated');
+        } else {
+            header('Location: /admin/categories?error=update_failed');
+        }
+    }
+
+    public function deleteCategory(): void
+    {
+        $this->ensureAdmin();
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+
+        if ($id) {
+            $this->categoryRepo->delete($id);
+            header('Location: /admin/categories?success=deleted');
+        } else {
+            header('Location: /admin/categories?error=delete_failed');
+        }
     }
 
     public function listPromotions(): void
     {
         $promotions = $this->promotionRepo->findAll();
-        $products = $this->productRepo->findAllRegular();
+        $products = $this->productRepo->findAllForAdmin();
         require __DIR__ . '/../../views/admin/promotions.php';
     }
 
     public function storePromotion(): void
     {
+        $this->ensureAdmin();
+
         $name = filter_input(INPUT_POST, 'name');
         $discount = filter_input(INPUT_POST, 'discount', FILTER_VALIDATE_FLOAT);
         $start = filter_input(INPUT_POST, 'start_date');
         $end = filter_input(INPUT_POST, 'end_date');
+        $productIds = $_POST['products'] ?? [];
 
         if ($name && $discount && $start && $end) {
-            $this->promotionRepo->create($name, $discount, $start, $end);
+            $this->promotionRepo->create($name, $discount, $start, $end, $productIds);
+            header('Location: /admin/promotions?success=created');
+        } else {
+            header('Location: /admin/promotions?error=missing_fields');
         }
-        header('Location: /admin/promotions');
+    }
+
+    public function updatePromotion(): void
+    {
+        $this->ensureAdmin();
+
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+        $name = filter_input(INPUT_POST, 'name');
+        $discount = filter_input(INPUT_POST, 'discount', FILTER_VALIDATE_FLOAT);
+        $start = filter_input(INPUT_POST, 'start_date');
+        $end = filter_input(INPUT_POST, 'end_date');
+        $productIds = $_POST['products'] ?? [];
+
+        if ($id && $name && $discount) {
+            $this->promotionRepo->update($id, $name, $discount, $start, $end, $productIds);
+            header('Location: /admin/promotions?success=updated');
+        } else {
+            header('Location: /admin/promotions?error=update_failed');
+        }
+    }
+
+    public function togglePromotionStatus(): void
+    {
+        $this->ensureAdmin();
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+        if ($id) {
+            $this->promotionRepo->toggleStatus($id);
+            header('Location: /admin/promotions?success=status_changed');
+        }
+    }
+
+    public function deletePromotion(): void
+    {
+        $this->ensureAdmin();
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+        if ($id) {
+            $this->promotionRepo->delete($id);
+            header('Location: /admin/promotions?success=deleted');
+        }
     }
 }

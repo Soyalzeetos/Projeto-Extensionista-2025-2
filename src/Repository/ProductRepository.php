@@ -112,10 +112,24 @@ class ProductRepository
     {
         return array_map(fn($row) => Product::fromArray($row), $rows);
     }
+
+    public function findAllForAdmin(): array
+    {
+        $sql = "SELECT
+                    p.*,
+                    0 as is_featured,
+                    0 as discount_percentage
+                FROM products p
+                ORDER BY p.name ASC";
+
+        $stmt = $this->pdo->query($sql);
+        return $this->hydrateList($stmt->fetchAll());
+    }
+
     public function create(Product $product, int $categoryId, ?string $imageData, ?string $imageMime): bool
     {
-        $sql = "INSERT INTO products (name, description, price_cash, price_installments, category_id, stock_quantity, image_data, image_mime)
-            VALUES (:name, :desc, :cash, :installments, :cat_id, :stock, :img_data, :img_mime)";
+        $sql = "INSERT INTO products (name, description, price_cash, price_installments, category_id, stock_quantity, active, image_data, image_mime)
+            VALUES (:name, :desc, :cash, :installments, :cat_id, :stock, 1, :img_data, :img_mime)";
 
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute([
@@ -124,20 +138,21 @@ class ProductRepository
             ':cash' => $product->priceCash,
             ':installments' => $product->priceInstallments,
             ':cat_id' => $categoryId,
-            ':stock' => 0,
+            ':stock' => $product->stockQuantity,
             ':img_data' => $imageData,
             ':img_mime' => $imageMime
         ]);
     }
 
-    public function update(int $id, string $name, string $description, float $priceCash, float $priceInst, int $categoryId, ?string $imageData, ?string $imageMime): bool
+    public function update(int $id, string $name, string $description, float $priceCash, float $priceInst, int $categoryId, int $stock, ?string $imageData, ?string $imageMime): bool
     {
         $sql = "UPDATE products SET
                 name = :name,
                 description = :desc,
                 price_cash = :cash,
                 price_installments = :inst,
-                category_id = :cat_id";
+                category_id = :cat_id,
+                stock_quantity = :stock"; // Adicionado
 
         $params = [
             ':id' => $id,
@@ -145,7 +160,8 @@ class ProductRepository
             ':desc' => $description,
             ':cash' => $priceCash,
             ':inst' => $priceInst,
-            ':cat_id' => $categoryId
+            ':cat_id' => $categoryId,
+            ':stock' => $stock
         ];
 
         if ($imageData && $imageMime) {
@@ -158,6 +174,12 @@ class ProductRepository
 
         $stmt = $this->pdo->prepare($sql);
         return $stmt->execute($params);
+    }
+
+    public function toggleStatus(int $id): bool
+    {
+        $sql = "UPDATE products SET active = NOT active WHERE id = :id";
+        return $this->pdo->prepare($sql)->execute([':id' => $id]);
     }
 
     public function delete(int $id): bool

@@ -159,6 +159,22 @@ window.populateEditModal = function (data) {
   }
 };
 
+window.formatMoney = function (input) {
+  let value = input.value.replace(/\D/g, "");
+
+  if (value === "") {
+    input.value = "";
+    return;
+  }
+
+  value = (parseInt(value) / 100).toLocaleString("pt-BR", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
+
+  input.value = value;
+};
+
 window.populateProductEdit = function (data) {
   if (!data) return;
 
@@ -166,16 +182,68 @@ window.populateProductEdit = function (data) {
     edit_id: data.id,
     edit_name: data.name,
     edit_description: data.description,
-    edit_price_cash: data.price_cash,
-    edit_price_installments: data.price_installments,
     edit_category_id: data.category_id,
+    edit_stock_quantity: data.stock_quantity,
   };
 
   for (const [id, value] of Object.entries(fields)) {
     const element = document.getElementById(id);
-    if (element) {
-      element.value = value;
-    }
+    if (element) element.value = value;
+  }
+
+  const cashInput = document.getElementById("edit_price_cash");
+  const instInput = document.getElementById("edit_price_installments");
+
+  if (cashInput) {
+    cashInput.value = parseFloat(data.price_cash).toLocaleString("pt-BR", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+  }
+
+  if (instInput) {
+    instInput.value = parseFloat(data.price_installments).toLocaleString(
+      "pt-BR",
+      { minimumFractionDigits: 2, maximumFractionDigits: 2 }
+    );
+  }
+};
+
+window.populateCategoryEdit = function (data) {
+  if (!data) return;
+
+  const idField = document.getElementById("cat_edit_id");
+  const nameField = document.getElementById("cat_edit_name");
+  const descField = document.getElementById("cat_edit_description");
+
+  if (idField) idField.value = data.id;
+  if (nameField) nameField.value = data.name;
+  if (descField) descField.value = data.description || "";
+};
+
+window.populatePromotionEdit = function (data, associatedProductIds) {
+  if (!data) return;
+
+  const idField = document.getElementById("edit_promo_id");
+  const nameField = document.getElementById("edit_promo_name");
+  const discField = document.getElementById("edit_promo_discount");
+  const startField = document.getElementById("edit_promo_start");
+  const endField = document.getElementById("edit_promo_end");
+
+  if (idField) idField.value = data.id;
+  if (nameField) nameField.value = data.name;
+  if (discField) discField.value = data.discount_percentage;
+  if (startField) startField.value = data.start_date.replace(" ", "T");
+  if (endField) endField.value = data.end_date.replace(" ", "T");
+
+  const checkboxes = document.querySelectorAll(".edit-product-checkbox");
+  checkboxes.forEach((cb) => (cb.checked = false));
+
+  if (associatedProductIds && Array.isArray(associatedProductIds)) {
+    associatedProductIds.forEach((prodId) => {
+      const cb = document.getElementById("prod_edit_" + prodId);
+      if (cb) cb.checked = true;
+    });
   }
 };
 

@@ -12,6 +12,8 @@ class Product
         public readonly float $priceInstallments,
         public readonly string $imageUrl,
         public readonly bool $isFeatured,
+        public readonly int $stockQuantity = 0, // Novo
+        public readonly bool $active = true,    // Novo
         public readonly float $discountPercentage = 0.0
     ) {}
 
@@ -53,6 +55,8 @@ class Product
             priceInstallments: (float)$data['price_installments'],
             imageUrl: $imgSrc,
             isFeatured: (bool)($data['is_featured'] ?? false),
+            stockQuantity: (int)($data['stock_quantity'] ?? 0),
+            active: (bool)($data['active'] ?? true),
             discountPercentage: (float)($data['discount_percentage'] ?? 0)
         );
     }

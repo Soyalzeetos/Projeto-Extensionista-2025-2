@@ -88,6 +88,7 @@ CREATE TABLE IF NOT EXISTS products (
     stock_quantity INT DEFAULT 0,
     image_data LONGTEXT,
     image_mime VARCHAR(50),
+    active BOOLEAN DEFAULT TRUE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (category_id) REFERENCES categories (id) ON DELETE SET NULL
 );
@@ -317,7 +318,6 @@ VALUES (
         NULL
     );
 
-
 INSERT INTO
     promotions (
         name,
@@ -336,5 +336,5 @@ INSERT INTO
     product_promotions (product_id, promotion_id)
 VALUES (1, 1),
     (2, 1),
-    (4,1),
-    (7,1);
+    (4, 1),
+    (7, 1);
