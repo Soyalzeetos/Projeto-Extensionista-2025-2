@@ -27,9 +27,9 @@ require __DIR__ . '/../partials/head.php';
                 <?php foreach ($products as $product): ?>
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
                         <div class="card h-100 shadow-sm border-0">
-                            <div class="d-flex justify-content-center align-items-center p-3" style="height: 250px;">
-                                <a href="/produto?id=<?= $product->id ?>" class="d-flex justify-content-center align-items-center w-100 h-100 text-decoration-none">
-                                    <img src="<?= htmlspecialchars($product->imageUrl) ?>" class="card-img-top mw-100 mh-100" style="object-fit: contain;" alt="<?= htmlspecialchars($product->name) ?>">
+                            <div class="card-image-wrapper">
+                                <a href="/produto?id=<?= $product->id ?>">
+                                    <img src="<?= htmlspecialchars($product->imageUrl) ?>" class="img-fluid" alt="<?= htmlspecialchars($product->name) ?>">
                                 </a>
                             </div>
 
