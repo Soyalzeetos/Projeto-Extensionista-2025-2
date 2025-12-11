@@ -18,7 +18,7 @@ class Database
             $user = getenv('DB_USER');
             $pass = getenv('DB_PASS');
 
-            if (!$host) throw new \Exception("Variáveis de ambiente de banco não configuradas.");
+            if (!$host) throw new \Exception("Database environment variables not configured.");
 
             $dsn = "mysql:host=$host;dbname=$db;charset=utf8mb4";
 
@@ -29,13 +29,13 @@ class Database
                     PDO::ATTR_EMULATE_PREPARES => false,
                 ]);
             } catch (PDOException $e) {
-                Logger::error("Falha crítica na conexão com o Banco de Dados", [
+                Logger::error("Critical Database connection failure", [
                     'exception_message' => $e->getMessage(),
                     'code' => $e->getCode(),
                     'file' => $e->getFile(),
                     'line' => $e->getLine()
                 ]);
-                throw new \Exception("Erro interno de servidor. Contate o suporte.");
+                throw new \Exception("Internal server error. Contact support.");
             }
         }
         return self::$instance;

@@ -15,7 +15,7 @@ class ProductRepository
             SELECT
                 p.id, p.name, p.description, p.price_cash, p.price_installments, p.image_data, p.image_mime,
                 1 as is_featured,
-                prom.discount_percentage -- Trazemos o desconto real
+                prom.discount_percentage 
             FROM products p
             INNER JOIN product_promotions pp ON p.id = pp.product_id
             INNER JOIN promotions prom ON pp.promotion_id = prom.id

@@ -21,10 +21,8 @@ class Mailer
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port       = $_ENV['SMTP_PORT'];
             $mail->CharSet    = 'UTF-8';
-
-            $mail->setFrom($_ENV['SMTP_FROM'], $_ENV['SMTP_FROM_NAME'] ?? 'Center Ferramentas');
+            $mail->setFrom($_ENV['SMTP_FROM']);
             $mail->addAddress($toEmail, $toName);
-
             $mail->isHTML(true);
             $mail->Subject = $subject;
             $mail->Body    = $body;
@@ -32,9 +30,8 @@ class Mailer
 
             $mail->send();
             return true;
-
         } catch (Exception $e) {
-            Logger::error("Erro ao enviar e-mail para $toEmail", [
+            Logger::error("Error sending email to $toEmail", [
                 'subject' => $subject,
                 'phpmailer_error' => $mail->ErrorInfo,
                 'exception' => $e->getMessage()

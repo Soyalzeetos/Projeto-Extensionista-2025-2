@@ -23,8 +23,7 @@ try {
     }
 
     if (!$pdo) {
-        throw new Exception("Não foi possível conectar ao banco após várias tentativas.");
-    }
+throw new Exception("Could not connect to the database after multiple attempts.");    }
 
     $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
     $stmt->execute([$adminEmail]);

@@ -37,7 +37,7 @@ class AuthController
             $_SESSION['user_role'] = $user->role;
             $_SESSION['user_permissions'] = $user->permissions;
 
-            Logger::info("Login efetuado com sucesso", [
+            Logger::info("Login successful", [
                 'email' => $email,
                 'user_id' => $user->id,
                 'role' => $user->role
@@ -47,9 +47,9 @@ class AuthController
             return;
         }
 
-        Logger::warning("Tentativa de login falha", [
+        Logger::warning("Login attempt failed", [
             'email_attempt' => $email,
-            'reason' => $user ? 'Senha incorreta' : 'Usuário não encontrado'
+            'reason' => $user ? 'Incorrect password' : 'User not found'
         ]);
 
         header('Location: /?error=invalid_credentials');
