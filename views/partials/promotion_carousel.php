@@ -33,7 +33,7 @@
                                                 <h3 class="card-title fw-bold text-primary mb-3"><?= htmlspecialchars($product->name) ?></h3>
                                                 <p class="card-text text-secondary fs-5 mb-4"><?= htmlspecialchars($product->description) ?></p>
 
-                                                <div class="d-flex flex-column flex-md-row align-items-center gap-3">
+                                                <div class="d-flex flex-wrap align-items-center gap-3 justify-content-center justify-content-md-start">
                                                     <span class="badge bg-warning text-dark fs-5 px-3 py-2 rounded-pill shadow-sm">
                                                         <?= $product->getFormattedCashPrice() ?> <small class="fw-normal">à vista</small>
                                                     </span>
