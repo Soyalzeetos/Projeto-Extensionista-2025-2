@@ -322,7 +322,7 @@ body {
   color: var(--black);
 }
 
-.caixa-promocao {
+.promotion-box {
   background: linear-gradient(
     180deg,
     var(--gradient-start),
@@ -331,7 +331,7 @@ body {
   box-shadow: 0 10px 30px var(--shadow-soft);
 }
 
-.img-caixa-promocao > a {
+.promotion-box-img > a {
   max-height: 410px;
   min-height: 410px;
   box-shadow: 0 10px 30px var(--shadow-soft);
@@ -373,7 +373,7 @@ body {
   filter: drop-shadow(0px 0px 3px var(--shadow-strong));
 }
 
-.secao-vendas {
+.sales-section {
   background: linear-gradient(
     180deg,
     var(--gradient-start),
@@ -383,11 +383,11 @@ body {
   color: var(--snow);
 }
 
-.texto-secao {
+.section-title {
   margin-top: 10px;
 }
 
-.container-produtos {
+.products-container {
   padding-bottom: 35px;
 }
 

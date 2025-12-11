@@ -17,19 +17,20 @@ try {
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             break;
         } catch (PDOException $e) {
-            echo "[WAIT] Aguardando banco de dados... (" . ($i + 1) . "/$maxTries)\n";
+            echo "[WAIT] Waiting for database... (" . ($i + 1) . "/$maxTries)\n";
             sleep(3);
         }
     }
 
     if (!$pdo) {
-throw new Exception("Could not connect to the database after multiple attempts.");    }
+        throw new Exception("Could not connect to the database after multiple attempts.");
+    }
 
     $stmt = $pdo->prepare("SELECT id FROM users WHERE email = ?");
     $stmt->execute([$adminEmail]);
 
     if ($stmt->fetch()) {
-        echo "[SKIP] O Administrador '{$adminEmail}' já existe.\n";
+        echo "[SKIP] Administrator '{$adminEmail}' already exists.\n";
         exit(0);
     }
 
@@ -45,14 +46,14 @@ throw new Exception("Could not connect to the database after multiple attempts."
     $roleId = $stmtRole->fetchColumn();
 
     if ($roleId) {
-        $stmtEmp = $pdo->prepare("INSERT INTO employees (user_id, role_id, registration_number, hire_date, department) VALUES (?, ?, 'ADM-001', NOW(), 'Diretoria')");
+        $stmtEmp = $pdo->prepare("INSERT INTO employees (user_id, role_id, registration_number, hire_date, department) VALUES (?, ?, 'ADM-001', NOW(), 'Board')");
         $stmtEmp->execute([$userId, $roleId]);
-        echo "[SUCCESS] Administrador criado via Variáveis de Ambiente.\n";
+        echo "[SUCCESS] Administrator created via Environment Variables.\n";
     } else {
-        echo "[ERROR] Role 'admin' não encontrada. Rode o init.sql primeiro.\n";
+        echo "[ERROR] Role 'admin' not found. Run init.sql first.\n";
     }
 
-    echo "[INFO] Iniciando atualização de imagens dos produtos...\n";
+    echo "[INFO] Starting product image update...\n";
 
     $productImages = [
         1 => __DIR__ . '/../public/assets/img/produtos/serra-circular-de-bancada.webp',
@@ -72,15 +73,13 @@ throw new Exception("Could not connect to the database after multiple attempts."
     foreach ($productImages as $id => $filePath) {
         if (file_exists($filePath)) {
             $binaryData = file_get_contents($filePath);
-
             $base64Data = base64_encode($binaryData);
-
             $mimeType = mime_content_type($filePath);
 
             $stmtUpdateImg->execute([$base64Data, $mimeType, $id]);
-            echo "[SUCCESS] Imagem atualizada para o produto ID: $id\n";
+            echo "[SUCCESS] Image updated for product ID: $id\n";
         } else {
-            echo "[WARNING] Imagem não encontrada para o produto ID: $id ($filePath)\n";
+            echo "[WARNING] Image not found for product ID: $id ($filePath)\n";
         }
     }
 

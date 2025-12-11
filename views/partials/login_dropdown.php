@@ -1,12 +1,12 @@
 <div class="dropdown-menu dropdown-menu-end login-dropdown-menu p-3" style="min-width: 300px;">
 
-    <div id="tela-login">
+    <div id="login-screen">
         <h6 class="login-title mb-3">Acesse sua conta</h6>
         <form action="/login" method="POST" novalidate>
             <div class="mb-3">
                 <label for="emailLogin" class="form-label small fw-bold text-secondary">E-mail</label>
                 <input type="email" class="form-control" id="emailLogin" name="email"
-                    placeholder="ex: joao@email.com" required oninput="validarEmail(this)">
+                    placeholder="ex: joao@email.com" required oninput="validateEmail(this)">
                 <div class="invalid-feedback small">Digite um e-mail válido!.</div>
             </div>
 
@@ -14,7 +14,7 @@
                 <label for="senhaLogin" class="form-label small fw-bold text-secondary">Senha</label>
                 <div class="input-group">
                     <input type="password" class="form-control" id="senhaLogin" name="password" placeholder="Digite sua senha" required>
-                    <button class="btn btn-outline-secondary" type="button" onclick="alternarSenha('senhaLogin', this)">
+                    <button class="btn btn-outline-secondary" type="button" onclick="togglePassword('senhaLogin', this)">
                         <i class="fa-solid fa-eye"></i>
                     </button>
                 </div>
@@ -25,7 +25,7 @@
                     <input type="checkbox" class="form-check-input" id="rememberMe" name="remember_me">
                     <label class="form-check-label small" for="rememberMe">Lembrar</label>
                 </div>
-                <button type="button" class="btn btn-link p-0 login-link small text-decoration-none" onclick="alternarParaEsqueciSenha(event)">
+                <button type="button" class="btn btn-link p-0 login-link small text-decoration-none" onclick="switchToForgotPassword(event)">
                     Esqueceu a senha?
                 </button>
             </div>
@@ -37,7 +37,7 @@
 
         <div class="text-center">
             <span class="small text-muted">Ainda não tem conta?</span><br>
-            <button type="button" class="btn btn-link btn-sm fw-bold text-decoration-none" onclick="alternarTelas(event)">
+            <button type="button" class="btn btn-link btn-sm fw-bold text-decoration-none" onclick="switchScreens(event)">
                 Cadastre-se aqui
             </button>
         </div>

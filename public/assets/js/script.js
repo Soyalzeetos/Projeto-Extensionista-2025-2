@@ -4,9 +4,9 @@ const ERROR_MESSAGES = {
   default: "Ocorreu um erro inesperado. Tente novamente.",
 };
 
-function toggleSearch() {
+window.toggleSearch = function () {
   const overlay = document.getElementById("mobile-search-overlay");
-  const inputMobile = document.getElementById("campo-busca-mobile");
+  const inputMobile = document.getElementById("mobile-search-input");
 
   if (overlay) {
     if (overlay.classList.contains("d-none")) {
@@ -16,16 +16,16 @@ function toggleSearch() {
       overlay.classList.add("d-none");
     }
   }
-}
+};
 
-function alternarTelas(event) {
+window.switchScreens = function (event) {
   if (event) {
     event.stopPropagation();
     event.preventDefault();
   }
 
-  const loginView = document.getElementById("tela-login");
-  const registerView = document.getElementById("tela-registro");
+  const loginView = document.getElementById("login-screen");
+  const registerView = document.getElementById("register-screen");
 
   if (loginView && registerView) {
     if (loginView.classList.contains("d-none")) {
@@ -36,44 +36,44 @@ function alternarTelas(event) {
       registerView.classList.remove("d-none");
     }
   }
-}
+};
 
-function alternarParaEsqueciSenha(event) {
+window.switchToForgotPassword = function (event) {
   if (event) {
     event.stopPropagation();
     event.preventDefault();
   }
 
-  const loginView = document.getElementById("tela-login");
-  const forgotView = document.getElementById("tela-esqueci-senha");
+  const loginView = document.getElementById("login-screen");
+  const forgotView = document.getElementById("forgot-password-screen");
 
   if (loginView && forgotView) {
     loginView.classList.add("d-none");
     forgotView.classList.remove("d-none");
   }
-}
+};
 
-function voltarParaLogin(event) {
+window.backToLogin = function (event) {
   if (event) {
     event.stopPropagation();
     event.preventDefault();
   }
 
   const views = [
-    document.getElementById("tela-registro"),
-    document.getElementById("tela-esqueci-senha"),
-    document.getElementById("tela-esqueci-senha-sucesso"),
+    document.getElementById("register-screen"),
+    document.getElementById("forgot-password-screen"),
+    document.getElementById("forgot-password-success-screen"),
   ];
-  const loginView = document.getElementById("tela-login");
+  const loginView = document.getElementById("login-screen");
 
   views.forEach((view) => {
     if (view) view.classList.add("d-none");
   });
 
   if (loginView) loginView.classList.remove("d-none");
-}
+};
 
-function alternarSenha(inputId, btn) {
+window.togglePassword = function (inputId, btn) {
   const input = document.getElementById(inputId);
   const icon = btn.querySelector("i");
 
@@ -88,9 +88,9 @@ function alternarSenha(inputId, btn) {
       icon.classList.add("fa-eye");
     }
   }
-}
+};
 
-function validarEmail(input) {
+window.validateEmail = function (input) {
   const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   if (input.value.length > 0) {
@@ -104,26 +104,26 @@ function validarEmail(input) {
   } else {
     input.classList.remove("is-valid", "is-invalid");
   }
-}
+};
 
-function validarConfirmacaoSenha() {
-  const senha = document.getElementById("senhaRegister");
-  const confirmacao = document.getElementById("senhaRegisterConf");
+window.validatePasswordConfirmation = function () {
+  const password = document.getElementById("senhaRegister");
+  const confirm = document.getElementById("senhaRegisterConf");
 
-  if (senha && confirmacao && confirmacao.value.length > 0) {
-    if (senha.value === confirmacao.value) {
-      confirmacao.classList.remove("is-invalid");
-      confirmacao.classList.add("is-valid");
+  if (password && confirm && confirm.value.length > 0) {
+    if (password.value === confirm.value) {
+      confirm.classList.remove("is-invalid");
+      confirm.classList.add("is-valid");
     } else {
-      confirmacao.classList.remove("is-valid");
-      confirmacao.classList.add("is-invalid");
+      confirm.classList.remove("is-valid");
+      confirm.classList.add("is-invalid");
     }
-  } else if (confirmacao) {
-    confirmacao.classList.remove("is-valid", "is-invalid");
+  } else if (confirm) {
+    confirm.classList.remove("is-valid", "is-invalid");
   }
-}
+};
 
-function mascaraTelefone(input) {
+window.phoneMask = function (input) {
   let v = input.value.replace(/\D/g, "");
   v = v.substring(0, 11);
 
@@ -139,9 +139,9 @@ function mascaraTelefone(input) {
     }
   }
   input.value = v;
-}
+};
 
-function exibirMensagemErro(container, form, message) {
+function showErrorMessage(container, form, message) {
   if (!container || !form) return;
 
   const alertDiv = document.createElement("div");
@@ -171,17 +171,19 @@ function handleAuthFeedback() {
 
   if (errorType) {
     const message = ERROR_MESSAGES[errorType] || ERROR_MESSAGES["default"];
-    const loginContainer = document.getElementById("tela-login");
+    const loginContainer = document.getElementById("login-screen");
     const loginForm = loginContainer
       ? loginContainer.querySelector("form")
       : null;
 
-    exibirMensagemErro(loginContainer, loginForm, message);
+    showErrorMessage(loginContainer, loginForm, message);
   }
 
   if (successType === "reset_email_sent") {
-    const loginView = document.getElementById("tela-login");
-    const successView = document.getElementById("tela-esqueci-senha-sucesso");
+    const loginView = document.getElementById("login-screen");
+    const successView = document.getElementById(
+      "forgot-password-success-screen"
+    );
 
     if (loginView && successView) {
       loginView.classList.add("d-none");
@@ -207,9 +209,10 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  const loginForm = document.getElementById("loginForm");
-  if (loginForm) {
-    loginForm.addEventListener("submit", function (e) {
+  const loginFormElement = document.querySelector("#login-screen form");
+
+  if (loginFormElement) {
+    loginFormElement.addEventListener("submit", function (e) {
       e.preventDefault();
       const formData = new FormData(this);
 
@@ -225,8 +228,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if (error) {
               const message =
                 ERROR_MESSAGES[error] || ERROR_MESSAGES["default"];
-              const loginContainer = document.getElementById("tela-login");
-              exibirMensagemErro(loginContainer, this, message);
+              const loginContainer = document.getElementById("login-screen");
+              showErrorMessage(loginContainer, this, message);
             } else {
               window.location.reload();
             }
@@ -236,8 +239,8 @@ document.addEventListener("DOMContentLoaded", function () {
         })
         .catch((err) => {
           console.error(err);
-          const loginContainer = document.getElementById("tela-login");
-          exibirMensagemErro(loginContainer, this, ERROR_MESSAGES["default"]);
+          const loginContainer = document.getElementById("login-screen");
+          showErrorMessage(loginContainer, this, ERROR_MESSAGES["default"]);
         });
     });
   }

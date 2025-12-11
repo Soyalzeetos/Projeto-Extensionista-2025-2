@@ -20,9 +20,9 @@ require __DIR__ . '/../partials/head.php';
 
         <?php require __DIR__ . '/../partials/promotion_carousel.php'; ?>
 
-        <section class="secao-vendas container mb-5 my-5 rounded-4 g-5">
-            <h2 class="pt-3 mb-4 texto-secao">Nossos produtos</h2>
-            <div class="row g-4 container-produtos">
+        <section class="sales-section container mb-5 my-5 rounded-4 g-5">
+            <h2 class="pt-3 mb-4 section-title">Nossos produtos</h2>
+            <div class="row g-4 products-container">
 
                 <?php foreach ($products as $product): ?>
                     <div class="col-12 col-sm-6 col-md-4 col-lg-3">
@@ -64,11 +64,6 @@ require __DIR__ . '/../partials/head.php';
 
     <?php require __DIR__ . '/../partials/footer.php'; ?>
 
-    
 </body>
-<style>
-    body::-webkit-scrollbar {
-    display: none;
-}
-</style>
+
 </html>

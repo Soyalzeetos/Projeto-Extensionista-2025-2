@@ -10,9 +10,9 @@
 
             <div class="col-lg-8 d-none d-lg-block">
                 <form role="search" class="search-class">
-                    <label for="campo-busca-desktop" class="visually-hidden">Buscar</label>
+                    <label for="desktop-search-input" class="visually-hidden">Buscar</label>
                     <div class="input-group">
-                        <input class="form-control border-0 py-2 ps-4" type="search" id="campo-busca-desktop"
+                        <input class="form-control border-0 py-2 ps-4" type="search" id="desktop-search-input"
                             placeholder="O que você precisa para sua obra hoje?" />
                         <button class="btn btn-light border-0 pe-4" type="button">
                             <i class="fa-solid fa-magnifying-glass text-secondary"></i>
@@ -69,7 +69,7 @@
                     </div>
                 <?php else: ?>
                     <div class="dropdown">
-                        <button class="btn btn-header-login" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-header-login" type="button" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                             <i class="fa-regular fa-user"></i> <span class="d-none d-lg-flex">Entrar</span>
                         </button>
                         <?php require __DIR__ . '/login_dropdown.php'; ?>
@@ -122,7 +122,7 @@
             <div class="container d-flex align-items-center h-100 gap-2">
                 <form role="search" class="flex-grow-1">
                     <div class="input-group">
-                        <input class="form-control border-0 py-2 ps-4" type="search" id="campo-busca-mobile"
+                        <input class="form-control border-0 py-2 ps-4" type="search" id="mobile-search-input"
                             placeholder="Buscar produtos..." />
                         <button class="btn btn-light border-0" type="button">
                             <i class="fa-solid fa-magnifying-glass text-secondary"></i>

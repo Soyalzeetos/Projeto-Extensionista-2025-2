@@ -1,12 +1,12 @@
 <section class="container my-5">
     <div class="row justify-content-center">
-        <div class="col-12 col-lg-10 caixa-promocao p-3 p-md-4 rounded-4 shadow-lg">
+        <div class="col-12 col-lg-10 promotion-box p-3 p-md-4 rounded-4 shadow-lg">
             <?php if (!empty($featured)): ?>
-                <div id="carouselPromocoes" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
+                <div id="promotionCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="4000">
 
                     <div class="carousel-indicators mb-n4">
                         <?php foreach ($featured as $idx => $product): ?>
-                            <button type="button" data-bs-target="#carouselPromocoes" data-bs-slide-to="<?= $idx ?>"
+                            <button type="button" data-bs-target="#promotionCarousel" data-bs-slide-to="<?= $idx ?>"
                                 class="<?= $idx === 0 ? 'active' : '' ?>"
                                 aria-current="<?= $idx === 0 ? 'true' : 'false' ?>"></button>
                         <?php endforeach; ?>
@@ -18,7 +18,7 @@
                                 <div class="card overflow-hidden h-100 position-relative" style="min-height: 400px">
                                     <div class="row g-0 h-100">
                                         <div class="col-md-6 d-flex align-items-center justify-content-center p-4 card-img-container">
-                                            <a href="/produto?id=<?= $product->id ?>" class="d-flex justify-content-center w-100 h-100 align-items-center text-decoration-none img-caixa-promocao">
+                                            <a href="/produto?id=<?= $product->id ?>" class="d-flex justify-content-center w-100 h-100 align-items-center text-decoration-none">
                                                 <img src="<?= htmlspecialchars($product->imageUrl) ?>" class="img-fluid card-product-img" style="max-height: 250px; object-fit: contain" alt="<?= htmlspecialchars($product->name) ?>" />
                                             </a>
                                         </div>
@@ -47,11 +47,11 @@
                         <?php endforeach; ?>
                     </div>
 
-                    <button class="carousel-control-prev carousel-dark" type="button" data-bs-target="#carouselPromocoes" data-bs-slide="prev">
+                    <button class="carousel-control-prev carousel-dark" type="button" data-bs-target="#promotionCarousel" data-bs-slide="prev">
                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Anterior</span>
                     </button>
-                    <button class="carousel-control-next carousel-dark" type="button" data-bs-target="#carouselPromocoes" data-bs-slide="next">
+                    <button class="carousel-control-next carousel-dark" type="button" data-bs-target="#promotionCarousel" data-bs-slide="next">
                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Próximo</span>
                     </button>

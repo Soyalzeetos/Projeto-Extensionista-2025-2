@@ -101,11 +101,9 @@ class AuthController
             return;
         }
 
-        if ($this->userRepository->verifyEmail($token)) {
-            header('Location: /?success=email_verified');
-        } else {
-            header('Location: /?error=verification_failed');
-        }
+        $success = $this->userRepository->verifyEmail($token);
+
+        require __DIR__ . '/../../views/auth/verify_email.php';
     }
 
     public function logout(): void
