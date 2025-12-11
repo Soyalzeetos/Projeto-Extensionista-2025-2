@@ -7,6 +7,7 @@ use App\Repository\ProductRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\UserRepository;
 use App\Controllers\AuthController;
+use App\Controllers\AdminController;
 use App\Core\Logger;
 use App\Core\Mailer;
 
@@ -40,6 +41,12 @@ class Router
                     $userRepo = new UserRepository($pdo);
                     $mailer = new Mailer();
                     $controller = new AuthController($userRepo, $mailer);
+                } elseif ($controllerClass === AdminController::class) {
+                    $prodRepo = new ProductRepository($pdo);
+                    $catRepo = new CategoryRepository($pdo);
+                    $empRepo = new \App\Repository\EmployeeRepository($pdo);
+                    $promoRepo = new \App\Repository\PromotionRepository($pdo);
+                    $controller = new AdminController($prodRepo, $catRepo, $empRepo, $promoRepo);
                 } else {
                     $productRepo = new ProductRepository($pdo);
                     $categoryRepo = new CategoryRepository($pdo);
@@ -49,7 +56,7 @@ class Router
                 $controller->$action();
             } else {
                 http_response_code(404);
-                echo "Página não encontrada.";
+                echo "Page not found.";
             }
         } catch (\Throwable $t) {
             http_response_code(500);

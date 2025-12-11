@@ -26,6 +26,15 @@ try {
     $router->get('/produto', [ProductController::class, 'show']);
     $router->get('/carrinho', [CartController::class, 'index']);
     $router->get('/carrinho/adicionar', [CartController::class, 'add']);
+    $router->get('/admin', [App\Controllers\AdminController::class, 'dashboard']);
+    $router->get('/admin/employees', [\App\Controllers\AdminController::class, 'listEmployees']);
+    $router->post('/admin/employees/store', [\App\Controllers\AdminController::class, 'storeEmployee']);
+    $router->get('/admin/products', [App\Controllers\AdminController::class, 'listProducts']);
+    $router->post('/admin/products/create', [App\Controllers\AdminController::class, 'storeProduct']);
+    $router->post('/admin/products/delete', [App\Controllers\AdminController::class, 'deleteProduct']);
+    $router->get('/admin/promotions', [App\Controllers\AdminController::class, 'listPromotions']);
+    $router->post('/admin/promotions/create', [App\Controllers\AdminController::class, 'storePromotion']);
+    $router->get('/admin/dashboard', [App\Controllers\AdminController::class, 'dashboard']);
 
     $uri = $_SERVER['REQUEST_URI'] ?? '/';
     $method = $_SERVER['REQUEST_METHOD'] ?? 'GET';

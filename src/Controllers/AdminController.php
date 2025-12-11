@@ -1,0 +1,115 @@
+<?php
+
+namespace App\Controllers;
+
+use App\Repository\ProductRepository;
+use App\Repository\CategoryRepository;
+use App\Repository\EmployeeRepository;
+use App\Repository\PromotionRepository;
+use App\Domain\Product;
+
+class AdminController
+{
+    public function __construct(
+        private ProductRepository $productRepo,
+        private CategoryRepository $categoryRepo,
+        private EmployeeRepository $employeeRepo,
+        private PromotionRepository $promotionRepo
+    ) {
+        $this->ensureAdmin();
+    }
+
+    private function ensureAdmin(): void
+    {
+        if (session_status() === PHP_SESSION_NONE) session_start();
+
+        $role = $_SESSION['user_role'] ?? '';
+        if (!in_array($role, ['admin', 'sales_manager'])) {
+            header('Location: /?error=unauthorized');
+            exit;
+        }
+    }
+
+    public function dashboard(): void
+    {
+        require __DIR__ . '/../../views/admin/dashboard.php';
+    }
+
+    public function listEmployees(): void
+    {
+        if ($_SESSION['user_role'] !== 'admin') {
+            header('Location: /admin');
+            return;
+        }
+
+        $employees = $this->employeeRepo->findAll();
+        $roles = $this->employeeRepo->getAllRoles();
+        require __DIR__ . '/../../views/admin/employees.php';
+    }
+
+    public function storeEmployee(): void
+    {
+        if ($_SESSION['user_role'] !== 'admin') return;
+
+        $name = filter_input(INPUT_POST, 'name');
+        $email = filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL);
+        $password = filter_input(INPUT_POST, 'password');
+        $roleId = filter_input(INPUT_POST, 'role_id', FILTER_VALIDATE_INT);
+
+        if ($name && $email && $password && $roleId) {
+            $this->employeeRepo->createEmployee($name, $email, $password, $roleId);
+        }
+        header('Location: /admin/employees');
+    }
+
+    public function listProducts(): void
+    {
+        $products = $this->productRepo->findAllRegular();
+        $categories = $this->categoryRepo->findAll();
+        require __DIR__ . '/../../views/admin/products.php';
+    }
+
+    public function storeProduct(): void
+    {
+        $name = filter_input(INPUT_POST, 'name');
+        $desc = filter_input(INPUT_POST, 'description');
+        $priceCash = filter_input(INPUT_POST, 'price_cash', FILTER_VALIDATE_FLOAT);
+        $priceInst = filter_input(INPUT_POST, 'price_installments', FILTER_VALIDATE_FLOAT);
+        $catId = filter_input(INPUT_POST, 'category_id', FILTER_VALIDATE_INT);
+
+        if ($name && $priceCash) {
+            $product = new Product(0, $name, $desc, $priceCash, $priceInst, '', false);
+            $this->productRepo->create($product, $catId);
+        }
+        header('Location: /admin/products');
+    }
+
+    public function deleteProduct(): void
+    {
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+        if ($id) {
+            $this->productRepo->delete($id);
+        }
+        header('Location: /admin/products');
+    }
+
+    public function listPromotions(): void
+    {
+        $promotions = $this->promotionRepo->findAll();
+        $products = $this->productRepo->findAllRegular();
+        require __DIR__ . '/../../views/admin/promotions.php';
+    }
+
+    public function storePromotion(): void
+    {
+        $name = filter_input(INPUT_POST, 'name');
+        $discount = filter_input(INPUT_POST, 'discount', FILTER_VALIDATE_FLOAT);
+        $start = filter_input(INPUT_POST, 'start_date');
+        $end = filter_input(INPUT_POST, 'end_date');
+
+        if ($name && $discount && $start && $end) {
+            $this->promotionRepo->create($name, $discount, $start, $end);
+        }
+        header('Location: /admin/promotions');
+    }
+}

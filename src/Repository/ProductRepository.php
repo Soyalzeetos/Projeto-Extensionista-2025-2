@@ -15,7 +15,7 @@ class ProductRepository
             SELECT
                 p.id, p.name, p.description, p.price_cash, p.price_installments, p.image_data, p.image_mime,
                 1 as is_featured,
-                prom.discount_percentage 
+                prom.discount_percentage
             FROM products p
             INNER JOIN product_promotions pp ON p.id = pp.product_id
             INNER JOIN promotions prom ON pp.promotion_id = prom.id
@@ -111,5 +111,28 @@ class ProductRepository
     private function hydrateList(array $rows): array
     {
         return array_map(fn($row) => Product::fromArray($row), $rows);
+    }
+
+    public function create(Product $product, int $categoryId): bool
+    {
+        $sql = "INSERT INTO products (name, description, price_cash, price_installments, category_id, stock_quantity, image_data, image_mime)
+            VALUES (:name, :desc, :cash, :installments, :cat_id, 0, :img_data, :img_mime)";
+
+        $stmt = $this->pdo->prepare($sql);
+        return $stmt->execute([
+            ':name' => $product->name,
+            ':desc' => $product->description,
+            ':cash' => $product->priceCash,
+            ':installments' => $product->priceInstallments,
+            ':cat_id' => $categoryId,
+            ':img_data' => null,
+            ':img_mime' => null
+        ]);
+    }
+
+    public function delete(int $id): bool
+    {
+        $stmt = $this->pdo->prepare("DELETE FROM products WHERE id = :id");
+        return $stmt->execute([':id' => $id]);
     }
 }
