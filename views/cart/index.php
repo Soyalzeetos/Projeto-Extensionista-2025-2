@@ -2,6 +2,26 @@
 $pageTitle = 'Meu Carrinho | Center Ferramentas';
 require __DIR__ . '/../partials/head.php';
 ?>
+<?php
+
+$textoMensagem = "*Olá, gostaria de comprar:*\n";
+
+
+if (!empty($cartItems)) {
+    foreach ($cartItems as $item) {
+        $quantidade = $item['quantity'] ?? 1; 
+        if (isset($item['product']['name'])) {
+            $nomeProduto = $item['product']['name'];
+        } elseif (isset($item['name'])) {
+            $nomeProduto = $item['name'];
+        } else {
+            $nomeProduto = "Produto Indefinido";
+        }
+        
+        $textoMensagem .= "*{$quantidade}x* {$nomeProduto}\n";
+    }
+}
+?>
 
 <body class="d-flex flex-column min-vh-100 bg-light">
     <?php require __DIR__ . '/../partials/header.php'; ?>
@@ -104,7 +124,7 @@ require __DIR__ . '/../partials/head.php';
                         </div>
 
                         <?php if (isset($_SESSION['user_id'])): ?>
-                            <a href="/checkout" class="btn btn-success w-100 py-3 rounded-pill fw-bold shadow-sm">
+                            <a href="javascript:void(0)" class="btn btn-success w-100 py-3 rounded-pill fw-bold shadow-sm" onclick='WhatsappCart(<?= json_encode($textoMensagem) ?>)'>
                                 <i class="fa-solid fa-lock me-2"></i> Ir para Pagamento
                             </a>
                         <?php else: ?>
@@ -130,5 +150,19 @@ require __DIR__ . '/../partials/head.php';
 
     <?php require __DIR__ . '/../partials/footer.php'; ?>
 </body>
+
+<script>
+
+    if (!window.WhatsappCart) {
+        window.WhatsappCart = function(mensagemTexto) {
+            let telefone = "553498659167";
+
+            let mensagem = encodeURIComponent(mensagemTexto);
+
+            let url = `https://wa.me/${telefone}?text=${mensagem}`;
+            window.open(url, '_blank');
+        }
+    }
+</script>
 
 </html>
